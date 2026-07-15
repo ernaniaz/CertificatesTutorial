@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">certbot vs certmonger - Feature Comparison</text>
+
+  <!-- certbot Column -->
+  <rect x="30" y="50" width="450" height="400" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="3"/>
+  <rect x="30" y="50" width="450" height="45" rx="8" fill="#1976D2"/>
+  <text x="255" y="80" text-anchor="middle" class="section-title" fill="#fff">certbot (Let's Encrypt)</text>
+
+  <text x="50" y="120" class="label">Purpose:</text>
+  <text x="60" y="138" class="small">Let's Encrypt certificates, ACME protocol client</text>
+
+  <text x="50" y="165" class="label">Certificate Source:</text>
+  <text x="60" y="183" class="small">Let's Encrypt CA only (ACME protocol)</text>
+
+  <text x="50" y="210" class="label">Validity:</text>
+  <text x="60" y="228" class="small">90 days, auto-renewal at 60 days</text>
+
+  <text x="50" y="255" class="label">Installation:</text>
+  <text x="60" y="273" class="small">EPEL repo or snap (not in base RHEL)</text>
+
+  <text x="50" y="300" class="label">Web Server Integration:</text>
+  <text x="60" y="318" class="small">--apache, --nginx plugins (auto-config)</text>
+
+  <text x="50" y="345" class="label">Challenges:</text>
+  <text x="60" y="363" class="small">HTTP-01, DNS-01 (wildcard), TLS-ALPN-01</text>
+
+  <!-- certbot Pros/Cons -->
+  <rect x="50" y="390" width="200" height="50" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="150" y="403" text-anchor="middle" class="small" fill="#388E3C">Pros:</text>
+  <text x="60" y="420" class="small" fill="#388E3C">✓ Free, browser-trusted</text>
+  <text x="60" y="432" class="small" fill="#388E3C">✓ Easy setup, auto-config</text>
+
+  <rect x="260" y="390" width="200" height="50" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="360" y="403" text-anchor="middle" class="small" fill="#E53935">Cons:</text>
+  <text x="270" y="420" class="small" fill="#E53935">✗ Internet required</text>
+  <text x="270" y="432" class="small" fill="#E53935">✗ 90-day max, rate limits</text>
+
+  <!-- certmonger Column -->
+  <rect x="520" y="50" width="450" height="400" rx="8" fill="#E8F5E9" stroke="#388E3C" stroke-width="3"/>
+  <rect x="520" y="50" width="450" height="45" rx="8" fill="#388E3C"/>
+  <text x="745" y="80" text-anchor="middle" class="section-title" fill="#fff">certmonger (RHEL Native)</text>
+
+  <text x="540" y="120" class="label">Purpose:</text>
+  <text x="550" y="138" class="small">Generic certificate management, CA-agnostic</text>
+
+  <text x="540" y="165" class="label">Certificate Source:</text>
+  <text x="550" y="183" class="small">Multiple: FreeIPA, Self-signed, Local, Custom</text>
+
+  <text x="540" y="210" class="label">Validity:</text>
+  <text x="550" y="228" class="small">CA-dependent (can be years)</text>
+
+  <text x="540" y="255" class="label">Installation:</text>
+  <text x="550" y="273" class="small">Base RHEL package (always available)</text>
+
+  <text x="540" y="300" class="label">Service Integration:</text>
+  <text x="550" y="318" class="small">Generic (post-save hooks, manual config)</text>
+
+  <text x="540" y="345" class="label">CA Integration:</text>
+  <text x="550" y="363" class="small">Direct IPA, Kerberos auth, API calls</text>
+
+  <!-- certmonger Pros/Cons -->
+  <rect x="540" y="390" width="200" height="50" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="640" y="403" text-anchor="middle" class="small" fill="#388E3C">Pros:</text>
+  <text x="550" y="420" class="small" fill="#388E3C">✓ Multi-CA, enterprise ready</text>
+  <text x="550" y="432" class="small" fill="#388E3C">✓ Offline operation</text>
+
+  <rect x="750" y="390" width="200" height="50" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="850" y="403" text-anchor="middle" class="small" fill="#E53935">Cons:</text>
+  <text x="760" y="420" class="small" fill="#E53935">✗ No auto web config</text>
+  <text x="760" y="432" class="small" fill="#E53935">✗ More complex setup</text>
+
+  <!-- When to Use Section -->
+  <rect x="30" y="470" width="940" height="150" rx="6" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="500" y="495" text-anchor="middle" class="section-title" fill="#F57C00">When to Use Which?</text>
+
+  <!-- Public Website -->
+  <rect x="60" y="515" width="270" height="90" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="195" y="538" text-anchor="middle" class="label" fill="#1976D2">Public Website</text>
+  <text x="195" y="558" text-anchor="middle" class="section-title" fill="#1976D2">Use certbot</text>
+  <text x="80" y="580" class="small">✓ Free Let's Encrypt certificates</text>
+  <text x="80" y="595" class="small">✓ Browser-trusted, auto-configuration</text>
+
+  <!-- Internal Services -->
+  <rect x="360" y="515" width="270" height="90" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="495" y="538" text-anchor="middle" class="label" fill="#388E3C">Internal Services</text>
+  <text x="495" y="558" text-anchor="middle" class="section-title" fill="#388E3C">Use certmonger</text>
+  <text x="380" y="580" class="small">✓ Internal CA / FreeIPA integration</text>
+  <text x="380" y="595" class="small">✓ Enterprise PKI, central management</text>
+
+  <!-- Both -->
+  <rect x="660" y="515" width="280" height="90" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="800" y="538" text-anchor="middle" class="label" fill="#F57C00">Enterprise Setup</text>
+  <text x="800" y="558" text-anchor="middle" class="section-title" fill="#F57C00">Use Both!</text>
+  <text x="680" y="580" class="small">• certbot: Public-facing sites</text>
+  <text x="680" y="595" class="small">• certmonger: Internal services</text>
+
+  <!-- Example -->
+  <rect x="30" y="640" width="940" height="90" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="500" y="665" text-anchor="middle" class="section-title">Enterprise Example</text>
+
+  <rect x="60" y="680" width="400" height="35" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="260" y="702" text-anchor="middle" class="small">certbot + Let's Encrypt → example.com (public)</text>
+
+  <rect x="500" y="680" width="450" height="35" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="725" y="702" text-anchor="middle" class="small">certmonger + FreeIPA → *.internal.example.com</text>
+</svg>

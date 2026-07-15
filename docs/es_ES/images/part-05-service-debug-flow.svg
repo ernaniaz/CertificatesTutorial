@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Flujo de Depuración de Certificados por Servicio</text>
+
+  <!-- Start -->
+  <ellipse cx="500" cy="70" rx="120" ry="28" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="500" y="75" text-anchor="middle" class="label">Problema de Certificado del Servicio</text>
+
+  <path d="M 500 98 L 500 130" class="arrow"/>
+
+  <!-- Service Decision -->
+  <polygon points="500,140 600,180 500,220 400,180" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="500" y="178" text-anchor="middle" class="label">¿Qué Servicio?</text>
+
+  <!-- Apache -->
+  <rect x="30" y="250" width="180" height="150" rx="6" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <rect x="30" y="250" width="180" height="30" rx="6" fill="#F57C00"/>
+  <text x="120" y="270" text-anchor="middle" class="label" fill="#fff">Apache/httpd</text>
+  <text x="45" y="300" class="code">1. apachectl configtest</text>
+  <text x="45" y="320" class="code">2. grep SSL conf.d/</text>
+  <text x="45" y="340" class="code">3. tail error_log</text>
+  <text x="45" y="360" class="code">4. openssl x509 -in</text>
+  <text x="45" y="385" class="small">Prueba: curl -v https://</text>
+  <path d="M 400 180 L 120 180 L 120 250" class="arrow"/>
+
+  <!-- NGINX -->
+  <rect x="220" y="250" width="180" height="150" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <rect x="220" y="250" width="180" height="30" rx="6" fill="#388E3C"/>
+  <text x="310" y="270" text-anchor="middle" class="label" fill="#fff">NGINX</text>
+  <text x="235" y="300" class="code">1. nginx -t</text>
+  <text x="235" y="320" class="code">2. grep ssl_ nginx.conf</text>
+  <text x="235" y="340" class="code">3. tail error.log</text>
+  <text x="235" y="360" class="code">4. Verificar rutas cert</text>
+  <text x="235" y="385" class="small">Prueba: openssl s_client</text>
+  <path d="M 425 190 L 310 190 L 310 250" class="arrow"/>
+
+  <!-- Postfix -->
+  <rect x="410" y="250" width="180" height="150" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <rect x="410" y="250" width="180" height="30" rx="6" fill="#1976D2"/>
+  <text x="500" y="270" text-anchor="middle" class="label" fill="#fff">Postfix</text>
+  <text x="425" y="300" class="code">1. postconf | grep tls</text>
+  <text x="425" y="320" class="code">2. ls -l rutas cert</text>
+  <text x="425" y="340" class="code">3. tail maillog</text>
+  <text x="425" y="360" class="code">4. Verificar permisos</text>
+  <text x="425" y="385" class="small">Prueba: openssl s_client</text>
+  <text x="435" y="395" class="small">-starttls smtp</text>
+  <path d="M 500 220 L 500 250" class="arrow"/>
+
+  <!-- PostgreSQL -->
+  <rect x="600" y="250" width="180" height="150" rx="6" fill="#FCE4EC" stroke="#E91E63" stroke-width="2"/>
+  <rect x="600" y="250" width="180" height="30" rx="6" fill="#E91E63"/>
+  <text x="690" y="270" text-anchor="middle" class="label" fill="#fff">PostgreSQL</text>
+  <text x="615" y="300" class="code">1. grep ssl postgres</text>
+  <text x="615" y="320" class="code">2. ls -l data/*.crt</text>
+  <text x="615" y="340" class="code">3. Verificar pg_hba.conf</text>
+  <text x="615" y="360" class="code">4. Ver logs pg</text>
+  <text x="615" y="385" class="small">Prueba: psql sslmode=req</text>
+  <path d="M 575 190 L 690 190 L 690 250" class="arrow"/>
+
+  <!-- OpenLDAP -->
+  <rect x="790" y="250" width="180" height="150" rx="6" fill="#E0F7FA" stroke="#00ACC1" stroke-width="2"/>
+  <rect x="790" y="250" width="180" height="30" rx="6" fill="#00ACC1"/>
+  <text x="880" y="270" text-anchor="middle" class="label" fill="#fff">OpenLDAP</text>
+  <text x="805" y="300" class="code">1. slapcat | grep TLS</text>
+  <text x="805" y="320" class="code">2. ls -l certs/</text>
+  <text x="805" y="340" class="code">3. journalctl -u slapd</text>
+  <text x="805" y="360" class="code">4. Verificar SELinux</text>
+  <text x="805" y="385" class="small">Prueba: ldapsearch -H</text>
+  <text x="815" y="395" class="small">ldaps://</text>
+  <path d="M 600 180 L 880 180 L 880 250" class="arrow"/>
+
+  <!-- Common Lista de Verificación -->
+  <rect x="30" y="430" width="940" height="130" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="500" y="455" text-anchor="middle" class="section-title">Lista de Verificación Común</text>
+
+  <rect x="60" y="470" width="200" height="75" rx="4" fill="#fff" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="160" y="490" text-anchor="middle" class="small" fill="#388E3C">✓ Certificado no expirado</text>
+  <text x="160" y="508" text-anchor="middle" class="small" fill="#388E3C">✓ Hostname coincide</text>
+  <text x="160" y="526" text-anchor="middle" class="small" fill="#388E3C">✓ Cadena completa</text>
+
+  <rect x="290" y="470" width="200" height="75" rx="4" fill="#fff" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="390" y="490" text-anchor="middle" class="small" fill="#388E3C">✓ Clave: modo 600</text>
+  <text x="390" y="508" text-anchor="middle" class="small" fill="#388E3C">✓ Cert: modo 644</text>
+  <text x="390" y="526" text-anchor="middle" class="small" fill="#388E3C">✓ Propietario: root:root</text>
+
+  <rect x="520" y="470" width="200" height="75" rx="4" fill="#fff" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="620" y="490" text-anchor="middle" class="small" fill="#388E3C">✓ Contexto SELinux OK</text>
+  <text x="620" y="508" text-anchor="middle" class="small" fill="#388E3C">✓ Firewall permite puerto</text>
+  <text x="620" y="526" text-anchor="middle" class="small" fill="#388E3C">✓ Crypto-policy compatible</text>
+
+  <rect x="750" y="470" width="200" height="75" rx="4" fill="#fff" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="850" y="490" text-anchor="middle" class="small" fill="#388E3C">✓ Sintaxis config válida</text>
+  <text x="850" y="508" text-anchor="middle" class="small" fill="#388E3C">✓ Rutas correctas</text>
+  <text x="850" y="526" text-anchor="middle" class="small" fill="#388E3C">✓ Servicio recargado</text>
+
+  <!-- Outcomes -->
+  <rect x="200" y="590" width="250" height="90" rx="6" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="325" y="620" text-anchor="middle" class="section-title" fill="#388E3C">Todas las Verificaciones Pasan</text>
+  <text x="325" y="650" text-anchor="middle" class="label" fill="#388E3C">✓ Servicio Depurado</text>
+  <text x="325" y="670" text-anchor="middle" class="small">Problema Identificado y Corregido</text>
+
+  <rect x="550" y="590" width="250" height="90" rx="6" fill="#FFF3CD" stroke="#F57C00" stroke-width="2"/>
+  <text x="675" y="620" text-anchor="middle" class="section-title" fill="#F57C00">Verificación Falló</text>
+  <text x="675" y="650" text-anchor="middle" class="small">→ Problema de Cert: Cap. 27</text>
+  <text x="675" y="670" text-anchor="middle" class="small">→ Problema de Permisos: chmod/restorecon</text>
+</svg>

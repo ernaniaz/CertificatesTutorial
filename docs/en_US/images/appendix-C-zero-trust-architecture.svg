@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Zero Trust Architecture with PKI</text>
+  <text x="980" y="20" text-anchor="end" class="code">Appendix C</text>
+
+  <!-- Zero Trust Principle -->
+  <rect x="350" y="50" width="300" height="45" rx="6" fill="#0066CC" stroke="#004C99" stroke-width="3"/>
+  <text x="500" y="73" text-anchor="middle" class="label" fill="#fff">Zero Trust Principle:</text>
+  <text x="500" y="88" text-anchor="middle" class="small" fill="#fff">Never Trust, Always Verify</text>
+
+  <!-- Three Pillars -->
+  <rect x="30" y="115" width="300" height="200" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="180" y="140" text-anchor="middle" class="section-title" fill="#388E3C">Strong Identity (PKI)</text>
+
+  <rect x="50" y="160" width="120" height="65" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="110" y="180" text-anchor="middle" class="label" fill="#1976D2">Devices</text>
+  <text x="60" y="200" class="code">• Unique per device</text>
+  <text x="60" y="215" class="code">• Hardware keys</text>
+
+  <rect x="190" y="160" width="120" height="65" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="250" y="180" text-anchor="middle" class="label" fill="#1976D2">Users</text>
+  <text x="200" y="200" class="code">• Smart cards</text>
+  <text x="200" y="215" class="code">• Soft tokens</text>
+
+  <rect x="50" y="240" width="260" height="55" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="180" y="260" text-anchor="middle" class="label" fill="#1976D2">Services (mTLS)</text>
+  <text x="60" y="280" class="code">Service mesh • Microservices auth</text>
+
+  <!-- Continuous Verification -->
+  <rect x="350" y="115" width="300" height="200" rx="6" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="500" y="140" text-anchor="middle" class="section-title" fill="#F57C00">Continuous Verification</text>
+
+  <rect x="370" y="160" width="260" height="40" rx="4" fill="#fff" stroke="#F57C00" stroke-width="1"/>
+  <text x="500" y="178" text-anchor="middle" class="small">Authentication: Certificate validates identity</text>
+
+  <rect x="370" y="210" width="260" height="40" rx="4" fill="#fff" stroke="#F57C00" stroke-width="1"/>
+  <text x="500" y="228" text-anchor="middle" class="small">Authorization: Policy engine checks</text>
+
+  <rect x="370" y="260" width="260" height="40" rx="4" fill="#fff" stroke="#F57C00" stroke-width="1"/>
+  <text x="500" y="278" text-anchor="middle" class="small">Posture: Security compliance check</text>
+
+  <!-- Least Privilege & Encryption -->
+  <rect x="670" y="115" width="300" height="200" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="820" y="140" text-anchor="middle" class="section-title" fill="#1976D2">Least Privilege + Encryption</text>
+
+  <rect x="690" y="160" width="130" height="70" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="755" y="185" text-anchor="middle" class="label" fill="#1976D2">Access Decision</text>
+  <text x="700" y="210" class="small" fill="#388E3C">✓ Permit</text>
+  <text x="700" y="225" class="small" fill="#E53935">✗ Deny</text>
+
+  <rect x="840" y="160" width="110" height="70" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="895" y="185" text-anchor="middle" class="label" fill="#1976D2">TLS Everywhere</text>
+  <text x="850" y="205" class="code">East-West</text>
+  <text x="850" y="218" class="code">North-South</text>
+
+  <rect x="690" y="245" width="260" height="55" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="820" y="268" text-anchor="middle" class="label" fill="#388E3C">Continuous Monitoring</text>
+  <text x="700" y="288" class="code">Audit logs • Anomaly detection</text>
+
+  <!-- PKI Components -->
+  <rect x="30" y="335" width="460" height="170" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="260" y="360" text-anchor="middle" class="section-title">PKI Components in Zero Trust</text>
+
+  <rect x="50" y="380" width="200" height="55" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="150" y="400" text-anchor="middle" class="label" fill="#1976D2">Certificate Authority</text>
+  <text x="60" y="420" class="small">Short-lived certs, API-driven</text>
+
+  <rect x="270" y="380" width="200" height="55" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="370" y="400" text-anchor="middle" class="label" fill="#1976D2">Vault / Secrets Mgmt</text>
+  <text x="280" y="420" class="small">Dynamic secrets, rotation</text>
+
+  <rect x="50" y="450" width="200" height="45" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="150" y="475" text-anchor="middle" class="label" fill="#1976D2">SPIFFE/SPIRE</text>
+
+  <rect x="270" y="450" width="200" height="45" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="370" y="475" text-anchor="middle" class="label" fill="#1976D2">cert-manager</text>
+
+  <!-- RHEL Integration -->
+  <rect x="510" y="335" width="460" height="170" rx="6" fill="#FCE4EC" stroke="#E91E63" stroke-width="2"/>
+  <text x="740" y="360" text-anchor="middle" class="section-title" fill="#E91E63">Implementation on RHEL</text>
+
+  <rect x="530" y="380" width="200" height="55" rx="4" fill="#fff" stroke="#E91E63" stroke-width="1"/>
+  <text x="630" y="400" text-anchor="middle" class="label" fill="#E91E63">FreeIPA</text>
+  <text x="540" y="418" class="small">Enterprise CA, Certificate profiles</text>
+
+  <rect x="750" y="380" width="200" height="55" rx="4" fill="#fff" stroke="#E91E63" stroke-width="1"/>
+  <text x="850" y="400" text-anchor="middle" class="label" fill="#E91E63">SELinux</text>
+  <text x="760" y="418" class="small">Cert contexts, MAC, Boundaries</text>
+
+  <rect x="530" y="450" width="200" height="45" rx="4" fill="#fff" stroke="#E91E63" stroke-width="1"/>
+  <text x="630" y="478" text-anchor="middle" class="label" fill="#E91E63">firewalld (microseg)</text>
+
+  <rect x="750" y="450" width="200" height="45" rx="4" fill="#fff" stroke="#E91E63" stroke-width="1"/>
+  <text x="850" y="478" text-anchor="middle" class="label" fill="#E91E63">systemd security</text>
+
+  <!-- Verification Flow -->
+  <rect x="30" y="525" width="940" height="150" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="550" text-anchor="middle" class="section-title" fill="#388E3C">Verification Flow</text>
+
+  <rect x="60" y="575" width="150" height="40" rx="4" fill="#fff" stroke="#388E3C"/>
+  <text x="135" y="600" text-anchor="middle" class="small">1. Present Certificate</text>
+  <path d="M 210 595 L 250 595" class="arrow"/>
+
+  <rect x="250" y="575" width="150" height="40" rx="4" fill="#fff" stroke="#388E3C"/>
+  <text x="325" y="595" text-anchor="middle" class="small">2. Verify Cert</text>
+  <text x="325" y="608" text-anchor="middle" class="code">Revoked? Trusted?</text>
+  <path d="M 400 595 L 440 595" class="arrow"/>
+
+  <rect x="440" y="575" width="150" height="40" rx="4" fill="#fff" stroke="#388E3C"/>
+  <text x="515" y="595" text-anchor="middle" class="small">3. Check Posture</text>
+  <text x="515" y="608" text-anchor="middle" class="code">Patched? Compliant?</text>
+  <path d="M 590 595 L 630 595" class="arrow"/>
+
+  <rect x="630" y="575" width="150" height="40" rx="4" fill="#fff" stroke="#388E3C"/>
+  <text x="705" y="595" text-anchor="middle" class="small">4. Evaluate Policy</text>
+  <text x="705" y="608" text-anchor="middle" class="code">User authorized?</text>
+  <path d="M 780 595 L 820 595" class="arrow"/>
+
+  <rect x="820" y="575" width="130" height="40" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="885" y="595" text-anchor="middle" class="small" fill="#388E3C">5. Grant Access</text>
+  <text x="885" y="608" text-anchor="middle" class="code" fill="#388E3C">Time-limited</text>
+
+  <!-- Access Decision Results -->
+  <rect x="60" y="630" width="200" height="35" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="160" y="653" text-anchor="middle" class="label" fill="#388E3C">✓ Access Granted</text>
+
+  <rect x="280" y="630" width="200" height="35" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+  <text x="380" y="653" text-anchor="middle" class="label" fill="#E53935">✗ Access Denied</text>
+
+  <rect x="500" y="630" width="250" height="35" rx="4" fill="#E53935" stroke="#C62828" stroke-width="1.5"/>
+  <text x="625" y="653" text-anchor="middle" class="label" fill="#fff">Suspicious → Revoke Cert</text>
+
+  <!-- Legend -->
+  <rect x="30" y="695" width="940" height="55" rx="4" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="500" y="720" text-anchor="middle" class="section-title">Key Principle: Every request verified, minimal access, fully encrypted, continuously monitored</text>
+  <text x="500" y="740" text-anchor="middle" class="small">PKI enables: Strong identity binding, mTLS everywhere, instant revocation, automated certificate lifecycle</text>
+</svg>

@@ -1,0 +1,19 @@
+# mdBook build output
+docs/book/
+!docs/en_US/book.toml
+!docs/es_ES/book.toml
+!docs/pt_BR/book.toml
+
+# Backup files
+*~
+*.swp
+*.swo
+.DS_Store
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log

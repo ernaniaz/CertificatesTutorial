@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Arquitectura del Sistema Crypto-Policies (RHEL 8+)</text>
+
+  <!-- System-Wide Crypto-Policies Box -->
+  <rect x="350" y="50" width="300" height="60" rx="8" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="500" y="80" text-anchor="middle" class="section-title" fill="#fff">Crypto-Policies del Sistema</text>
+  <text x="500" y="98" text-anchor="middle" class="code" fill="#fff">/etc/crypto-policies/</text>
+
+  <path d="M 500 110 L 500 140" class="arrow"/>
+
+  <!-- Policy Level Selection -->
+  <rect x="300" y="145" width="400" height="90" rx="6" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="500" y="170" text-anchor="middle" class="section-title">Nivel de Política Activo</text>
+
+  <!-- Policy options -->
+  <rect x="320" y="185" width="80" height="35" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="360" y="207" text-anchor="middle" class="label" fill="#fff">DEFAULT</text>
+
+  <rect x="415" y="185" width="80" height="35" rx="4" fill="#FFC107" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="455" y="207" text-anchor="middle" class="label">LEGACY</text>
+
+  <rect x="510" y="185" width="80" height="35" rx="4" fill="#00ACC1" stroke="#00838F" stroke-width="1.5"/>
+  <text x="550" y="207" text-anchor="middle" class="label" fill="#fff">FUTURE</text>
+
+  <rect x="605" y="185" width="80" height="35" rx="4" fill="#E53935" stroke="#C62828" stroke-width="1.5"/>
+  <text x="645" y="207" text-anchor="middle" class="label" fill="#fff">FIPS</text>
+
+  <path d="M 500 235 L 500 265" class="arrow"/>
+
+  <!-- Back-end Configs -->
+  <rect x="150" y="270" width="700" height="120" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="500" y="295" text-anchor="middle" class="section-title" fill="#1976D2">Configuraciones de Back-end</text>
+  <text x="500" y="312" text-anchor="middle" class="code">/etc/crypto-policies/back-ends/</text>
+
+  <!-- Backend boxes -->
+  <rect x="170" y="325" width="100" height="50" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="220" y="347" text-anchor="middle" class="label">OpenSSL</text>
+  <text x="220" y="365" text-anchor="middle" class="code">.config</text>
+
+  <rect x="290" y="325" width="100" height="50" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="340" y="347" text-anchor="middle" class="label">GnuTLS</text>
+  <text x="340" y="365" text-anchor="middle" class="code">.config</text>
+
+  <rect x="410" y="325" width="80" height="50" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="450" y="347" text-anchor="middle" class="label">NSS</text>
+  <text x="450" y="365" text-anchor="middle" class="code">.config</text>
+
+  <rect x="510" y="325" width="80" height="50" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="550" y="347" text-anchor="middle" class="label">Java</text>
+  <text x="550" y="365" text-anchor="middle" class="code">.config</text>
+
+  <rect x="610" y="325" width="80" height="50" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="650" y="347" text-anchor="middle" class="label">BIND</text>
+  <text x="650" y="365" text-anchor="middle" class="code">.config</text>
+
+  <rect x="710" y="325" width="100" height="50" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="760" y="347" text-anchor="middle" class="label">Kerberos</text>
+  <text x="760" y="365" text-anchor="middle" class="code">.config</text>
+
+  <!-- Arrows to applications -->
+  <path d="M 220 375 L 220 420" class="arrow"/>
+  <path d="M 340 375 L 340 420" class="arrow"/>
+  <path d="M 450 375 L 450 420" class="arrow"/>
+  <path d="M 550 375 L 550 420" class="arrow"/>
+  <path d="M 650 375 L 650 420" class="arrow"/>
+  <path d="M 760 375 L 760 420" class="arrow"/>
+
+  <!-- Applications Section -->
+  <rect x="150" y="425" width="700" height="100" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="450" text-anchor="middle" class="section-title" fill="#388E3C">Aplicaciones Afectadas</text>
+
+  <!-- Application boxes -->
+  <rect x="170" y="465" width="100" height="45" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="220" y="483" text-anchor="middle" class="small">Apache, NGINX</text>
+  <text x="220" y="498" text-anchor="middle" class="small">curl, wget</text>
+
+  <rect x="290" y="465" width="100" height="45" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="340" y="483" text-anchor="middle" class="small">systemd</text>
+  <text x="340" y="498" text-anchor="middle" class="small">CUPS, rsyslog</text>
+
+  <rect x="410" y="465" width="80" height="45" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="450" y="483" text-anchor="middle" class="small">Firefox</text>
+  <text x="450" y="498" text-anchor="middle" class="small">Thunderbird</text>
+
+  <rect x="510" y="465" width="80" height="45" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="550" y="483" text-anchor="middle" class="small">Apps Java</text>
+  <text x="550" y="498" text-anchor="middle" class="small">Tomcat</text>
+
+  <rect x="610" y="465" width="80" height="45" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="650" y="483" text-anchor="middle" class="small">named</text>
+  <text x="650" y="498" text-anchor="middle" class="small">Servidor DNS</text>
+
+  <rect x="710" y="465" width="100" height="45" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="760" y="483" text-anchor="middle" class="small">krb5</text>
+  <text x="760" y="498" text-anchor="middle" class="small">Autenticación</text>
+
+  <!-- Update Process Section -->
+  <rect x="30" y="550" width="440" height="130" rx="6" fill="#FFF9C4" stroke="#F57C00" stroke-width="2"/>
+  <text x="250" y="575" text-anchor="middle" class="section-title" fill="#F57C00">Proceso de Actualización de Política</text>
+
+  <rect x="50" y="590" width="180" height="35" rx="4" fill="#fff" stroke="#F57C00" stroke-width="1"/>
+  <text x="140" y="612" text-anchor="middle" class="code">update-crypto-policies</text>
+
+  <path d="M 230 607 L 260 607" stroke="#F57C00" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <rect x="265" y="590" width="90" height="35" rx="4" fill="#fff" stroke="#F57C00" stroke-width="1"/>
+  <text x="310" y="612" text-anchor="middle" class="small">Generar</text>
+
+  <path d="M 355 607 L 380 607" stroke="#F57C00" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+
+  <rect x="385" y="590" width="70" height="35" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="420" y="612" text-anchor="middle" class="small">¡Aplicado!</text>
+
+  <text x="250" y="655" text-anchor="middle" class="code">update-crypto-policies --set POLÍTICA</text>
+
+  <!-- Policy Summary -->
+  <rect x="490" y="550" width="480" height="130" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="730" y="575" text-anchor="middle" class="section-title">Resumen de Niveles de Política</text>
+
+  <text x="510" y="600" class="small" fill="#388E3C">DEFAULT: TLS 1.2+, RSA 2048+ (Recomendado)</text>
+  <text x="510" y="620" class="small" fill="#F57C00">LEGACY: TLS 1.0+, RSA 1024+ (Compatibilidad)</text>
+  <text x="510" y="640" class="small" fill="#00ACC1">FUTURE: TLS 1.3+, RSA 3072+ (Estricto)</text>
+  <text x="510" y="660" class="small" fill="#E53935">FIPS: Solo aprobado FIPS 140-2</text>
+</svg>

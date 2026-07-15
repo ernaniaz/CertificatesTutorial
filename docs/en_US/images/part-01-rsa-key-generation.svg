@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 750" width="900" height="750">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" class="title">RSA Key Generation Process</text>
+
+  <!-- Start -->
+  <ellipse cx="450" cy="70" rx="100" ry="25" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="450" y="75" text-anchor="middle" class="label">Generate RSA Key Pair</text>
+
+  <path d="M 450 95 L 450 118" class="arrow"/>
+
+  <!-- Choose Key Size -->
+  <polygon points="450,120 530,160 450,200 370,160" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="450" y="155" text-anchor="middle" class="label">Choose</text>
+  <text x="450" y="170" text-anchor="middle" class="label">Key Size</text>
+
+  <!-- 2048-bit path -->
+  <path d="M 370 160 L 250 160 L 250 223" class="arrow"/>
+  <text x="310" y="150" text-anchor="middle" class="small">Minimum</text>
+
+  <!-- 4096-bit path -->
+  <path d="M 530 160 L 650 160 L 650 223" class="arrow"/>
+  <text x="590" y="150" text-anchor="middle" class="small">Recommended</text>
+
+  <!-- RSA 2048 -->
+  <rect x="150" y="225" width="200" height="50" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="250" y="248" text-anchor="middle" class="label">RSA 2048-bit</text>
+  <text x="250" y="265" text-anchor="middle" class="small">Minimum for RHEL 8+</text>
+
+  <!-- RSA 4096 -->
+  <rect x="550" y="225" width="200" height="50" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="650" y="248" text-anchor="middle" class="label">RSA 4096-bit</text>
+  <text x="650" y="265" text-anchor="middle" class="small">Long-term security</text>
+
+  <path d="M 250 275 L 250 308" class="arrow"/>
+  <path d="M 650 275 L 650 308" class="arrow"/>
+
+  <!-- Generate Primes -->
+  <rect x="100" y="310" width="300" height="60" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="250" y="335" text-anchor="middle" class="label">Generate Prime Numbers</text>
+  <text x="250" y="355" text-anchor="middle" class="small">p (~1024 bits) and q (~1024 bits)</text>
+
+  <rect x="500" y="310" width="300" height="60" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="650" y="335" text-anchor="middle" class="label">Generate Prime Numbers</text>
+  <text x="650" y="355" text-anchor="middle" class="small">p (~2048 bits) and q (~2048 bits)</text>
+
+  <path d="M 250 370 L 250 403" class="arrow"/>
+  <path d="M 650 370 L 650 403" class="arrow"/>
+
+  <!-- Calculate n -->
+  <rect x="100" y="405" width="300" height="45" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="250" y="425" text-anchor="middle" class="label">Calculate n = p × q</text>
+  <text x="250" y="442" text-anchor="middle" class="code">Modulus: 2048 bits</text>
+
+  <rect x="500" y="405" width="300" height="45" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="650" y="425" text-anchor="middle" class="label">Calculate n = p × q</text>
+  <text x="650" y="442" text-anchor="middle" class="code">Modulus: 4096 bits</text>
+
+  <!-- Merge paths -->
+  <path d="M 250 450 L 250 470 L 450 470" stroke="#1976D2" stroke-width="2" fill="none"/>
+  <path d="M 650 450 L 650 470 L 450 470" stroke="#1976D2" stroke-width="2" fill="none"/>
+  <path d="M 450 470 L 450 493" class="arrow"/>
+
+  <!-- Calculate φ(n) -->
+  <rect x="300" y="495" width="300" height="40" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="450" y="520" text-anchor="middle" class="label">Calculate φ(n) = (p-1)(q-1)</text>
+
+  <path d="M 450 535 L 450 558" class="arrow"/>
+
+  <!-- Choose e -->
+  <rect x="300" y="560" width="300" height="45" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="450" y="580" text-anchor="middle" class="label">Choose public exponent e</text>
+  <text x="450" y="597" text-anchor="middle" class="code">Common: 65537 (0x10001)</text>
+
+  <path d="M 450 605 L 450 628" class="arrow"/>
+
+  <!-- Calculate d -->
+  <rect x="300" y="630" width="300" height="45" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="450" y="650" text-anchor="middle" class="label">Calculate private exponent d</text>
+  <text x="450" y="667" text-anchor="middle" class="code">d ≡ e⁻¹ (mod φ(n))</text>
+
+  <path d="M 450 675 L 450 698" class="arrow"/>
+
+  <!-- Key Pair Generated -->
+  <rect x="325" y="700" width="250" height="40" rx="4" fill="#1976D2" stroke="#0D47A1" stroke-width="1.5"/>
+  <text x="450" y="725" text-anchor="middle" class="label" fill="#fff">Key Pair Generated</text>
+
+  <!-- Output boxes on sides -->
+  <!-- Public Key -->
+  <rect x="30" y="520" width="180" height="80" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="120" y="545" text-anchor="middle" class="section-title" fill="#388E3C">Public Key</text>
+  <text x="120" y="565" text-anchor="middle" class="small">(n, e)</text>
+  <text x="120" y="585" text-anchor="middle" class="small">Can be shared freely</text>
+
+  <!-- Private Key -->
+  <rect x="690" y="520" width="180" height="80" rx="4" fill="#F8D7DA" stroke="#E53935" stroke-width="1.5"/>
+  <text x="780" y="545" text-anchor="middle" class="section-title" fill="#E53935">Private Key</text>
+  <text x="780" y="565" text-anchor="middle" class="small">(n, d, p, q)</text>
+  <text x="780" y="585" text-anchor="middle" class="small">⚠️ Keep Secret!</text>
+
+  <!-- Connecting lines to output -->
+  <path d="M 300 560 L 210 560" stroke="#388E3C" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <path d="M 600 560 L 690 560" stroke="#E53935" stroke-width="1.5" stroke-dasharray="5,3"/>
+</svg>

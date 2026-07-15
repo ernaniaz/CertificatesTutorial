@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 750" width="900" height="750">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+      .connector { stroke: #1976D2; stroke-width: 2; fill: none; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="30" text-anchor="middle" class="title">Jerarquía del Almacén de Confianza RHEL</text>
+
+  <!-- Root: /etc/pki/ -->
+  <rect x="350" y="50" width="200" height="45" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="450" y="78" text-anchor="middle" class="section-title" fill="#fff">/etc/pki/</text>
+
+  <!-- Connectors from root -->
+  <path d="M 400 95 L 400 120 L 150 120 L 150 145" class="connector"/>
+  <path d="M 450 95 L 450 145" class="connector"/>
+  <path d="M 500 95 L 500 120 L 750 120 L 750 145" class="connector"/>
+
+  <!-- TLS Directory -->
+  <rect x="50" y="145" width="200" height="50" rx="6" fill="#388E3C" stroke="#2E7D32" stroke-width="2"/>
+  <text x="150" y="170" text-anchor="middle" class="label" fill="#fff">tls/</text>
+  <text x="150" y="185" text-anchor="middle" class="small" fill="#fff">(Certificados OpenSSL)</text>
+
+  <!-- CA Trust Directory -->
+  <rect x="350" y="145" width="200" height="50" rx="6" fill="#388E3C" stroke="#2E7D32" stroke-width="2"/>
+  <text x="450" y="170" text-anchor="middle" class="label" fill="#fff">ca-trust/</text>
+  <text x="450" y="185" text-anchor="middle" class="small" fill="#fff">(Almacén confianza sistema)</text>
+
+  <!-- NSSDB Directory -->
+  <rect x="650" y="145" width="200" height="50" rx="6" fill="#9E9E9E" stroke="#757575" stroke-width="2"/>
+  <text x="750" y="170" text-anchor="middle" class="label" fill="#fff">nssdb/</text>
+  <text x="750" y="185" text-anchor="middle" class="small" fill="#fff">(Base datos NSS - opcional)</text>
+
+  <!-- TLS subdirectories -->
+  <path d="M 100 195 L 100 225" class="connector"/>
+  <path d="M 150 195 L 150 225" class="connector"/>
+  <path d="M 200 195 L 200 225" class="connector"/>
+
+  <!-- certs/ -->
+  <rect x="80" y="225" width="140" height="85" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="150" y="245" text-anchor="middle" class="label">certs/</text>
+  <text x="150" y="262" text-anchor="middle" class="small">(Certs públicos)</text>
+  <rect x="90" y="275" width="120" height="28" rx="3" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="150" y="290" text-anchor="middle" class="code">ca-bundle.crt</text>
+  <text x="150" y="300" text-anchor="middle" class="small">Todas las CAs confiables</text>
+
+  <!-- private/ -->
+  <rect x="80" y="320" width="140" height="65" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="150" y="340" text-anchor="middle" class="label" fill="#E53935">private/</text>
+  <text x="150" y="355" text-anchor="middle" class="small">(modo 700)</text>
+  <text x="150" y="370" text-anchor="middle" class="code">*.key (modo 600)</text>
+  <text x="150" y="380" text-anchor="middle" class="small" fill="#E53935">⚠️ ¡NUNCA 644!</text>
+
+  <!-- ca-trust subdirectories -->
+  <path d="M 400 195 L 400 225" class="connector"/>
+  <path d="M 500 195 L 500 225" class="connector"/>
+
+  <!-- source/ -->
+  <rect x="280" y="225" width="180" height="45" rx="4" fill="#FFC107" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="370" y="244" text-anchor="middle" class="label">source/</text>
+  <text x="370" y="261" text-anchor="middle" class="small">(CAs agregadas por usuario)</text>
+
+  <!-- extracted/ -->
+  <rect x="470" y="225" width="180" height="45" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="560" y="244" text-anchor="middle" class="label">extracted/</text>
+  <text x="560" y="261" text-anchor="middle" class="small">(Auto-generado)</text>
+
+  <!-- source subdirectories -->
+  <path d="M 350 270 L 350 295" class="connector"/>
+  <path d="M 410 270 L 410 295" class="connector"/>
+
+  <!-- anchors/ -->
+  <rect x="280" y="295" width="180" height="65" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="370" y="315" text-anchor="middle" class="label">anchors/</text>
+  <text x="370" y="332" text-anchor="middle" class="small">(Agregar CAs aquí)</text>
+  <rect x="290" y="340" width="160" height="18" rx="2" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="370" y="353" text-anchor="middle" class="code">mi-ca.crt</text>
+
+  <!-- blacklist/ -->
+  <rect x="340" y="370" width="180" height="40" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+  <text x="430" y="390" text-anchor="middle" class="label">blacklist/</text>
+  <text x="430" y="405" text-anchor="middle" class="small">(Desconfiar CAs)</text>
+
+  <!-- extracted subdirectories -->
+  <path d="M 500 270 L 500 370" class="connector"/>
+  <path d="M 500 410 L 500 500" class="connector"/>
+  <path d="M 500 420 L 600 420" class="connector"/>
+  <path d="M 500 460 L 600 460" class="connector"/>
+  <path d="M 500 500 L 600 500" class="connector"/>
+
+  <!-- pem/ -->
+  <rect x="600" y="405" width="170" height="35" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="685" y="420" text-anchor="middle" class="label">pem/</text>
+  <text x="685" y="433" text-anchor="middle" class="code">tls-ca-bundle.pem</text>
+
+  <!-- openssl/ -->
+  <rect x="600" y="445" width="170" height="35" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="685" y="460" text-anchor="middle" class="label">openssl/</text>
+  <text x="685" y="473" text-anchor="middle" class="code">ca-bundle.trust.crt</text>
+
+  <!-- java/ -->
+  <rect x="600" y="485" width="170" height="35" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="685" y="500" text-anchor="middle" class="label">java/</text>
+  <text x="685" y="513" text-anchor="middle" class="code">cacerts</text>
+
+  <!-- Update Command -->
+  <rect x="270" y="440" width="200" height="50" rx="6" fill="#FFC107" stroke="#F57C00" stroke-width="2"/>
+  <text x="370" y="462" text-anchor="middle" class="label">update-ca-trust</text>
+  <text x="370" y="480" text-anchor="middle" class="code">extract</text>
+
+  <!-- Arrow from anchors to update-ca-trust -->
+  <path d="M 370 360 L 370 370" stroke="#F57C00" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <path d="M 370 410 L 370 440" stroke="#F57C00" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <!-- Arrow from update-ca-trust to extracted -->
+  <path d="M 470 465 L 500 465" stroke="#F57C00" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arrowhead)"/>
+
+  <!-- rpm-gpg -->
+  <rect x="650" y="145" width="200" height="50" rx="6" fill="#9E9E9E" stroke="#757575" stroke-width="2" visibility="hidden"/>
+
+  <!-- Additional info box -->
+  <rect x="50" y="540" width="800" height="80" rx="6" fill="#FFF9C4" stroke="#F57C00" stroke-width="1"/>
+  <text x="450" y="565" text-anchor="middle" class="section-title">Flujo de Trabajo: Agregar una CA Personalizada</text>
+  <text x="450" y="585" text-anchor="middle" class="code">1. cp mi-ca.crt /etc/pki/ca-trust/source/anchors/</text>
+  <text x="450" y="605" text-anchor="middle" class="code">2. update-ca-trust extract</text>
+
+  <!-- Legend -->
+  <rect x="50" y="630" width="800" height="50" rx="4" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <rect x="70" y="645" width="15" height="15" fill="#388E3C"/>
+  <text x="95" y="657" class="small">Público/Compartido</text>
+  <rect x="245" y="645" width="15" height="15" fill="#E53935"/>
+  <text x="270" y="657" class="small">Privado/Sensible</text>
+  <rect x="445" y="645" width="15" height="15" fill="#FFC107"/>
+  <text x="470" y="657" class="small">Modificable por Usuario</text>
+  <rect x="645" y="645" width="15" height="15" fill="#E3F2FD" stroke="#1976D2"/>
+  <text x="670" y="657" class="small">Auto-Generado</text>
+</svg>

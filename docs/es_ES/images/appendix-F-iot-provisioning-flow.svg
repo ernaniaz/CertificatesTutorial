@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 950" width="1000" height="950">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388E3C" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#E53935" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Flujo de Aprovisionamiento de Certificados IoT</text>
+  <text x="980" y="20" text-anchor="end" class="code">Apéndice F</text>
+
+  <!-- Participants -->
+  <rect x="50" y="50" width="100" height="40" rx="4" fill="#9E9E9E" stroke="#616161" stroke-width="2"/>
+  <text x="100" y="75" text-anchor="middle" class="label" fill="#fff">Fabricante</text>
+
+  <rect x="250" y="50" width="100" height="40" rx="4" fill="#00BCD4" stroke="#00838F" stroke-width="2"/>
+  <text x="300" y="75" text-anchor="middle" class="label" fill="#fff">Dispositivo IoT</text>
+
+  <rect x="450" y="50" width="100" height="40" rx="4" fill="#7B1FA2" stroke="#4A148C" stroke-width="2"/>
+  <text x="500" y="75" text-anchor="middle" class="label" fill="#fff">Aprovisionar</text>
+
+  <rect x="650" y="50" width="100" height="40" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="2"/>
+  <text x="700" y="75" text-anchor="middle" class="label" fill="#fff">CA Dispositivo</text>
+
+  <rect x="850" y="50" width="100" height="40" rx="4" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="900" y="75" text-anchor="middle" class="label" fill="#fff">Backend</text>
+
+  <!-- Vertical Lines -->
+  <line x1="100" y1="90" x2="100" y2="880" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="300" y1="90" x2="300" y2="880" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="500" y1="90" x2="500" y2="880" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="700" y1="90" x2="700" y2="880" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="4,4"/>
+  <line x1="900" y1="90" x2="900" y2="880" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Phase 1: Manufacturing -->
+  <rect x="40" y="110" width="370" height="80" rx="4" fill="#EEEEEE" stroke="#9E9E9E" stroke-width="1"/>
+  <text x="225" y="130" text-anchor="middle" class="section-title">Fase 1: Fabricación</text>
+
+  <path d="M 100 160 L 290 160" class="arrow"/>
+  <text x="195" y="152" text-anchor="middle" class="code">1. Instalar firmware + cert raíz</text>
+  <text x="195" y="178" text-anchor="middle" class="code">2. Generar ID único (serial/MAC)</text>
+
+  <!-- Phase 2: Provisioning -->
+  <rect x="240" y="210" width="520" height="220" rx="4" fill="#E1BEE7" stroke="#7B1FA2" stroke-width="1"/>
+  <text x="500" y="230" text-anchor="middle" class="section-title" fill="#7B1FA2">Fase 2: Aprovisionamiento Inicial</text>
+
+  <rect x="260" y="245" width="100" height="30" rx="3" fill="#fff" stroke="#7B1FA2"/>
+  <text x="310" y="265" text-anchor="middle" class="code">Primer arranque</text>
+
+  <path d="M 300 295 L 490 295" class="arrow"/>
+  <text x="395" y="287" text-anchor="middle" class="code">3. Conectar a aprovisionamiento</text>
+
+  <path d="M 490 330 L 310 330" class="arrow"/>
+  <text x="400" y="322" text-anchor="middle" class="code">4. Solicitar ID dispositivo + token</text>
+
+  <rect x="410" y="345" width="180" height="50" rx="3" fill="#fff" stroke="#7B1FA2"/>
+  <text x="500" y="365" text-anchor="middle" class="small">5. Validar:</text>
+  <text x="500" y="380" text-anchor="middle" class="code">¿ID válido? ¿No aprovisionado?</text>
+
+  <!-- Certificate Request -->
+  <path d="M 510 415 L 690 415" class="arrow"/>
+  <text x="600" y="407" text-anchor="middle" class="code">6. Solicitar cert dispositivo</text>
+
+  <rect x="640" y="210" width="120" height="65" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="700" y="230" text-anchor="middle" class="label" fill="#388E3C">7. Generar</text>
+  <text x="645" y="250" class="code">• Validez 1-3 años</text>
+  <text x="645" y="265" class="code">• Uso autent. cliente</text>
+
+  <path d="M 690 290 L 510 290" stroke="#388E3C" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="600" y="308" text-anchor="middle" class="code" fill="#388E3C">cert + clave + cadena_ca</text>
+
+  <!-- Return to device -->
+  <path d="M 490 420 L 310 420" stroke="#388E3C" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="400" y="413" text-anchor="middle" class="code" fill="#388E3C">8. Paquete aprovisionamiento</text>
+
+  <!-- Secure Storage -->
+  <rect x="240" y="450" width="170" height="60" rx="4" fill="#00BCD4" stroke="#00838F" stroke-width="1"/>
+  <text x="325" y="470" text-anchor="middle" class="label" fill="#fff">9. Almacen. Seguro</text>
+  <text x="255" y="490" class="small" fill="#fff">• TPM (preferido)</text>
+  <text x="255" y="505" class="small" fill="#fff">• Enclave seguro</text>
+
+  <!-- Phase 3: Operation -->
+  <rect x="240" y="530" width="720" height="110" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="600" y="550" text-anchor="middle" class="section-title" fill="#1976D2">Fase 3: Comunicación Operacional (mTLS)</text>
+
+  <path d="M 300 580 L 890 580" class="arrow"/>
+  <text x="595" y="572" text-anchor="middle" class="code">10. Conectar con mTLS (presentar cert dispositivo)</text>
+
+  <rect x="800" y="595" width="150" height="30" rx="3" fill="#fff" stroke="#1976D2"/>
+  <text x="875" y="615" text-anchor="middle" class="small">11. Validar cert</text>
+
+  <!-- Success path -->
+  <path d="M 890 630 L 310 630" stroke="#388E3C" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="600" y="622" text-anchor="middle" class="code" fill="#388E3C">✓ Conexión aceptada - Datos cifrados TLS</text>
+
+  <!-- Phase 4: Renewal -->
+  <rect x="240" y="660" width="520" height="110" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="500" y="680" text-anchor="middle" class="section-title" fill="#388E3C">Fase 4: Renovación Certificado (30 días antes de expirar)</text>
+
+  <path d="M 300 710 L 490 710" class="arrow"/>
+  <text x="395" y="702" text-anchor="middle" class="code">12. Solicitar renovación (presentar cert actual)</text>
+
+  <path d="M 510 710 L 690 710" class="arrow"/>
+  <text x="600" y="728" text-anchor="middle" class="code">13. Emitir nuevo cert</text>
+
+  <path d="M 690 750 L 310 750" stroke="#388E3C" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="500" y="742" text-anchor="middle" class="code" fill="#388E3C">14. Rotación sin interrupción</text>
+
+  <!-- Phase 5: Revocation -->
+  <rect x="640" y="790" width="320" height="90" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="800" y="815" text-anchor="middle" class="section-title" fill="#E53935">Fase 5: Revocación (si comprometido)</text>
+
+  <path d="M 900 845 L 710 845" stroke="#E53935" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="805" y="837" text-anchor="middle" class="code" fill="#E53935">15. Revocar certificado</text>
+
+  <text x="800" y="870" text-anchor="middle" class="small" fill="#E53935">Dispositivo bloqueado: acceso denegado</text>
+
+  <!-- Security Features -->
+  <rect x="30" y="790" width="200" height="90" rx="4" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="130" y="815" text-anchor="middle" class="section-title">Características Seguridad</text>
+  <text x="45" y="838" class="small">✓ Claves respaldadas HW (TPM)</text>
+  <text x="45" y="855" class="small">✓ Autenticación mTLS mutua</text>
+  <text x="45" y="872" class="small">✓ Revocación instantánea</text>
+</svg>

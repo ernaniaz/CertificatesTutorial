@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1320 760" width="1320" height="760">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 24px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+      .arrow-blue { stroke: #1976D2; stroke-width: 2.5; fill: none; marker-end: url(#arrow-blue); }
+      .arrow-green { stroke: #388E3C; stroke-width: 2.5; fill: none; marker-end: url(#arrow-green); }
+      .arrow-orange { stroke: #F57C00; stroke-width: 2.5; fill: none; marker-end: url(#arrow-orange); }
+      .arrow-red { stroke: #D32F2F; stroke-width: 2.5; fill: none; marker-end: url(#arrow-red); }
+    </style>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388E3C"/>
+    </marker>
+    <marker id="arrow-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#F57C00"/>
+    </marker>
+    <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#D32F2F"/>
+    </marker>
+  </defs>
+
+  <text x="660" y="32" text-anchor="middle" class="title">Cadeia de Confiança do Secure Boot no RHEL</text>
+
+  <rect x="20" y="50" width="1280" height="430" rx="10" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1.5"/>
+
+  <rect x="40" y="85" width="220" height="150" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="150" y="110" text-anchor="middle" class="section-title" fill="#1976D2">1. Firmware UEFI</text>
+  <text x="55" y="135" class="small">Valida executáveis EFI antes de executar</text>
+  <text x="55" y="155" class="label">Bancos de dados de confiança:</text>
+  <text x="65" y="175" class="code">PK</text>
+  <text x="95" y="175" class="small">proprietário da plataforma</text>
+  <text x="65" y="192" class="code">KEK</text>
+  <text x="95" y="192" class="small">atualizações db / dbx</text>
+  <text x="65" y="209" class="code">db</text>
+  <text x="95" y="209" class="small">certificados / hashes permitidos</text>
+
+  <rect x="40" y="275" width="220" height="95" rx="8" fill="#FFEBEE" stroke="#D32F2F" stroke-width="2"/>
+  <text x="150" y="300" text-anchor="middle" class="section-title" fill="#D32F2F">Revogação</text>
+  <text x="55" y="320" class="code">dbx</text>
+  <text x="85" y="320" class="small">certificados / hashes revogados</text>
+  <text x="55" y="340" class="small">Confiável mas revogado ainda falha</text>
+
+  <rect x="300" y="85" width="220" height="150" rx="8" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="410" y="110" text-anchor="middle" class="section-title" fill="#388E3C">2. shim</text>
+  <text x="315" y="135" class="small">Carregador de 1° estágio aceito p/ firmware</text>
+  <text x="315" y="155" class="small">Ponte entre conf. do firm. e conf. Red Hat</text>
+  <text x="315" y="180" class="label">Contém chave embarcada:</text>
+  <text x="315" y="200" class="small">Red Hat Secure Boot CA</text>
+
+  <rect x="560" y="85" width="230" height="150" rx="8" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="675" y="110" text-anchor="middle" class="section-title" fill="#F57C00">3. Binário EFI GRUB</text>
+  <text x="575" y="140" class="small">Validado pelo shim</text>
+  <text x="575" y="160" class="small">Carrega menu de boot e kernel</text>
+  <text x="575" y="185" class="small">Módulos GRUB arbitrários não são o modelo</text>
+  <text x="575" y="202" class="small">de segurança em sistemas Secure Boot</text>
+
+  <rect x="830" y="85" width="230" height="150" rx="8" fill="#EDE7F6" stroke="#5E35B1" stroke-width="2"/>
+  <text x="945" y="110" text-anchor="middle" class="section-title" fill="#5E35B1">4. Kernel Linux</text>
+  <text x="845" y="140" class="small">Validado antes da execução</text>
+  <text x="845" y="160" class="small">Contém material de chaves X.509 confiável</text>
+  <text x="845" y="180" class="small">Impõe verificação de módulos</text>
+  <text x="845" y="200" class="small">Ativa comportamento de bloqueio no RHEL</text>
+
+  <rect x="1100" y="85" width="180" height="150" rx="8" fill="#FFF8E1" stroke="#F9A825" stroke-width="2"/>
+  <text x="1190" y="110" text-anchor="middle" class="section-title" fill="#F9A825">5. Módulos</text>
+  <text x="1115" y="140" class="small">Carrega se assinatura for confiável</text>
+  <text x="1115" y="157" class="small">pelos keyrings do kernel</text>
+  <text x="1115" y="182" class="small">Módulos não assinados/revogados</text>
+  <text x="1115" y="199" class="small">são rejeitados</text>
+
+  <path d="M 260 160 L 300 160" class="arrow-blue"/>
+  <path d="M 520 160 L 560 160" class="arrow-green"/>
+  <path d="M 790 160 L 830 160" class="arrow-orange"/>
+  <path d="M 1060 160 L 1100 160" class="arrow-blue"/>
+
+  <path d="M 150 275 L 150 235" class="arrow-red"/>
+  <text x="175" y="257" class="small" fill="#D32F2F">negado se encontrado no dbx</text>
+
+  <rect x="120" y="390" width="1080" height="75" rx="8" fill="#FFFFFF" stroke="#BDBDBD" stroke-width="1.5"/>
+  <text x="660" y="415" text-anchor="middle" class="section-title">Caminho de Autorização</text>
+  <text x="150" y="438" class="small">Firmware aceita</text>
+  <text x="255" y="438" class="code">shim</text>
+  <text x="305" y="438" class="small">usando confiança do firmware, então</text>
+  <text x="480" y="438" class="code">shim</text>
+  <text x="520" y="438" class="small">aceita</text>
+  <text x="575" y="438" class="code">GRUB</text>
+  <text x="620" y="438" class="small">e o</text>
+  <text x="675" y="438" class="code">kernel</text>
+  <text x="735" y="438" class="small">, então o</text>
+  <text x="815" y="438" class="code">kernel</text>
+  <text x="875" y="438" class="small">aceita módulos.</text>
+
+  <rect x="20" y="510" width="410" height="190" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="225" y="535" text-anchor="middle" class="section-title" fill="#1976D2">Fontes de Confiança Visíveis no RHEL em Execução</text>
+  <text x="40" y="565" class="small">1. Bancos de dados do firmware</text>
+  <text x="40" y="585" class="small">2. Certificado embarcado do shim</text>
+  <text x="40" y="605" class="small">3. Certificados do proprietário inscritos via MOK</text>
+  <text x="40" y="630" class="small">Aparecem através de keyrings como</text>
+  <text x="40" y="652" class="code">.builtin_trusted_keys</text>
+  <text x="200" y="652" class="small">e</text>
+  <text x="232" y="652" class="code">.platform</text>
+
+  <rect x="455" y="510" width="390" height="190" rx="8" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="650" y="535" text-anchor="middle" class="section-title" fill="#388E3C">O que o Secure Boot Faz Bem</text>
+  <text x="475" y="565" class="small">- Bloquear binários EFI não autorizados</text>
+  <text x="475" y="585" class="small">- Impedir carregamento de módulos de kernel não assinados</text>
+  <text x="475" y="605" class="small">- Estender confiança do firmware ao espaço do kernel</text>
+  <text x="475" y="625" class="small">- Suportar fluxos de lockdown e measured-boot</text>
+
+  <rect x="870" y="510" width="430" height="190" rx="8" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="1085" y="535" text-anchor="middle" class="section-title" fill="#F57C00">O que Não Faz Automaticamente</text>
+  <text x="890" y="565" class="small">- Proteger todos os arquivos do espaço do usuário</text>
+  <text x="890" y="585" class="small">- Substituir repositórios de confiança TLS</text>
+  <text x="890" y="605" class="small">- Criptografar discos ou segredos por si só</text>
+  <text x="890" y="625" class="small">- Tornar seguro código assinado mas vulnerável</text>
+  <text x="890" y="645" class="small">- Eliminar a necessidade de planejamento de revogação</text>
+</svg>

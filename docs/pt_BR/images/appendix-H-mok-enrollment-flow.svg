@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 680" width="1220" height="680">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2.5; fill: none; marker-end: url(#arrow-blue); }
+      .arrow-green { stroke: #388E3C; stroke-width: 2.5; fill: none; marker-end: url(#arrow-green); }
+    </style>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388E3C"/>
+    </marker>
+  </defs>
+
+  <text x="610" y="32" text-anchor="middle" class="title">Fluxo de Inscrição MOK no RHEL</text>
+
+  <rect x="20" y="50" width="1180" height="340" rx="10" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1.5"/>
+
+  <rect x="40" y="90" width="210" height="125" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="145" y="115" text-anchor="middle" class="section-title" fill="#1976D2">1. Gerar Par de Chaves</text>
+  <text x="46" y="140" class="code">efikeygen --dbdir /etc/pki/pesign</text>
+  <text x="46" y="160" class="small">Criar par de chaves X.509 para assinatura</text>
+  <text x="46" y="180" class="small">de módulo/kernel.</text>
+  <text x="46" y="200" class="small">Chave privada fica sob controle do adm.</text>
+
+  <rect x="280" y="90" width="220" height="125" rx="8" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="390" y="115" text-anchor="middle" class="section-title" fill="#388E3C">2. Exportar Certificado Público</text>
+  <text x="295" y="140" class="code">certutil -d /etc/pki/pesign</text>
+  <text x="295" y="158" class="code">-n 'Custom Secure Boot key'</text>
+  <text x="295" y="176" class="code">-Lr &gt; sb_cert.cer</text>
+
+  <rect x="530" y="90" width="220" height="125" rx="8" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="637" y="115" text-anchor="middle" class="section-title" fill="#F57C00">3. Enfileirar Inscrição</text>
+  <text x="537" y="145" class="code">mokutil --import sb_cert.cer</text>
+  <text x="537" y="165" class="small">Definir senha temporária de inscrição</text>
+  <text x="537" y="183" class="small">Solicitação é armazenada para o próximo boot</text>
+
+  <rect x="780" y="90" width="210" height="125" rx="8" fill="#EDE7F6" stroke="#5E35B1" stroke-width="2"/>
+  <text x="885" y="115" text-anchor="middle" class="section-title" fill="#5E35B1">4. Reiniciar</text>
+  <text x="795" y="145" class="small">shim detecta solicitação MOK pendente</text>
+  <text x="795" y="165" class="small">Inicia MokManager.efi na interface UEFI</text>
+  <text x="795" y="183" class="small">Boot normal pausa para confirmação</text>
+
+  <rect x="1020" y="90" width="160" height="125" rx="8" fill="#FFF8E1" stroke="#F9A825" stroke-width="2"/>
+  <text x="1100" y="115" text-anchor="middle" class="section-title" fill="#F9A825">5. Inscrever MOK</text>
+  <text x="1035" y="145" class="small">Escolha "Enroll MOK"</text>
+  <text x="1035" y="165" class="small">Digite a senha</text>
+  <text x="1035" y="183" class="small">Confirme a inscrição</text>
+  <text x="1035" y="198" class="small">do certificado</text>
+
+  <path d="M 250 152 L 280 152" class="arrow"/>
+  <path d="M 500 152 L 530 152" class="arrow"/>
+  <path d="M 750 152 L 780 152" class="arrow"/>
+  <path d="M 990 152 L 1020 152" class="arrow"/>
+
+  <rect x="80" y="255" width="1040" height="105" rx="8" fill="#FFFFFF" stroke="#BDBDBD" stroke-width="1.5"/>
+  <text x="600" y="280" text-anchor="middle" class="section-title">Persistência e Efeito em Tempo de Execução</text>
+  <text x="110" y="305" class="small">Após a inscrição, o certificado público é armazenado na lista MOK persistente.</text>
+  <text x="110" y="327" class="small">Em boots com Secure Boot habilitado, a chave se propaga para o keyring de plataforma do kernel.</text>
+  <text x="110" y="349" class="small">É isso que torna seu kernel ou módulo assinado confiável neste sistema.</text>
+
+  <path d="M 1100 215 L 1100 225 L 600 225 L 600 255" class="arrow-green"/>
+
+  <rect x="20" y="420" width="360" height="210" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="200" y="445" text-anchor="middle" class="section-title" fill="#1976D2">Comandos de Verificação</text>
+  <text x="40" y="475" class="code">mokutil --sb-state</text>
+  <text x="40" y="497" class="code">mokutil --list-enrolled</text>
+  <text x="40" y="519" class="code">keyctl list %:.platform</text>
+  <text x="40" y="549" class="small">Use estes após reiniciar para confirmar que a chave está</text>
+  <text x="40" y="568" class="small">inscrita e visível para o kernel em execução.</text>
+
+  <rect x="420" y="420" width="360" height="210" rx="8" fill="#FFEBEE" stroke="#D32F2F" stroke-width="1.5"/>
+  <text x="600" y="445" text-anchor="middle" class="section-title" fill="#D32F2F">Falha Comum</text>
+  <text x="440" y="475" class="small">Executar</text>
+  <text x="490" y="475" class="code">mokutil --import</text>
+  <text x="594" y="475" class="small">não é suficiente.</text>
+  <text x="440" y="500" class="small">Se o administrador nunca completar a tela do</text>
+  <text x="440" y="519" class="small">MokManager após reiniciar, o host de destino ainda</text>
+  <text x="440" y="538" class="small">não confia no assinante.</text>
+
+  <rect x="820" y="420" width="380" height="210" rx="8" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="1010" y="445" text-anchor="middle" class="section-title" fill="#388E3C">Quando Usar MOK</text>
+  <text x="840" y="475" class="small">- Módulos de kernel personalizados</text>
+  <text x="840" y="497" class="small">- Kernels ou binários GRUB personalizados</text>
+  <text x="840" y="519" class="small">- Sistemas onde o db do firmware está inalterado</text>
+  <text x="840" y="541" class="small">- Confiança controlada pelo proprietário sem desabilitar</text>
+  <text x="840" y="560" class="small">  Secure Boot globalmente</text>
+</svg>

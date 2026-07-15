@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-back { stroke: #388E3C; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388E3C" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Flujo de Conexión HTTPS de Apache</text>
+
+  <!-- Participants -->
+  <rect x="50" y="55" width="120" height="45" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="110" y="82" text-anchor="middle" class="label">Navegador Web</text>
+
+  <rect x="250" y="55" width="150" height="45" rx="6" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="325" y="82" text-anchor="middle" class="label">Apache httpd</text>
+
+  <rect x="480" y="55" width="180" height="45" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="570" y="75" text-anchor="middle" class="label">Archivo de Certificado</text>
+  <text x="570" y="90" text-anchor="middle" class="code">/etc/pki/tls/certs/</text>
+
+  <rect x="740" y="55" width="180" height="45" rx="6" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="830" y="75" text-anchor="middle" class="label">Clave Privada</text>
+  <text x="830" y="90" text-anchor="middle" class="code">/etc/pki/tls/private/</text>
+
+  <!-- Lifelines -->
+  <line x1="110" y1="100" x2="110" y2="580" stroke="#1976D2" stroke-width="1" stroke-dasharray="5,3"/>
+  <line x1="325" y1="100" x2="325" y2="580" stroke="#F57C00" stroke-width="1" stroke-dasharray="5,3"/>
+  <line x1="570" y1="100" x2="570" y2="350" stroke="#388E3C" stroke-width="1" stroke-dasharray="5,3"/>
+  <line x1="830" y1="100" x2="830" y2="350" stroke="#E53935" stroke-width="1" stroke-dasharray="5,3"/>
+
+  <!-- Step 1: HTTPS Request -->
+  <path d="M 115 130 L 315 130" class="arrow"/>
+  <text x="215" y="125" text-anchor="middle" class="small">1. Solicitud HTTPS</text>
+  <text x="215" y="145" text-anchor="middle" class="code">https://ejemplo.com</text>
+
+  <!-- Step 2: Check SSL Config -->
+  <rect x="290" y="160" width="70" height="30" rx="3" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="325" y="175" text-anchor="middle" class="small">2. Verificar</text>
+  <text x="325" y="185" text-anchor="middle" class="code">Config SSL</text>
+
+  <!-- Step 3: Load Certificate -->
+  <path d="M 335 200 L 560 200" class="arrow"/>
+  <text x="448" y="195" text-anchor="middle" class="small">3. Cargar Certificado</text>
+  <path d="M 560 220 L 335 220" class="arrow-back"/>
+  <text x="448" y="235" text-anchor="middle" class="code">SSLCertificateFile</text>
+
+  <!-- Step 4: Load Private Key -->
+  <path d="M 335 260 L 820 260" class="arrow"/>
+  <text x="578" y="255" text-anchor="middle" class="small">4. Cargar Clave Privada</text>
+  <path d="M 820 280 L 335 280" class="arrow-back"/>
+  <text x="578" y="295" text-anchor="middle" class="code">SSLCertificateKeyFile (modo 600!)</text>
+
+  <!-- Step 5: Send Certificate -->
+  <path d="M 315 320 L 115 320" class="arrow-back"/>
+  <text x="215" y="315" text-anchor="middle" class="small">5. Enviar Certificado en TLS Handshake</text>
+
+  <!-- Step 6: Verify Certificate -->
+  <rect x="50" y="340" width="120" height="70" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="110" y="358" text-anchor="middle" class="small">6. Verificar Certificado</text>
+  <text x="110" y="375" text-anchor="middle" class="code">• ¿No expirado?</text>
+  <text x="110" y="388" text-anchor="middle" class="code">• ¿Hostname coincide?</text>
+  <text x="110" y="401" text-anchor="middle" class="code">• ¿CA confiable?</text>
+
+  <!-- Conditional Box - Valid -->
+  <rect x="30" y="425" width="580" height="145" rx="6" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="50" y="445" class="section-title" fill="#388E3C">Ruta Certificado Válido</text>
+
+  <path d="M 115 460 L 315 460" class="arrow"/>
+  <text x="215" y="455" text-anchor="middle" class="small">✓ Certificado Aceptado</text>
+
+  <rect x="50" y="468" width="130" height="25" rx="3" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="115" y="485" text-anchor="middle" class="small">7. Generar clave de sesión</text>
+
+  <path d="M 115 510 L 315 510" class="arrow"/>
+  <text x="215" y="505" text-anchor="middle" class="small">8. Cifrar con clave pública</text>
+
+  <path d="M 315 530 L 115 530" class="arrow-back"/>
+  <text x="215" y="545" text-anchor="middle" class="small">✓ Conexión segura establecida</text>
+
+  <!-- Invalid box -->
+  <rect x="630" y="425" width="340" height="145" rx="6" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="650" y="445" class="section-title" fill="#E53935">Ruta Certificado Inválido</text>
+
+  <text x="650" y="470" class="small" fill="#E53935">✗ Errores de Certificado:</text>
+  <text x="660" y="490" class="code">• ERR_CERT_DATE_INVALID</text>
+  <text x="660" y="505" class="code">• ERR_CERT_COMMON_NAME_INVALID</text>
+  <text x="660" y="520" class="code">• ERR_CERT_AUTHORITY_INVALID</text>
+  <text x="650" y="545" class="small" fill="#E53935">Conexión Rechazada</text>
+
+  <!-- Configuration Reference -->
+  <rect x="30" y="590" width="940" height="90" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="500" y="615" text-anchor="middle" class="section-title">Configuración SSL de Apache (/etc/httpd/conf.d/ssl.conf)</text>
+  <text x="60" y="640" class="code">SSLEngine on</text>
+  <text x="60" y="655" class="code">SSLCertificateFile /etc/pki/tls/certs/server.crt</text>
+  <text x="400" y="640" class="code">SSLCertificateKeyFile /etc/pki/tls/private/server.key</text>
+  <text x="400" y="655" class="code">SSLCertificateChainFile /etc/pki/tls/certs/chain.crt (opcional)</text>
+</svg>

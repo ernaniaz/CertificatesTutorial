@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 550" width="1000" height="550">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">CA Bundle Update Process</text>
+
+  <!-- Step 1: Add Custom CA -->
+  <rect x="30" y="60" width="200" height="100" rx="8" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="130" y="90" text-anchor="middle" class="section-title" fill="#fff">Step 1</text>
+  <text x="130" y="110" text-anchor="middle" class="label" fill="#fff">Add Custom CA</text>
+  <rect x="45" y="120" width="170" height="30" rx="3" fill="#fff"/>
+  <text x="130" y="140" text-anchor="middle" class="code">my-ca.crt</text>
+
+  <path d="M 230 110 L 278 110" class="arrow"/>
+
+  <!-- Step 2: Copy to anchors -->
+  <rect x="280" y="60" width="230" height="100" rx="8" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="395" y="90" text-anchor="middle" class="section-title" fill="#F57C00">Step 2</text>
+  <text x="395" y="110" text-anchor="middle" class="label">Copy to Anchors</text>
+  <text x="395" y="135" text-anchor="middle" class="code">cp my-ca.crt</text>
+  <text x="395" y="150" text-anchor="middle" class="code">/etc/pki/ca-trust/source/anchors/</text>
+
+  <path d="M 510 110 L 558 110" class="arrow"/>
+
+  <!-- Step 3: Update Trust -->
+  <rect x="560" y="60" width="200" height="100" rx="8" fill="#388E3C" stroke="#2E7D32" stroke-width="2"/>
+  <text x="660" y="90" text-anchor="middle" class="section-title" fill="#fff">Step 3</text>
+  <text x="660" y="110" text-anchor="middle" class="label" fill="#fff">Update Trust Store</text>
+  <rect x="575" y="120" width="170" height="30" rx="3" fill="#fff"/>
+  <text x="660" y="140" text-anchor="middle" class="code">update-ca-trust extract</text>
+
+  <path d="M 760 110 L 808 110" class="arrow"/>
+
+  <!-- Step 4: Processing -->
+  <rect x="810" y="60" width="160" height="100" rx="8" fill="#FFC107" stroke="#F57C00" stroke-width="2"/>
+  <text x="890" y="90" text-anchor="middle" class="section-title">Step 4</text>
+  <text x="890" y="115" text-anchor="middle" class="label">Processing...</text>
+  <text x="890" y="140" text-anchor="middle" class="small">Regenerating bundles</text>
+
+  <!-- Arrow down to outputs -->
+  <path d="M 890 160 L 890 200 L 500 200 L 500 228" class="arrow"/>
+
+  <!-- Output Section -->
+  <rect x="50" y="230" width="900" height="140" rx="8" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="255" text-anchor="middle" class="section-title" fill="#388E3C">Trust Store Updated - Generated Bundles</text>
+
+  <!-- Bundle 1: OpenSSL -->
+  <rect x="70" y="275" width="260" height="80" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="200" y="298" text-anchor="middle" class="label">OpenSSL Bundle</text>
+  <text x="200" y="318" text-anchor="middle" class="code">/etc/pki/tls/certs/</text>
+  <text x="200" y="335" text-anchor="middle" class="code">ca-bundle.crt</text>
+
+  <!-- Bundle 2: PEM -->
+  <rect x="350" y="275" width="280" height="80" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="490" y="298" text-anchor="middle" class="label">PEM Bundle</text>
+  <text x="490" y="318" text-anchor="middle" class="code">/etc/pki/ca-trust/extracted/pem/</text>
+  <text x="490" y="335" text-anchor="middle" class="code">tls-ca-bundle.pem</text>
+
+  <!-- Bundle 3: Java -->
+  <rect x="650" y="275" width="280" height="80" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="790" y="298" text-anchor="middle" class="label">Java Truststore</text>
+  <text x="790" y="318" text-anchor="middle" class="code">/etc/pki/ca-trust/extracted/java/</text>
+  <text x="790" y="335" text-anchor="middle" class="code">cacerts</text>
+
+  <!-- Applications Section -->
+  <rect x="50" y="390" width="900" height="140" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="500" y="415" text-anchor="middle" class="section-title" fill="#1976D2">Applications Using Trust Store</text>
+
+  <!-- Apps Row 1 -->
+  <rect x="70" y="430" width="130" height="40" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="135" y="455" text-anchor="middle" class="label">OpenSSL</text>
+
+  <rect x="220" y="430" width="130" height="40" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="285" y="455" text-anchor="middle" class="label">curl / wget</text>
+
+  <rect x="370" y="430" width="130" height="40" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="435" y="455" text-anchor="middle" class="label">Apache httpd</text>
+
+  <rect x="520" y="430" width="130" height="40" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="585" y="455" text-anchor="middle" class="label">NGINX</text>
+
+  <rect x="670" y="430" width="130" height="40" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="735" y="455" text-anchor="middle" class="label">GnuTLS apps</text>
+
+  <rect x="820" y="430" width="110" height="40" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="875" y="455" text-anchor="middle" class="label">Java Apps</text>
+
+  <!-- Verification -->
+  <rect x="275" y="485" width="450" height="35" rx="4" fill="#FFF9C4" stroke="#F57C00" stroke-width="1"/>
+  <text x="500" y="507" text-anchor="middle" class="code">openssl verify -CAfile /etc/pki/tls/certs/ca-bundle.crt server.crt</text>
+</svg>

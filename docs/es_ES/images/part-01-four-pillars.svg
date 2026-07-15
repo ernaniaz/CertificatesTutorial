@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 520" width="960" height="520">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #fff; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+    </style>
+  </defs>
+
+
+  <text x="480" y="35" text-anchor="middle" class="title">Los Cuatro Pilares de la Seguridad de la Informaci&#243;n</text>
+
+  <!-- Pillar 1: Confidentiality -->
+  <rect x="20" y="60" width="220" height="440" rx="10" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+  <rect x="20" y="60" width="220" height="50" rx="10" fill="#1565C0"/>
+  <rect x="20" y="85" width="220" height="25" fill="#1565C0"/>
+  <text x="130" y="93" text-anchor="middle" class="section-title">CONFIDENCIALIDAD</text>
+
+  <text x="130" y="140" text-anchor="middle" class="label" font-weight="bold">"Solo t&#250; puedes leerlo"</text>
+  <line x1="40" y1="155" x2="220" y2="155" stroke="#1565C0" stroke-width="1"/>
+  <text x="40" y="180" class="small">Protege contra:</text>
+  <text x="40" y="198" class="label" font-weight="bold">Espionaje</text>
+  <line x1="40" y1="215" x2="220" y2="215" stroke="#ddd" stroke-width="1"/>
+  <text x="40" y="240" class="small">Implementado por:</text>
+  <text x="40" y="260" class="label">&#8226; AES-256 (sim&#233;trico)</text>
+  <text x="40" y="280" class="label">&#8226; RSA/ECC (asim&#233;trico)</text>
+  <line x1="40" y1="300" x2="220" y2="300" stroke="#ddd" stroke-width="1"/>
+  <text x="40" y="325" class="small">Ejemplo:</text>
+  <text x="40" y="345" class="small">Datos cifrados en</text>
+  <text x="40" y="363" class="small">tr&#225;nsito via HTTPS</text>
+
+  <rect x="40" y="390" width="180" height="90" rx="6" fill="#FAFAFA" stroke="#1565C0" stroke-width="1"/>
+  <text x="50" y="412" class="small" style="fill:#1565C0">Mensaje original:</text>
+  <text x="50" y="430" class="label">"senha123"</text>
+  <text x="50" y="452" class="small" style="fill:#1565C0">El atacante ve:</text>
+  <text x="50" y="470" class="label">7f3a&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;</text>
+
+  <!-- Pillar 2: Integrity -->
+  <rect x="255" y="60" width="220" height="440" rx="10" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2"/>
+  <rect x="255" y="60" width="220" height="50" rx="10" fill="#2E7D32"/>
+  <rect x="255" y="85" width="220" height="25" fill="#2E7D32"/>
+  <text x="365" y="93" text-anchor="middle" class="section-title">INTEGRIDAD</text>
+
+  <text x="365" y="140" text-anchor="middle" class="label" font-weight="bold">"No ha sido alterado"</text>
+  <line x1="275" y1="155" x2="455" y2="155" stroke="#2E7D32" stroke-width="1"/>
+  <text x="275" y="180" class="small">Protege contra:</text>
+  <text x="275" y="198" class="label" font-weight="bold">Alteraci&#243;n</text>
+  <line x1="275" y1="215" x2="455" y2="215" stroke="#ddd" stroke-width="1"/>
+  <text x="275" y="240" class="small">Implementado por:</text>
+  <text x="275" y="260" class="label">&#8226; SHA-256 (hashes)</text>
+  <text x="275" y="280" class="label">&#8226; HMAC</text>
+  <line x1="275" y1="300" x2="455" y2="300" stroke="#ddd" stroke-width="1"/>
+  <text x="275" y="325" class="small">Ejemplo:</text>
+  <text x="275" y="345" class="small">Verificaci&#243;n de hash</text>
+  <text x="275" y="363" class="small">de paquetes RPM</text>
+
+  <rect x="275" y="390" width="180" height="90" rx="6" fill="#FAFAFA" stroke="#2E7D32" stroke-width="1"/>
+  <text x="285" y="412" class="small" style="fill:#2E7D32">Transferir $100:</text>
+  <text x="285" y="430" class="label">hash = a1b2c3...</text>
+  <text x="285" y="452" class="small" style="fill:#2E7D32">Transferir $900:</text>
+  <text x="285" y="470" class="label">hash = f7e8d9... &#8800;</text>
+
+  <!-- Pillar 3: Authenticity -->
+  <rect x="490" y="60" width="220" height="440" rx="10" fill="#FFF3E0" stroke="#E65100" stroke-width="2"/>
+  <rect x="490" y="60" width="220" height="50" rx="10" fill="#E65100"/>
+  <rect x="490" y="85" width="220" height="25" fill="#E65100"/>
+  <text x="600" y="93" text-anchor="middle" class="section-title">AUTENTICIDAD</text>
+
+  <text x="600" y="140" text-anchor="middle" class="label" font-weight="bold">"Eres quien dices ser"</text>
+  <line x1="510" y1="155" x2="690" y2="155" stroke="#E65100" stroke-width="1"/>
+  <text x="510" y="180" class="small">Protege contra:</text>
+  <text x="510" y="198" class="label" font-weight="bold">Suplantaci&#243;n</text>
+  <line x1="510" y1="215" x2="690" y2="215" stroke="#ddd" stroke-width="1"/>
+  <text x="510" y="240" class="small">Implementado por:</text>
+  <text x="510" y="260" class="label">&#8226; Certificados X.509</text>
+  <text x="510" y="280" class="label">&#8226; Firmas digitales</text>
+  <line x1="510" y1="300" x2="690" y2="300" stroke="#ddd" stroke-width="1"/>
+  <text x="510" y="325" class="small">Ejemplo:</text>
+  <text x="510" y="345" class="small">Certificado TLS del</text>
+  <text x="510" y="363" class="small">servidor validado</text>
+
+  <rect x="510" y="390" width="180" height="90" rx="6" fill="#FAFAFA" stroke="#E65100" stroke-width="1"/>
+  <text x="520" y="412" class="small" style="fill:#E65100">Servidor presenta:</text>
+  <text x="520" y="430" class="label">CN=banco.com</text>
+  <text x="520" y="452" class="small" style="fill:#E65100">Firmado por la CA:</text>
+  <text x="520" y="470" class="label">DigiCert &#10004;</text>
+
+  <!-- Pillar 4: Non-Repudiation -->
+  <rect x="725" y="60" width="220" height="440" rx="10" fill="#FCE4EC" stroke="#AD1457" stroke-width="2"/>
+  <rect x="725" y="60" width="220" height="50" rx="10" fill="#AD1457"/>
+  <rect x="725" y="85" width="220" height="25" fill="#AD1457"/>
+  <text x="835" y="93" text-anchor="middle" class="section-title">NO REPUDIO</text>
+
+  <text x="835" y="140" text-anchor="middle" class="label" font-weight="bold">"No puede negarlo"</text>
+  <line x1="745" y1="155" x2="925" y2="155" stroke="#AD1457" stroke-width="1"/>
+  <text x="745" y="180" class="small">Protege contra:</text>
+  <text x="745" y="198" class="label" font-weight="bold">Repudio</text>
+  <line x1="745" y1="215" x2="925" y2="215" stroke="#ddd" stroke-width="1"/>
+  <text x="745" y="240" class="small">Implementado por:</text>
+  <text x="745" y="260" class="label">&#8226; Firmas c/ clave</text>
+  <text x="745" y="280" class="label">&#8226; Sellos de tiempo</text>
+  <line x1="745" y1="300" x2="925" y2="300" stroke="#ddd" stroke-width="1"/>
+  <text x="745" y="325" class="small">Ejemplo:</text>
+  <text x="745" y="345" class="small">Contrato firmado</text>
+  <text x="745" y="363" class="small">digitalmente</text>
+
+  <rect x="745" y="390" width="180" height="90" rx="6" fill="#FAFAFA" stroke="#AD1457" stroke-width="1"/>
+  <text x="755" y="412" class="small" style="fill:#AD1457">Alice firma con:</text>
+  <text x="755" y="430" class="label">Clave PRIVADA</text>
+  <text x="755" y="452" class="small" style="fill:#AD1457">Verificaci&#243;n:</text>
+  <text x="755" y="470" class="label">Clave PUBLICA &#10004;</text>
+</svg>

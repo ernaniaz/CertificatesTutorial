@@ -1,0 +1,27 @@
+[book]
+title = "Tutorial de PKI e Certificados Digitais"
+authors = ["Ernani José Camargo Azevedo"]
+language = "pt-BR"
+src = "."
+
+[build]
+build-dir = "../book/pt_BR"
+
+[output.html]
+default-theme = "light"
+preferred-dark-theme = "navy"
+git-repository-url = "https://github.com/ernaniaz/CertificatesTutorial"
+git-repository-icon = "fab-github"
+additional-js = ["../mermaid.min.js", "../mermaid-init.js"]
+
+[output.html.fold]
+enable = true
+level = 0
+
+[output.html.playground]
+editable = false
+copyable = true
+copy-js = true
+
+[preprocessor.mermaid]
+command = "mdbook-mermaid"

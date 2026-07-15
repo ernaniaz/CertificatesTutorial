@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">7-Step Certificate Troubleshooting Process</text>
+
+  <!-- Start -->
+  <ellipse cx="100" cy="80" rx="90" ry="28" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="100" y="78" text-anchor="middle" class="small">Certificate Problem</text>
+  <text x="100" y="92" text-anchor="middle" class="small">Detected</text>
+
+  <path d="M 100 108 L 100 140" class="arrow"/>
+
+  <!-- Step 1 -->
+  <rect x="30" y="145" width="140" height="50" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="100" y="170" text-anchor="middle" class="label" fill="#fff">1. Gather Info</text>
+  <text x="100" y="185" text-anchor="middle" class="code" fill="#fff">Collect evidence</text>
+
+  <path d="M 100 195 L 100 230" class="arrow"/>
+
+  <!-- Step 2 -->
+  <rect x="30" y="235" width="140" height="50" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="100" y="260" text-anchor="middle" class="label" fill="#fff">2. Check Validity</text>
+  <text x="100" y="275" text-anchor="middle" class="code" fill="#fff">openssl x509</text>
+
+  <path d="M 170 260 L 215 260" class="arrow"/>
+
+  <!-- Decision: Expired? -->
+  <polygon points="260,235 320,260 260,285 200,260" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="260" y="265" text-anchor="middle" class="small">Expired?</text>
+
+  <path d="M 320 260 L 375 260" class="arrow"/>
+  <text x="345" y="252" class="small">Yes</text>
+
+  <!-- Fix: Expired -->
+  <rect x="380" y="240" width="130" height="40" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="445" y="258" text-anchor="middle" class="small">Fix: Expired</text>
+  <text x="445" y="273" text-anchor="middle" class="code">→ Renew/Replace</text>
+
+  <!-- No - continue -->
+  <path d="M 260 285 L 260 325" class="arrow"/>
+  <text x="275" y="305" class="small">No</text>
+
+  <!-- Step 3 -->
+  <rect x="190" y="330" width="140" height="50" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="260" y="355" text-anchor="middle" class="label" fill="#fff">3. Check Content</text>
+  <text x="260" y="370" text-anchor="middle" class="code" fill="#fff">SANs/CN/Issuer</text>
+
+  <path d="M 330 355 L 375 355" class="arrow"/>
+
+  <!-- Decision: Hostname Match? -->
+  <polygon points="420,330 480,355 420,380 360,355" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="420" y="352" text-anchor="middle" class="small">Hostname</text>
+  <text x="420" y="366" text-anchor="middle" class="small">Match?</text>
+
+  <path d="M 480 355 L 525 355" class="arrow"/>
+  <text x="500" y="347" class="small">No</text>
+
+  <!-- Fix: Hostname -->
+  <rect x="530" y="335" width="130" height="40" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="595" y="353" text-anchor="middle" class="small">Fix: Hostname</text>
+  <text x="595" y="368" text-anchor="middle" class="code">→ Add SANs</text>
+
+  <path d="M 420 380 L 420 420" class="arrow"/>
+  <text x="435" y="400" class="small">Yes</text>
+
+  <!-- Step 4 -->
+  <rect x="350" y="425" width="140" height="50" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="420" y="450" text-anchor="middle" class="label" fill="#fff">4. Verify Chain</text>
+  <text x="420" y="465" text-anchor="middle" class="code" fill="#fff">openssl verify</text>
+
+  <path d="M 490 450 L 535 450" class="arrow"/>
+
+  <!-- Decision: Chain Valid? -->
+  <polygon points="580,425 640,450 580,475 520,450" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="580" y="453" text-anchor="middle" class="small">Valid?</text>
+
+  <path d="M 640 450 L 685 450" class="arrow"/>
+  <text x="660" y="442" class="small">No</text>
+
+  <!-- Fix: Chain -->
+  <rect x="690" y="430" width="140" height="40" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="760" y="448" text-anchor="middle" class="small">Fix: Broken Chain</text>
+  <text x="760" y="463" text-anchor="middle" class="code">→ Add intermediates</text>
+
+  <path d="M 580 475 L 580 515" class="arrow"/>
+  <text x="595" y="495" class="small">Yes</text>
+
+  <!-- Step 5 -->
+  <rect x="510" y="520" width="140" height="50" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="580" y="545" text-anchor="middle" class="label" fill="#fff">5. Check Perms</text>
+  <text x="580" y="560" text-anchor="middle" class="code" fill="#fff">ls -l / mode 600</text>
+
+  <path d="M 650 545 L 695 545" class="arrow"/>
+
+  <!-- Decision: Perms OK? -->
+  <polygon points="740,520 800,545 740,570 680,545" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="740" y="548" text-anchor="middle" class="small">OK?</text>
+
+  <path d="M 800 545 L 850 545" class="arrow"/>
+  <text x="823" y="537" class="small">No</text>
+
+  <!-- Fix: Perms -->
+  <rect x="855" y="525" width="120" height="40" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="915" y="543" text-anchor="middle" class="small">Fix: Permissions</text>
+  <text x="915" y="558" text-anchor="middle" class="code">→ chmod 600 key</text>
+
+  <path d="M 740 570 L 740 610" class="arrow"/>
+  <text x="755" y="590" class="small">Yes</text>
+
+  <!-- Step 6 -->
+  <rect x="670" y="615" width="140" height="50" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="740" y="640" text-anchor="middle" class="label" fill="#fff">6. Test Service</text>
+  <text x="740" y="655" text-anchor="middle" class="code" fill="#fff">Config check</text>
+
+  <!-- Step 7 -->
+  <rect x="830" y="615" width="140" height="50" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="900" y="640" text-anchor="middle" class="label" fill="#fff">7. System Check</text>
+  <text x="900" y="655" text-anchor="middle" class="code" fill="#fff">SELinux/Firewall</text>
+
+  <!-- Success -->
+  <ellipse cx="800" cy="720" rx="100" ry="30" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="800" y="718" text-anchor="middle" class="label" fill="#388E3C">✓ Problem</text>
+  <text x="800" y="733" text-anchor="middle" class="label" fill="#388E3C">Resolved</text>
+
+  <!-- Fixes flow to verify -->
+  <rect x="730" y="200" width="160" height="110" rx="6" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="810" y="225" text-anchor="middle" class="section-title" fill="#388E3C">Test &amp; Verify</text>
+  <text x="745" y="250" class="code">After any fix:</text>
+  <text x="755" y="268" class="code">1. Apply solution</text>
+  <text x="755" y="283" class="code">2. Reload service</text>
+  <text x="755" y="298" class="code">3. Test connection</text>
+
+  <!-- Fix arrows to verify -->
+  <path d="M 510 260 L 730 260" stroke="#388E3C" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <path d="M 590 335 L 730 260" stroke="#388E3C" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <path d="M 750 430 L 810 310" stroke="#388E3C" stroke-width="1.5" stroke-dasharray="4,2"/>
+  <path d="M 915 525 L 810 310" stroke="#388E3C" stroke-width="1.5" stroke-dasharray="4,2"/>
+
+  <!-- Legend -->
+  <rect x="30" y="720" width="320" height="50" rx="4" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <rect x="45" y="735" width="15" height="15" rx="2" fill="#1976D2"/>
+  <text x="70" y="747" class="small">Step</text>
+  <rect x="120" y="735" width="15" height="15" rx="2" fill="#FFF3CD" stroke="#F57C00"/>
+  <text x="145" y="747" class="small">Fix</text>
+  <rect x="185" y="735" width="15" height="15" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="210" y="747" class="small">Verify</text>
+  <rect x="265" y="735" width="15" height="15" rx="2" fill="#FFF3E0" stroke="#F57C00"/>
+  <text x="290" y="747" class="small">Decision</text>
+</svg>

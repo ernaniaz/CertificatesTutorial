@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Certificate Renewal Process</text>
+
+  <!-- Start -->
+  <ellipse cx="540" cy="80" rx="80" ry="25" fill="#FFF3CD" stroke="#F57C00" stroke-width="2"/>
+  <text x="540" y="85" text-anchor="middle" class="small">Certificate Expiring</text>
+
+  <path d="M 540 105 L 540 138" class="arrow"/>
+
+  <!-- Monitor -->
+  <rect x="480" y="140" width="120" height="40" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="540" y="158" text-anchor="middle" class="small">certmonger</text>
+  <text x="540" y="173" text-anchor="middle" class="small">Daily Check</text>
+
+  <path d="M 540 180 L 540 213" class="arrow"/>
+
+  <!-- Days check -->
+  <polygon points="540,215 620,250 540,285 460,250" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="540" y="248" text-anchor="middle" class="small">Days until</text>
+  <text x="540" y="262" text-anchor="middle" class="small">expiry?</text>
+
+  <!-- >30 days - Wait -->
+  <path d="M 620 250 L 630 250 L 630 160 L 600 160" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3" fill="none"/>
+  <text x="605" y="200" text-anchor="middle" class="small" fill="#999">&gt;30d</text>
+  <text x="605" y="215" text-anchor="middle" class="small" fill="#999">Wait</text>
+
+  <!-- <=30 days - Trigger -->
+  <path d="M 460 250 L 378 250" class="arrow"/>
+  <text x="430" y="240" text-anchor="middle" class="small">≤30d</text>
+
+  <!-- Trigger Renewal -->
+  <rect x="245" y="230" width="130" height="40" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="310" y="255" text-anchor="middle" class="label" fill="#fff">Trigger Renewal</text>
+
+  <path d="M 310 270 L 310 313" class="arrow"/>
+
+  <!-- CA Type Decision -->
+  <polygon points="310,315 400,355 310,395 220,355" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="310" y="348" text-anchor="middle" class="small">CA</text>
+  <text x="310" y="362" text-anchor="middle" class="small">Type?</text>
+
+  <!-- Self-Signed Path -->
+  <path d="M 220 355 L 80 355 L 80 423" class="arrow"/>
+  <text x="150" y="345" text-anchor="middle" class="small">Self-Signed</text>
+
+  <rect x="30" y="425" width="100" height="55" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="80" y="445" text-anchor="middle" class="small">Generate New</text>
+  <text x="80" y="460" text-anchor="middle" class="code">Same key or new</text>
+  <text x="80" y="472" text-anchor="middle" class="code">New validity</text>
+
+  <!-- Local/IPA Path -->
+  <path d="M 310 395 L 310 423" class="arrow"/>
+  <text x="350" y="415" text-anchor="middle" class="small">Local/IPA</text>
+
+  <rect x="255" y="425" width="110" height="55" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="310" y="445" text-anchor="middle" class="small">Request from IPA</text>
+  <text x="310" y="460" text-anchor="middle" class="code">Generate CSR</text>
+  <text x="310" y="472" text-anchor="middle" class="code">Submit to CA</text>
+
+  <!-- External Path -->
+  <path d="M 400 355 L 540 355 L 540 423" class="arrow"/>
+  <text x="470" y="345" text-anchor="middle" class="small">External</text>
+
+  <rect x="485" y="425" width="110" height="55" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="540" y="445" text-anchor="middle" class="small">External CA</text>
+  <text x="540" y="460" text-anchor="middle" class="code">Helper script</text>
+  <text x="540" y="472" text-anchor="middle" class="code">Wait for response</text>
+
+  <!-- Merge to Install -->
+  <path d="M 80 480 L 80 520 L 310 520" stroke="#1976D2" stroke-width="1.5" fill="none"/>
+  <path d="M 310 480 L 310 520" stroke="#1976D2" stroke-width="1.5" fill="none"/>
+  <path d="M 540 480 L 540 520 L 310 520" stroke="#1976D2" stroke-width="1.5" fill="none"/>
+  <path d="M 310 520 L 310 548" class="arrow"/>
+
+  <!-- Install -->
+  <rect x="250" y="550" width="120" height="40" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="310" y="575" text-anchor="middle" class="label">Install New Cert</text>
+
+  <path d="M 310 590 L 310 623" class="arrow"/>
+
+  <!-- Post-Save Hook Decision -->
+  <polygon points="310,625 380,655 310,685 240,655" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="310" y="650" text-anchor="middle" class="small">Post-Save</text>
+  <text x="310" y="665" text-anchor="middle" class="small">Hook?</text>
+
+  <!-- Yes - Run Hook -->
+  <path d="M 380 655 L 483 655" class="arrow"/>
+  <text x="430" y="645" text-anchor="middle" class="small">Yes</text>
+
+  <rect x="485" y="635" width="150" height="60" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="560" y="655" text-anchor="middle" class="label">Run Hook:</text>
+  <text x="560" y="672" text-anchor="middle" class="code">systemctl reload httpd</text>
+  <text x="560" y="686" text-anchor="middle" class="code">Send notification</text>
+
+  <!-- No - Complete -->
+  <path d="M 310 685 L 310 737" class="arrow"/>
+  <text x="325" y="705" text-anchor="middle" class="small">No</text>
+
+  <path d="M 560 695 L 560 755 L 450 755" stroke="#1976D2" stroke-width="1.5" fill="none"/>
+
+  <!-- Complete -->
+  <ellipse cx="380" cy="755" rx="90" ry="28" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="380" y="750" text-anchor="middle" class="small" fill="#388E3C">✓ Renewal Complete</text>
+  <text x="380" y="765" text-anchor="middle" class="small" fill="#388E3C">Status: MONITORING</text>
+
+  <!-- Failure Path -->
+  <rect x="700" y="50" width="270" height="230" rx="6" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="835" y="75" text-anchor="middle" class="section-title" fill="#E53935">Failure Handling</text>
+
+  <text x="720" y="105" class="small">If renewal fails:</text>
+
+  <rect x="720" y="120" width="230" height="35" rx="4" fill="#fff" stroke="#E53935" stroke-width="1"/>
+  <text x="835" y="140" text-anchor="middle" class="small">Retry Count Check</text>
+
+  <text x="735" y="175" class="small">• &lt; Max retries: Wait &amp; retry</text>
+  <text x="735" y="195" class="small">• ≥ Max retries: Status FAILED</text>
+
+  <rect x="720" y="210" width="230" height="55" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="835" y="225" text-anchor="middle" class="label" fill="#E53935">Alert Administrator</text>
+  <text x="835" y="243" text-anchor="middle" class="code">CA_UNREACHABLE</text>
+  <text x="835" y="257" text-anchor="middle" class="code">NEED_GUIDANCE</text>
+
+  <!-- Log Section -->
+  <rect x="700" y="300" width="270" height="80" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="835" y="325" text-anchor="middle" class="section-title">Logging</text>
+  <text x="720" y="350" class="code">/var/log/messages</text>
+  <text x="720" y="368" class="code">journalctl -u certmonger</text>
+</svg>

@@ -1,0 +1,13 @@
+This is a sample file for digital signature testing.
+
+Certificate Lab Exercise - RHEL Tutorial
+SHA-256 digital signature demonstration
+
+This file will be signed with a private key and verified with the corresponding public key.
+
+Digital signatures provide:
+- Authentication: Proves who created the signature
+- Integrity: Detects any modifications to the signed data
+- Non-repudiation: Signer cannot deny creating the signature
+
+In this lab, we use RSA keys and SHA-256 hashing.

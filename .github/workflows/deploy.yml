@@ -1,0 +1,72 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install mdBook
+        run: |
+          cargo install mdbook --version 0.5.4
+          cargo install mdbook-mermaid --version 0.17.0
+
+      - name: Setup mdbook-mermaid
+        run: |
+          cd docs
+          cd en_US
+          mdbook-mermaid install
+          cd ../es_ES
+          mdbook-mermaid install
+          cd ../pt_BR
+          mdbook-mermaid install
+
+      - name: Build book
+        run: |
+          cd docs
+          cd en_US
+          mdbook build
+          cd ../es_ES
+          mdbook build
+          cd ../pt_BR
+          mdbook build
+          cd ..
+          cp index.html book/index.html
+          cp 404.html book/404.html
+          if [ -f CNAME ]; then cp CNAME book/CNAME; fi
+
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./docs/book
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

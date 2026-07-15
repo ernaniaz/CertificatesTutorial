@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .connector { stroke: #1976D2; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Arquitectura de Servicios de Certificado FreeIPA</text>
+
+  <!-- Main IPA Server Box -->
+  <rect x="300" y="50" width="400" height="60" rx="8" fill="#1976D2" stroke="#0D47A1" stroke-width="3"/>
+  <text x="500" y="80" text-anchor="middle" class="section-title" fill="#fff">Servidor FreeIPA</text>
+  <text x="500" y="100" text-anchor="middle" class="small" fill="#fff">Identidad Integrada &amp; PKI</text>
+
+  <!-- Connectors from IPA -->
+  <path d="M 400 110 L 400 150 L 150 150 L 150 180" class="connector"/>
+  <path d="M 500 110 L 500 180" class="connector"/>
+  <path d="M 600 110 L 600 150 L 850 150 L 850 180" class="connector"/>
+
+  <!-- Dogtag PKI -->
+  <rect x="30" y="180" width="240" height="220" rx="6" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <rect x="30" y="180" width="240" height="35" rx="6" fill="#388E3C"/>
+  <text x="150" y="205" text-anchor="middle" class="label" fill="#fff">Dogtag PKI (Sistema de Cert.)</text>
+
+  <rect x="50" y="230" width="200" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="150" y="250" text-anchor="middle" class="label">CA Raíz (ipa-ca)</text>
+
+  <rect x="50" y="280" width="200" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="150" y="300" text-anchor="middle" class="label">Sub-CAs (Opcional)</text>
+
+  <text x="50" y="335" class="small">Perfiles de Certificado:</text>
+  <text x="60" y="352" class="code">• caIPAserviceCert (Servidores web)</text>
+  <text x="60" y="367" class="code">• IECUserRoles (Certs usuario)</text>
+  <text x="60" y="382" class="code">• Perfiles personalizados</text>
+
+  <!-- Directory Server -->
+  <rect x="380" y="180" width="240" height="150" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <rect x="380" y="180" width="240" height="35" rx="6" fill="#1976D2"/>
+  <text x="500" y="205" text-anchor="middle" class="label" fill="#fff">389 Directory Server</text>
+
+  <text x="400" y="235" class="small">Backend LDAP:</text>
+  <text x="410" y="255" class="code">cn=certificates,cn=ipa,cn=etc</text>
+  <text x="400" y="280" class="small">Almacena:</text>
+  <text x="410" y="298" class="code">• Entradas de usuario con certs</text>
+  <text x="410" y="313" class="code">• Entradas de host</text>
+
+  <!-- Kerberos -->
+  <rect x="730" y="180" width="240" height="100" rx="6" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <rect x="730" y="180" width="240" height="35" rx="6" fill="#F57C00"/>
+  <text x="850" y="205" text-anchor="middle" class="label" fill="#fff">MIT Kerberos KDC</text>
+
+  <rect x="750" y="230" width="200" height="35" rx="4" fill="#fff" stroke="#F57C00" stroke-width="1"/>
+  <text x="850" y="248" text-anchor="middle" class="label">Soporte PKINIT</text>
+  <text x="850" y="263" text-anchor="middle" class="small">Autenticación por certificado</text>
+
+  <!-- certmonger -->
+  <rect x="730" y="300" width="240" height="100" rx="6" fill="#E0F7FA" stroke="#00ACC1" stroke-width="2"/>
+  <rect x="730" y="300" width="240" height="35" rx="6" fill="#00ACC1"/>
+  <text x="850" y="325" text-anchor="middle" class="label" fill="#fff">Integración certmonger</text>
+
+  <text x="750" y="360" class="small">Seguimiento automático:</text>
+  <text x="760" y="377" class="code">• Certs de servicio IPA</text>
+  <text x="760" y="392" class="code">• Certs HTTP/LDAP/KDC</text>
+
+  <!-- IPA Client Section -->
+  <rect x="30" y="430" width="400" height="150" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="230" y="455" text-anchor="middle" class="section-title">Clientes Registrados en IPA</text>
+
+  <rect x="50" y="470" width="160" height="90" rx="4" fill="#fff" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="130" y="490" text-anchor="middle" class="label">Cliente IPA</text>
+  <text x="130" y="510" text-anchor="middle" class="code">ipa-client instalado</text>
+  <text x="70" y="535" class="small">• certmonger configurado</text>
+  <text x="70" y="550" class="small">• CA IPA confiable</text>
+
+  <rect x="230" y="470" width="180" height="90" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="320" y="490" text-anchor="middle" class="label" fill="#388E3C">Solicitar Certificado</text>
+  <text x="320" y="510" text-anchor="middle" class="code">ipa-getcert request</text>
+  <text x="320" y="530" text-anchor="middle" class="code">-K host/cliente.ejemplo.com</text>
+  <text x="320" y="550" text-anchor="middle" class="small">Renovación auto habilitada</text>
+
+  <!-- Certificate Lifecycle -->
+  <rect x="460" y="430" width="510" height="150" rx="6" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="715" y="455" text-anchor="middle" class="section-title" fill="#388E3C">Ciclo de Vida del Certificado</text>
+
+  <rect x="480" y="475" width="90" height="35" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="1"/>
+  <text x="525" y="497" text-anchor="middle" class="label" fill="#fff">Emitido</text>
+
+  <path d="M 570 492 L 600 492" stroke="#388E3C" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="610" y="475" width="90" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="655" y="497" text-anchor="middle" class="label">Rastreado</text>
+
+  <path d="M 700 492 L 730 492" stroke="#388E3C" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="740" y="475" width="90" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="785" y="497" text-anchor="middle" class="label">Monitoreado</text>
+
+  <path d="M 830 492 L 860 492" stroke="#388E3C" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="870" y="475" width="80" height="35" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="1"/>
+  <text x="910" y="492" text-anchor="middle" class="label" fill="#fff">Renov.</text>
+  <text x="910" y="505" text-anchor="middle" class="label" fill="#fff">Auto</text>
+
+  <!-- Loop back arrow -->
+  <path d="M 910 510 L 910 555 L 525 555 L 525 510" stroke="#388E3C" stroke-width="1.5" fill="none" stroke-dasharray="5,3"/>
+  <text x="717" y="545" text-anchor="middle" class="small" fill="#388E3C">28 días antes del vencimiento</text>
+
+  <!-- Revocation -->
+  <rect x="610" y="520" width="180" height="35" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="700" y="540" text-anchor="middle" class="label">Revocar → Agregar a CRL</text>
+
+  <!-- Web UI -->
+  <rect x="30" y="600" width="940" height="70" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="500" y="625" text-anchor="middle" class="section-title" fill="#1976D2">Interfaz Web &amp; API - Operaciones de Certificado</text>
+
+  <rect x="100" y="640" width="100" height="25" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="150" y="657" text-anchor="middle" class="small">Emitir</text>
+
+  <rect x="250" y="640" width="100" height="25" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="300" y="657" text-anchor="middle" class="small">Revocar</text>
+
+  <rect x="400" y="640" width="100" height="25" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="450" y="657" text-anchor="middle" class="small">Visualizar</text>
+
+  <rect x="550" y="640" width="100" height="25" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="600" y="657" text-anchor="middle" class="small">Renovar</text>
+
+  <rect x="700" y="640" width="180" height="25" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="790" y="657" text-anchor="middle" class="small">ipa cert-request CLI</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388E3C" />
+    </marker>
+  </defs>
+</svg>

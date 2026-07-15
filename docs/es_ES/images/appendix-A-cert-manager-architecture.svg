@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="1000" height="520">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+    <marker id="arrowhead-orange" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#F57C00" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Arquitectura cert-manager de Kubernetes</text>
+
+  <!-- Kubernetes Cluster -->
+  <rect x="30" y="55" width="460" height="360" rx="8" fill="#E3F2FD" stroke="#326CE5" stroke-width="3"/>
+  <rect x="30" y="55" width="460" height="35" rx="8" fill="#326CE5"/>
+  <text x="260" y="78" text-anchor="middle" class="label" fill="#fff">Clúster Kubernetes</text>
+
+  <!-- cert-manager -->
+  <rect x="160" y="110" width="200" height="45" rx="6" fill="#0066CC" stroke="#004C99" stroke-width="2"/>
+  <text x="260" y="130" text-anchor="middle" class="label" fill="#fff">cert-manager</text>
+  <text x="260" y="147" text-anchor="middle" class="small" fill="#fff">Controlador de Certificados</text>
+
+  <!-- CRDs -->
+  <rect x="50" y="200" width="200" height="100" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="150" y="220" text-anchor="middle" class="section-title" fill="#1976D2">Recursos Personalizados</text>
+  <text x="60" y="243" class="small">• Issuer (namespace)</text>
+  <text x="60" y="260" class="small">• ClusterIssuer (clúster)</text>
+  <text x="60" y="277" class="small">• Certificate (solicitud)</text>
+  <text x="60" y="294" class="small">• CertificateRequest</text>
+  <path d="M 260 155 L 150 200" class="arrow"/>
+
+  <!-- Controllers -->
+  <rect x="270" y="200" width="200" height="100" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="370" y="220" text-anchor="middle" class="section-title" fill="#1976D2">Controladores</text>
+  <text x="280" y="243" class="small">• Controlador Issuer</text>
+  <text x="280" y="260" class="small">• Controlador Certificate</text>
+  <text x="280" y="277" class="small">• Controlador ACME</text>
+  <text x="290" y="294" class="small">(Let's Encrypt)</text>
+  <path d="M 260 155 L 370 200" class="arrow"/>
+
+  <!-- Supported Issuers -->
+  <rect x="50" y="320" width="420" height="75" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="260" y="340" text-anchor="middle" class="section-title" fill="#1976D2">Emisores Soportados</text>
+
+  <rect x="65" y="355" width="70" height="30" rx="3" fill="#E8F5E9" stroke="#388E3C"/>
+  <text x="100" y="375" text-anchor="middle" class="code">SelfSigned</text>
+
+  <rect x="145" y="355" width="70" height="30" rx="3" fill="#E8F5E9" stroke="#388E3C"/>
+  <text x="180" y="375" text-anchor="middle" class="code">CA</text>
+
+  <rect x="225" y="355" width="70" height="30" rx="3" fill="#E8F5E9" stroke="#388E3C"/>
+  <text x="260" y="375" text-anchor="middle" class="code">Vault</text>
+
+  <rect x="305" y="355" width="70" height="30" rx="3" fill="#E8F5E9" stroke="#388E3C"/>
+  <text x="340" y="375" text-anchor="middle" class="code">Venafi</text>
+
+  <rect x="385" y="355" width="70" height="30" rx="3" fill="#17A2B8" stroke="#138496"/>
+  <text x="420" y="375" text-anchor="middle" class="code" fill="#fff">ACME/LE</text>
+
+  <!-- Certificate Workflow -->
+  <rect x="510" y="55" width="460" height="360" rx="8" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="740" y="78" text-anchor="middle" class="section-title" fill="#388E3C">Flujo de Trabajo del Certificado</text>
+
+  <rect x="530" y="100" width="170" height="55" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="620" y="120" text-anchor="middle" class="label" fill="#388E3C">1. Crear Certificado</text>
+  <text x="545" y="140" class="code">dnsNames, secretName</text>
+  <text x="545" y="152" class="code">issuerRef, duration</text>
+
+  <rect x="530" y="180" width="170" height="55" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="620" y="200" text-anchor="middle" class="label" fill="#388E3C">2. Procesar</text>
+  <text x="545" y="220" class="code">Generar clave → CSR</text>
+  <text x="545" y="232" class="code">Enviar al emisor</text>
+  <path d="M 615 155 L 615 180" class="arrow"/>
+
+  <rect x="530" y="260" width="170" height="40" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="620" y="285" text-anchor="middle" class="label" fill="#388E3C">3. CA Firma</text>
+  <path d="M 615 235 L 615 260" class="arrow"/>
+
+  <rect x="530" y="325" width="170" height="70" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="1"/>
+  <text x="620" y="348" text-anchor="middle" class="label" fill="#fff">4. Almacenar en Secret</text>
+  <text x="545" y="370" class="small" fill="#fff">tls.crt</text>
+  <text x="545" y="385" class="small" fill="#fff">tls.key</text>
+  <text x="615" y="370" class="small" fill="#fff">ca.crt</text>
+  <path d="M 615 300 L 615 325" class="arrow"/>
+
+  <!-- Auto-Renewal -->
+  <rect x="730" y="100" width="220" height="140" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="840" y="125" text-anchor="middle" class="section-title" fill="#388E3C">Renovación Automática</text>
+  <text x="745" y="150" class="small">cert-manager monitorea</text>
+  <text x="745" y="170" class="small">expiración &lt; 1/3 tiempo de vida</text>
+  <text x="745" y="195" class="small" fill="#388E3C">→ Generar nuevo CSR</text>
+  <text x="745" y="210" class="small" fill="#388E3C">→ Solicitar de CA</text>
+  <text x="745" y="225" class="small" fill="#388E3C">→ Actualizar Secret</text>
+
+  <!-- Ingress Integration -->
+  <rect x="730" y="290" width="220" height="110" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="840" y="315" text-anchor="middle" class="section-title" fill="#F57C00">Integración con Ingress</text>
+  <text x="745" y="340" class="code">apiVersion: networking.k8s.io/v1</text>
+  <text x="745" y="358" class="code">kind: Ingress</text>
+  <text x="745" y="376" class="code">tls:</text>
+  <text x="755" y="391" class="code">- secretName: example-tls</text>
+
+  <!-- Connection: Ingress references the Secret -->
+  <path d="M 730 360 L 700 360" stroke="#F57C00" stroke-width="1.5" stroke-dasharray="4,2" fill="none" marker-end="url(#arrowhead-orange)"/>
+  <text x="705" y="352" class="small" fill="#F57C00">usa</text>
+
+  <!-- Pod Usage -->
+  <rect x="30" y="440" width="940" height="80" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="500" y="465" text-anchor="middle" class="section-title">Uso de Certificado en Pod</text>
+
+  <rect x="60" y="480" width="200" height="30" rx="3" fill="#E3F2FD" stroke="#1976D2"/>
+  <text x="160" y="500" text-anchor="middle" class="small">5. Montar Secret en Pod</text>
+
+  <rect x="280" y="480" width="200" height="30" rx="3" fill="#E3F2FD" stroke="#1976D2"/>
+  <text x="380" y="500" text-anchor="middle" class="small">Pod usa para TLS</text>
+
+  <rect x="500" y="480" width="200" height="30" rx="3" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="600" y="500" text-anchor="middle" class="small">Recargado auto en renovación</text>
+
+  <rect x="720" y="480" width="220" height="30" rx="3" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="830" y="500" text-anchor="middle" class="small">Rotación sin tiempo de inactividad</text>
+
+  <path d="M 260 495 L 280 495" class="arrow"/>
+  <path d="M 480 495 L 500 495" class="arrow"/>
+  <path d="M 700 495 L 720 495" class="arrow"/>
+</svg>

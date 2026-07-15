@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 810" width="1000" height="810">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Campos do Certificado X.509 - Detalhamento</text>
+
+  <!-- Basic Fields (v1) Section -->
+  <rect x="30" y="50" width="300" height="150" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="180" y="75" text-anchor="middle" class="section-title" fill="#1976D2">Campos Básicos (v1)</text>
+
+  <rect x="50" y="90" width="260" height="30" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="180" y="110" text-anchor="middle" class="label">Versão: 3 (padrão X.509 v3)</text>
+
+  <rect x="50" y="130" width="260" height="30" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="180" y="150" text-anchor="middle" class="label">Série: Único por CA (4A:F3:22...)</text>
+
+  <rect x="50" y="170" width="260" height="25" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="180" y="188" text-anchor="middle" class="code">Alg Assin: sha256WithRSAEncryption</text>
+
+  <!-- Identity Fields Section -->
+  <rect x="350" y="50" width="300" height="150" rx="6" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="500" y="75" text-anchor="middle" class="section-title" fill="#F57C00">Campos de Identidadee</text>
+
+  <rect x="370" y="90" width="260" height="48" rx="3" fill="#FFC107" stroke="#F57C00" stroke-width="1"/>
+  <text x="500" y="107" text-anchor="middle" class="label">DN do Emissor</text>
+  <text x="500" y="124" text-anchor="middle" class="code">CN=CA, O=Org, OU=TI, L=Cidade, C=BR</text>
+
+  <rect x="370" y="146" width="260" height="48" rx="3" fill="#388E3C" stroke="#2E7D32" stroke-width="1"/>
+  <text x="500" y="164" text-anchor="middle" class="label" fill="#fff">DN do Sujeito</text>
+  <text x="500" y="181" text-anchor="middle" class="code" fill="#fff">CN=server.exemplo.com, O=Org, C=BR</text>
+
+  <!-- Validity Period Section -->
+  <rect x="670" y="50" width="300" height="150" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="820" y="75" text-anchor="middle" class="section-title" fill="#388E3C">Período de Validade</text>
+
+  <rect x="690" y="95" width="260" height="45" rx="3" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="820" y="115" text-anchor="middle" class="label">Não Antes</text>
+  <text x="820" y="132" text-anchor="middle" class="code">2024-01-01 00:00:00 UTC</text>
+
+  <rect x="690" y="150" width="260" height="45" rx="3" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="820" y="170" text-anchor="middle" class="label">Não Depois</text>
+  <text x="820" y="187" text-anchor="middle" class="code">2025-01-01 23:59:59 UTC</text>
+
+  <!-- Public Key Info Section -->
+  <rect x="30" y="220" width="300" height="130" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="180" y="245" text-anchor="middle" class="section-title" fill="#1976D2">Informações da Chave Pública</text>
+
+  <rect x="50" y="260" width="120" height="35" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="110" y="278" text-anchor="middle" class="small">Algoritmo</text>
+  <text x="110" y="290" text-anchor="middle" class="code">rsaEncryption</text>
+
+  <rect x="180" y="260" width="130" height="35" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="245" y="278" text-anchor="middle" class="small">Tamanho</text>
+  <text x="245" y="290" text-anchor="middle" class="code">2048/4096 bits</text>
+
+  <rect x="50" y="305" width="260" height="35" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="180" y="325" text-anchor="middle" class="small">Dados Chave Pública: [bytes hex para criptog./verif.]</text>
+
+  <!-- Critical Extensions Section -->
+  <rect x="350" y="220" width="620" height="180" rx="6" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="660" y="245" text-anchor="middle" class="section-title" fill="#E53935">Extensões Críticas (v3) - DEVEM ser entendidas</text>
+
+  <!-- Basic Constraints -->
+  <rect x="370" y="260" width="180" height="60" rx="3" fill="#E53935" stroke="#C62828" stroke-width="1"/>
+  <text x="460" y="280" text-anchor="middle" class="label" fill="#fff">Restrições Básicas</text>
+  <text x="460" y="297" text-anchor="middle" class="small" fill="#fff">CA:FALSE</text>
+  <text x="460" y="312" text-anchor="middle" class="small" fill="#fff">pathLen: N/A</text>
+
+  <!-- Key Usage -->
+  <rect x="565" y="260" width="180" height="60" rx="3" fill="#E53935" stroke="#C62828" stroke-width="1"/>
+  <text x="655" y="280" text-anchor="middle" class="label" fill="#fff">Uso da Chave</text>
+  <text x="655" y="297" text-anchor="middle" class="small" fill="#fff">Assinatura Digital ✓</text>
+  <text x="655" y="312" text-anchor="middle" class="small" fill="#fff">Cifragem de Chave ✓</text>
+
+  <!-- SAN -->
+  <rect x="760" y="260" width="190" height="60" rx="3" fill="#E53935" stroke="#C62828" stroke-width="1"/>
+  <text x="855" y="280" text-anchor="middle" class="label" fill="#fff">Nomes Alternativos</text>
+  <text x="855" y="297" text-anchor="middle" class="code" fill="#fff">DNS:server.exemplo.com</text>
+  <text x="855" y="312" text-anchor="middle" class="code" fill="#fff">IP:192.168.1.10</text>
+
+  <!-- Extended Key Usage -->
+  <rect x="370" y="330" width="280" height="55" rx="3" fill="#fff" stroke="#E53935" stroke-width="1"/>
+  <text x="510" y="350" text-anchor="middle" class="label">Uso Estendido da Chave</text>
+  <text x="510" y="368" text-anchor="middle" class="small">Autent. Servidor TLS | Autent. Cliente TLS | Assin. Código</text>
+
+  <!-- Important Extensions Section -->
+  <rect x="30" y="420" width="940" height="200" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="445" text-anchor="middle" class="section-title" fill="#388E3C">Extensões Importantes (v3) - Não Críticas</text>
+
+  <!-- SKID -->
+  <rect x="50" y="465" width="200" height="55" rx="3" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="150" y="485" text-anchor="middle" class="label">Identificador Chave Sujeito</text>
+  <text x="150" y="503" text-anchor="middle" class="small">Hash da chave pública</text>
+  <text x="150" y="515" text-anchor="middle" class="small">Identificador único</text>
+
+  <!-- AKID -->
+  <rect x="270" y="465" width="200" height="55" rx="3" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="370" y="485" text-anchor="middle" class="label">Identificador Chave Autoridade</text>
+  <text x="370" y="503" text-anchor="middle" class="small">Liga ao SKID do emissor</text>
+  <text x="370" y="515" text-anchor="middle" class="small">Identifica qual CA assinou</text>
+
+  <!-- CDP -->
+  <rect x="490" y="465" width="220" height="55" rx="3" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="600" y="485" text-anchor="middle" class="label">Pontos Distribuição CRL</text>
+  <text x="600" y="503" text-anchor="middle" class="code">http://ca.exemplo.com/crl.pem</text>
+  <text x="600" y="515" text-anchor="middle" class="small">Onde obter lista de revogação</text>
+
+  <!-- AIA -->
+  <rect x="730" y="465" width="220" height="55" rx="3" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="840" y="485" text-anchor="middle" class="label">Acesso Info Autoridade</text>
+  <text x="840" y="503" text-anchor="middle" class="code">OCSP:http://ocsp.exemplo.com</text>
+  <text x="840" y="515" text-anchor="middle" class="small">URL Emissores CA</text>
+
+  <!-- Criticality Legend -->
+  <rect x="50" y="540" width="400" height="65" rx="3" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="250" y="560" text-anchor="middle" class="section-title">Criticidade das Extensões</text>
+  <rect x="70" y="571" width="15" height="15" fill="#E53935"/>
+  <text x="95" y="583" class="small">CRÍTICA: Deve ser entendida, cert rejeitado se desconhecida</text>
+  <rect x="70" y="587" width="15" height="15" fill="#388E3C"/>
+  <text x="95" y="599" class="small">Não Crítica: Pode ser ignorada se não entendida</text>
+
+  <!-- Signature Section -->
+  <rect x="30" y="640" width="940" height="100" rx="6" fill="#CFE2FF" stroke="#1976D2" stroke-width="2"/>
+  <text x="500" y="670" text-anchor="middle" class="section-title" fill="#1976D2">Assinatura do Certificado</text>
+
+  <rect x="50" y="690" width="420" height="35" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="260" y="712" text-anchor="middle" class="label">Algoritmo de Assinatura: sha256WithRSAEncryption</text>
+
+  <rect x="490" y="690" width="460" height="35" rx="3" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="720" y="712" text-anchor="middle" class="small">Valor Assinatura: Hash criptografado do cert, criado com chave privada emissor</text>
+
+  <!-- Footer note -->
+  <rect x="30" y="760" width="940" height="50" rx="4" fill="#FFF9C4" stroke="#F57C00" stroke-width="1"/>
+  <text x="500" y="785" text-anchor="middle" class="small">Nota: Certificados modernos DEVEM ter extensão SAN. O campo CN sozinho está obsoleto para matching de hostname.</text>
+  <text x="500" y="800" text-anchor="middle" class="small">Sempre verifique: openssl x509 -in cert.pem -noout -text</text>
+</svg>

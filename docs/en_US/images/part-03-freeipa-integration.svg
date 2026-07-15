@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .connector { stroke: #1976D2; stroke-width: 1.5; fill: none; }
+      .arrow { stroke: #388E3C; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="5" markerHeight="10" refX="4" refY="3" orient="auto">
+      <polygon points="0 0, 5 3, 0 6" fill="#388E3C" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">FreeIPA Integration with RHEL Services</text>
+
+  <!-- Main IPA Server -->
+  <rect x="350" y="50" width="300" height="55" rx="8" fill="#1976D2" stroke="#0D47A1" stroke-width="3"/>
+  <text x="500" y="78" text-anchor="middle" class="section-title" fill="#fff">FreeIPA Server</text>
+  <text x="500" y="95" text-anchor="middle" class="small" fill="#fff">Centralized Identity &amp; PKI</text>
+
+  <!-- Services Integration Box -->
+  <rect x="30" y="130" width="600" height="270" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="330" y="155" text-anchor="middle" class="section-title">RHEL Services Integration</text>
+
+  <!-- Apache -->
+  <rect x="50" y="175" width="170" height="105" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="135" y="195" text-anchor="middle" class="label">Apache httpd</text>
+  <text x="65" y="218" class="code">mod_auth_gssapi</text>
+  <text x="75" y="233" class="small">Kerberos SSO</text>
+  <text x="65" y="250" class="code">mod_ssl</text>
+  <text x="75" y="263" class="small">Cert from IPA CA</text>
+
+  <!-- SSSD -->
+  <rect x="240" y="175" width="170" height="105" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="325" y="195" text-anchor="middle" class="label">SSSD</text>
+  <text x="255" y="218" class="small">Authentication:</text>
+  <text x="265" y="233" class="code">• Kerberos tickets</text>
+  <text x="265" y="248" class="code">• Certificate mapping</text>
+  <text x="265" y="263" class="code">• Smart card auth</text>
+
+  <!-- SSH -->
+  <rect x="430" y="175" width="170" height="105" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="515" y="195" text-anchor="middle" class="label">OpenSSH</text>
+  <text x="445" y="218" class="code">GSSAPI auth</text>
+  <text x="455" y="233" class="small">Kerberos tickets</text>
+  <text x="445" y="250" class="code">Certificate auth</text>
+  <text x="455" y="263" class="small">User/Host certs</text>
+
+  <!-- sudo -->
+  <rect x="50" y="300" width="170" height="80" rx="4" fill="#FCE4EC" stroke="#E91E63" stroke-width="1.5"/>
+  <text x="135" y="320" text-anchor="middle" class="label">sudo</text>
+  <text x="65" y="343" class="small">IPA-managed rules:</text>
+  <text x="75" y="360" class="code">• HBAC policies</text>
+  <text x="75" y="375" class="code">• Sudo rules</text>
+
+  <!-- certmonger -->
+  <rect x="240" y="300" width="360" height="80" rx="4" fill="#00ACC1" stroke="#00838F" stroke-width="2"/>
+  <text x="420" y="320" text-anchor="middle" class="label" fill="#fff">certmonger</text>
+  <text x="260" y="343" class="small" fill="#fff">Auto-tracking of IPA-issued certificates</text>
+  <text x="260" y="360" class="code" fill="#fff">getcert request -c IPA -K host/server.example.com</text>
+  <text x="260" y="375" class="small" fill="#fff">Auto-renewal, no manual CSR process</text>
+
+  <!-- Certificate Flow Section -->
+  <rect x="660" y="130" width="310" height="270" rx="6" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="815" y="155" text-anchor="middle" class="section-title" fill="#388E3C">Certificate Flow</text>
+
+  <rect x="680" y="175" width="270" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="815" y="197" text-anchor="middle" class="label">1. Service Requests Certificate</text>
+
+  <path d="M 815 210 L 815 233" class="arrow"/>
+
+  <rect x="680" y="235" width="270" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="815" y="250" text-anchor="middle" class="code">getcert request -c IPA</text>
+  <text x="815" y="265" text-anchor="middle" class="code">-K host/server.example.com</text>
+
+  <path d="M 815 270 L 815 293" class="arrow"/>
+
+  <rect x="680" y="295" width="270" height="35" rx="4" fill="#FFC107" stroke="#F57C00" stroke-width="1"/>
+  <text x="815" y="317" text-anchor="middle" class="label">2. Authenticate to IPA</text>
+
+  <path d="M 815 330 L 815 353" class="arrow"/>
+
+  <rect x="680" y="355" width="270" height="25" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="1"/>
+  <text x="815" y="372" text-anchor="middle" class="label" fill="#fff">3. Certificate Issued &amp; Installed</text>
+
+  <!-- Trust Establishment Section -->
+  <rect x="30" y="420" width="600" height="120" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="330" y="445" text-anchor="middle" class="section-title" fill="#388E3C">Trust Establishment: ipa-client-install</text>
+
+  <rect x="50" y="465" width="280" height="60" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="190" y="485" text-anchor="middle" class="label">Enrollment Establishes:</text>
+  <text x="65" y="505" class="code">✓ IPA CA added to trust store</text>
+  <text x="65" y="520" class="code">✓ Kerberos, SSSD, DNS configured</text>
+
+  <rect x="350" y="465" width="260" height="60" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="1"/>
+  <text x="480" y="485" text-anchor="middle" class="label" fill="#fff">Result:</text>
+  <text x="365" y="505" class="small" fill="#fff">✓ All IPA-issued certs trusted</text>
+  <text x="365" y="520" class="small" fill="#fff">✓ SSO enabled across services</text>
+
+  <!-- Benefits Section -->
+  <rect x="660" y="420" width="310" height="120" rx="6" fill="#CFE2FF" stroke="#1976D2" stroke-width="2"/>
+  <text x="815" y="445" text-anchor="middle" class="section-title" fill="#1976D2">Key Benefits</text>
+
+  <text x="680" y="470" class="small" fill="#1976D2">✓ Single Sign-On (Kerberos + Certs)</text>
+  <text x="680" y="490" class="small" fill="#1976D2">✓ Centralized CA for all services</text>
+  <text x="680" y="510" class="small" fill="#1976D2">✓ Auto-Renewal (no manual work)</text>
+  <text x="680" y="530" class="small" fill="#1976D2">✓ Immediate revocation across domain</text>
+
+  <!-- Commands Reference -->
+  <rect x="30" y="560" width="940" height="80" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="500" y="585" text-anchor="middle" class="section-title">Quick Reference Commands</text>
+
+  <text x="60" y="610" class="code">ipa-client-install</text>
+  <text x="70" y="625" class="small">Enroll client in IPA domain</text>
+
+  <text x="250" y="610" class="code">getcert list</text>
+  <text x="260" y="625" class="small">List tracked certificates</text>
+
+  <text x="420" y="610" class="code">ipa cert-request CSR --principal host/srv</text>
+  <text x="430" y="625" class="small">Request certificate via CLI</text>
+
+  <text x="720" y="610" class="code">ipa cert-show SERIAL</text>
+  <text x="730" y="625" class="small">View certificate details</text>
+
+  <!-- IPA Workflow Diagram -->
+  <rect x="30" y="660" width="940" height="70" rx="6" fill="#FFF9C4" stroke="#F57C00" stroke-width="1"/>
+  <text x="500" y="685" text-anchor="middle" class="section-title" fill="#F57C00">IPA Certificate Workflow</text>
+
+  <text x="100" y="710" text-anchor="middle" class="small">Client Enrolled</text>
+  <path d="M 160 705 L 200 705" stroke="#F57C00" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="280" y="710" text-anchor="middle" class="small">Request Cert</text>
+  <path d="M 350 705 L 390 705" stroke="#F57C00" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="470" y="710" text-anchor="middle" class="small">IPA Issues</text>
+  <path d="M 540 705 L 580 705" stroke="#F57C00" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="660" y="710" text-anchor="middle" class="small">certmonger Tracks</text>
+  <path d="M 740 705 L 780 705" stroke="#F57C00" stroke-width="1.5" marker-end="url(#arrowhead)"/>
+  <text x="870" y="710" text-anchor="middle" class="small">Auto-Renews</text>
+</svg>

@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 900" width="1000" height="900">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388E3C" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">🚨 Fluxograma de Emergência de Certificados em Produção</text>
+
+  <!-- Emergency Start -->
+  <ellipse cx="500" cy="70" rx="130" ry="25" fill="#FFEBEE" stroke="#E53935" stroke-width="3"/>
+  <text x="500" y="68" text-anchor="middle" class="label" fill="#E53935">🚨 Emergência de</text>
+  <text x="500" y="82" text-anchor="middle" class="label" fill="#E53935">Certificado em Produção</text>
+
+  <path d="M 500 95 L 500 120" class="arrow"/>
+
+  <!-- Step 1: Assess -->
+  <rect x="400" y="120" width="200" height="45" rx="6" fill="#E53935" stroke="#C62828" stroke-width="2"/>
+  <text x="500" y="140" text-anchor="middle" class="label" fill="#fff">1. Avaliar Impacto</text>
+  <text x="500" y="155" text-anchor="middle" class="code" fill="#fff">⏰ 2-5 minutos</text>
+
+  <path d="M 500 165 L 500 195" class="arrow"/>
+
+  <!-- Critical Decision -->
+  <polygon points="500,195 580,225 500,255 420,225" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="500" y="230" text-anchor="middle" class="label">Crítico?</text>
+
+  <!-- P0 Path (Left) -->
+  <path d="M 420 225 L 150 225 L 150 250" class="arrow"/>
+  <text x="285" y="215" text-anchor="middle" class="small">Sim - Produção Fora</text>
+
+  <rect x="50" y="250" width="200" height="45" rx="6" fill="#E53935" stroke="#C62828" stroke-width="2"/>
+  <text x="150" y="270" text-anchor="middle" class="label" fill="#fff">PRIORIDADE 0: Imediato</text>
+  <text x="150" y="285" text-anchor="middle" class="code" fill="#fff">Continuar ao Passo 2 →</text>
+
+  <!-- Arrow from P0 to Step 2 -->
+  <path d="M 150 295 L 150 333 L 400 333" class="arrow"/>
+
+  <!-- P1 Path (Right) -->
+  <path d="M 580 225 L 850 225 L 850 250" class="arrow"/>
+  <text x="715" y="215" text-anchor="middle" class="small">Não - Pode Esperar</text>
+
+  <rect x="750" y="250" width="200" height="45" rx="6" fill="#FFC107" stroke="#FF8F00" stroke-width="2"/>
+  <text x="850" y="270" text-anchor="middle" class="label">PRIORIDADE 1: Agendar</text>
+  <text x="850" y="285" text-anchor="middle" class="code">Planejar remediação</text>
+
+  <!-- Prevention (Right side, below P1) -->
+  <path d="M 850 295 L 850 320" stroke="#1976D2" stroke-width="1.5" stroke-dasharray="4,2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <rect x="750" y="320" width="200" height="120" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="850" y="345" text-anchor="middle" class="section-title" fill="#1976D2">Prevenir Recorrência</text>
+  <text x="765" y="368" class="small">✓ Monitoramento de certs</text>
+  <text x="765" y="385" class="small">✓ Renovação automática</text>
+  <text x="765" y="402" class="small">✓ Alertas expiração 30/14/7d</text>
+  <text x="765" y="419" class="small">✓ Procedimentos de backup</text>
+
+  <!-- Step 2: Quick Diagnosis (Center) -->
+  <rect x="400" y="310" width="200" height="45" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="500" y="330" text-anchor="middle" class="label" fill="#fff">2. Diagnóstico Rápido</text>
+  <text x="500" y="345" text-anchor="middle" class="code" fill="#fff">⏰ 3-5 minutos</text>
+
+  <path d="M 500 355 L 500 390" class="arrow"/>
+
+  <!-- Problem Decision (Center) -->
+  <polygon points="500,390 580,420 500,450 420,420" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="500" y="425" text-anchor="middle" class="small">Problema?</text>
+
+  <!-- Solutions (spread below Problem) -->
+  <rect x="220" y="480" width="160" height="85" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="300" y="502" text-anchor="middle" class="section-title" fill="#F57C00">Expirado</text>
+  <text x="235" y="522" class="code">openssl req -x509</text>
+  <text x="235" y="537" class="code">-newkey rsa:2048</text>
+  <text x="235" y="552" class="code">-days 90 -nodes</text>
+  <path d="M 420 420 L 300 420 L 300 480" class="arrow"/>
+
+  <rect x="420" y="480" width="160" height="85" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="500" y="502" text-anchor="middle" class="section-title" fill="#F57C00">Certificado incorreto</text>
+  <text x="435" y="522" class="code">Restaurar backup:</text>
+  <text x="435" y="537" class="code">cp backup-*.crt</text>
+  <text x="435" y="552" class="code">/etc/pki/tls/</text>
+  <path d="M 500 450 L 500 480" class="arrow"/>
+
+  <rect x="620" y="480" width="160" height="85" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="700" y="502" text-anchor="middle" class="section-title" fill="#F57C00">Chave Perdida</text>
+  <text x="635" y="522" class="code">Geração rápida:</text>
+  <text x="635" y="537" class="code">openssl genrsa</text>
+  <text x="635" y="552" class="code">openssl req -new</text>
+  <path d="M 580 420 L 700 420 L 700 480" class="arrow"/>
+
+  <!-- Merge arrows to Deploy -->
+  <path d="M 300 565 L 300 595 L 500 595" stroke="#388E3C" stroke-width="1.5" fill="none"/>
+  <path d="M 500 565 L 500 595" stroke="#388E3C" stroke-width="1.5" fill="none"/>
+  <path d="M 700 565 L 700 595 L 500 595" stroke="#388E3C" stroke-width="1.5" fill="none"/>
+  <circle cx="500" cy="595" r="4" fill="#388E3C"/>
+  <path d="M 500 595 L 500 625" stroke="#388E3C" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-green)"/>
+
+  <!-- Step 3: Deploy & Reload (Center) -->
+  <rect x="400" y="625" width="200" height="80" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="648" text-anchor="middle" class="section-title" fill="#388E3C">3. Implantar e Recarregar</text>
+  <text x="415" y="665" class="code">1. Copiar para /etc/pki/</text>
+  <text x="415" y="680" class="code">2. chmod 600 key</text>
+  <text x="415" y="695" class="code">3. systemctl reload</text>
+
+  <path d="M 500 705 L 500 740" class="arrow"/>
+
+  <!-- Up? Decision -->
+  <polygon points="500,740 560,770 500,800 440,770" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="500" y="775" text-anchor="middle" class="small">Ativo?</text>
+
+  <!-- Yes path -->
+  <path d="M 560 770 L 655 770" class="arrow"/>
+  <text x="600" y="760" text-anchor="middle" class="small" fill="#388E3C">Sim</text>
+
+  <!-- Post-Emergency Steps -->
+  <rect x="655" y="720" width="200" height="100" rx="6" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="755" y="745" text-anchor="middle" class="section-title" fill="#388E3C">Pós-Emergência</text>
+  <text x="670" y="768" class="small">4. Notificar interessados</text>
+  <text x="670" y="785" class="small">5. Monitorar serviço</text>
+  <text x="670" y="802" class="small">6. Documentar e planejar</text>
+
+  <!-- No path -->
+  <path d="M 440 770 L 345 770" stroke="#E53935" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="395" y="760" text-anchor="middle" class="small" fill="#E53935">Não</text>
+
+  <!-- Escalate -->
+  <rect x="145" y="720" width="200" height="100" rx="6" fill="#E53935" stroke="#C62828" stroke-width="2"/>
+  <text x="245" y="750" text-anchor="middle" class="label" fill="#fff">🆘 ESCALAR</text>
+  <text x="245" y="775" text-anchor="middle" class="code" fill="#fff">Contatar Suporte Red Hat</text>
+  <text x="245" y="795" text-anchor="middle" class="small" fill="#fff">Fornecer diagnósticos</text>
+
+  <!-- Done ellipse -->
+  <ellipse cx="500" cy="870" rx="100" ry="22" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="875" text-anchor="middle" class="label" fill="#388E3C">✓ Resolvido</text>
+
+  <path d="M 755 820 L 755 830 L 500 830 L 500 848" stroke="#388E3C" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-green)"/>
+</svg>

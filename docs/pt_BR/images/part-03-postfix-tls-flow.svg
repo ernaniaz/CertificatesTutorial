@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-back { stroke: #388E3C; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388E3C" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Fluxo TLS SMTP do Postfix (STARTTLS)</text>
+
+  <!-- Participants -->
+  <rect x="50" y="50" width="120" height="40" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="110" y="75" text-anchor="middle" class="label">Cliente de Email</text>
+
+  <rect x="280" y="50" width="140" height="40" rx="6" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="350" y="75" text-anchor="middle" class="label">Postfix SMTP</text>
+
+  <rect x="520" y="50" width="140" height="40" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="590" y="75" text-anchor="middle" class="label">Certificado</text>
+
+  <rect x="760" y="50" width="140" height="40" rx="6" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="830" y="75" text-anchor="middle" class="label">Chave Privada</text>
+
+  <!-- Lifelines -->
+  <line x1="110" y1="90" x2="110" y2="530" stroke="#1976D2" stroke-width="1" stroke-dasharray="5,3"/>
+  <line x1="350" y1="90" x2="350" y2="530" stroke="#F57C00" stroke-width="1" stroke-dasharray="5,3"/>
+  <line x1="590" y1="90" x2="590" y2="280" stroke="#388E3C" stroke-width="1" stroke-dasharray="5,3"/>
+  <line x1="830" y1="90" x2="830" y2="280" stroke="#E53935" stroke-width="1" stroke-dasharray="5,3"/>
+
+  <!-- Step 1: Connect -->
+  <path d="M 115 115 L 340 115" class="arrow"/>
+  <text x="228" y="110" text-anchor="middle" class="small">1. Conectar na porta 25/587</text>
+
+  <path d="M 340 135 L 115 135" class="arrow-back"/>
+  <text x="228" y="150" text-anchor="middle" class="code">220 mail.exemplo.com ESMTP</text>
+
+  <!-- Step 2: EHLO -->
+  <path d="M 115 165 L 340 165" class="arrow"/>
+  <text x="228" y="160" text-anchor="middle" class="small">2. EHLO cliente.exemplo.com</text>
+
+  <path d="M 340 185 L 115 185" class="arrow-back"/>
+  <text x="228" y="200" text-anchor="middle" class="code">250-STARTTLS</text>
+
+  <!-- Step 3: STARTTLS -->
+  <path d="M 115 220 L 340 220" class="arrow"/>
+  <text x="228" y="215" text-anchor="middle" class="small">3. STARTTLS</text>
+
+  <!-- Step 4-5: Load cert/key -->
+  <path d="M 360 240 L 580 240" class="arrow"/>
+  <text x="470" y="235" text-anchor="middle" class="small">4. Carregar Certificado</text>
+
+  <path d="M 360 260 L 820 260" class="arrow"/>
+  <text x="590" y="275" text-anchor="middle" class="small">5. Carregar Chave Privada</text>
+
+  <path d="M 340 295 L 115 295" class="arrow-back"/>
+  <text x="228" y="290" text-anchor="middle" class="code">220 Pronto para iniciar TLS</text>
+
+  <!-- TLS Handshake Box -->
+  <rect x="30" y="310" width="450" height="40" rx="4" fill="#FFC107" stroke="#F57C00" stroke-width="1"/>
+  <text x="255" y="335" text-anchor="middle" class="section-title">TLS Handshake</text>
+
+  <!-- Step 6: Send Certificate -->
+  <path d="M 340 365 L 115 365" class="arrow-back"/>
+  <text x="228" y="360" text-anchor="middle" class="small">6. Enviar Certificado do Servidor</text>
+
+  <!-- Step 7: Verify -->
+  <rect x="60" y="375" width="100" height="25" rx="3" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="110" y="392" text-anchor="middle" class="small">7. Verificar Cert</text>
+
+  <!-- Encrypted SMTP Session -->
+  <rect x="30" y="410" width="450" height="115" rx="6" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="255" y="435" text-anchor="middle" class="section-title" fill="#388E3C">Sessão SMTP Criptografada</text>
+
+  <path d="M 115 455 L 340 455" class="arrow"/>
+  <text x="228" y="450" text-anchor="middle" class="code">MAIL FROM:&lt;usuario@domínio&gt;</text>
+
+  <path d="M 340 475 L 115 475" class="arrow-back"/>
+  <text x="228" y="490" text-anchor="middle" class="code">250 OK</text>
+
+  <path d="M 115 505 L 340 505" class="arrow"/>
+  <text x="228" y="520" text-anchor="middle" class="code">DATA + Conteúdo do Email</text>
+
+  <!-- Erro Path -->
+  <rect x="500" y="310" width="470" height="130" rx="6" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="735" y="335" text-anchor="middle" class="section-title" fill="#E53935">Certificado Inválido</text>
+  <text x="520" y="360" class="small">✗ Conexão Abortada</text>
+  <text x="520" y="380" class="code">• Certificado expirado</text>
+  <text x="520" y="395" class="code">• Hostname não confere</text>
+  <text x="520" y="410" class="code">• Auto-assinado (se verify=strict)</text>
+  <text x="520" y="425" class="small">Nota: Muitos servidores SMTP usam TLS oportunista</text>
+
+  <!-- Configuration -->
+  <rect x="30" y="550" width="940" height="130" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="500" y="575" text-anchor="middle" class="section-title">Configuração TLS do Postfix (/etc/postfix/main.cf)</text>
+
+  <text x="60" y="600" class="code">smtpd_use_tls = yes</text>
+  <text x="60" y="618" class="code">smtpd_tls_cert_file = /etc/pki/tls/certs/postfix.crt</text>
+  <text x="60" y="636" class="code">smtpd_tls_key_file = /etc/pki/tls/private/postfix.key</text>
+
+  <text x="450" y="600" class="code">smtpd_tls_security_level = may</text>
+  <text x="450" y="618" class="code">smtp_tls_security_level = may</text>
+  <text x="450" y="636" class="code"># may = oportunista, encrypt = obrigatório</text>
+
+  <text x="750" y="600" class="code">smtpd_tls_protocols = !SSLv2,!SSLv3</text>
+  <text x="750" y="618" class="code">smtpd_tls_loglevel = 1</text>
+  <text x="750" y="636" class="code">smtpd_tls_received_header = yes</text>
+</svg>

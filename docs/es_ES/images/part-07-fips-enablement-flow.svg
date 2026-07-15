@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#E53935" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388E3C" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Flujo de Habilitación del Modo FIPS</text>
+
+  <!-- Start -->
+  <ellipse cx="100" cy="55" rx="80" ry="25" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="100" y="60" text-anchor="middle" class="label">Planificar Modo FIPS</text>
+
+  <!-- Phase 1: Pre-Check -->
+  <rect x="30" y="105" width="140" height="35" rx="4" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="100" y="128" text-anchor="middle" class="label" fill="#fff">Fase 1: Pre-Verificación</text>
+  <path d="M 100 80 L 100 105" class="arrow"/>
+
+  <rect x="30" y="165" width="140" height="60" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="100" y="185" text-anchor="middle" class="section-title" fill="#1976D2">Verificar Soporte</text>
+  <text x="40" y="203" class="small">• RHEL 8+ requerido</text>
+  <text x="40" y="218" class="small">• Verificar crypto hw</text>
+  <path d="M 100 140 L 100 165" class="arrow"/>
+
+  <!-- Inventory -->
+  <rect x="200" y="165" width="160" height="60" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="280" y="185" text-anchor="middle" class="section-title" fill="#F57C00">Inventario Certs</text>
+  <text x="210" y="203" class="small">• Algoritmos de firma</text>
+  <text x="210" y="218" class="small">• Tamaños de clave</text>
+  <path d="M 170 195 L 200 195" class="arrow"/>
+
+  <!-- Non-Compliant Decision -->
+  <polygon points="455,165 525,195 455,225 385,195" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="455" y="192" text-anchor="middle" class="small">¿Elementos</text>
+  <text x="455" y="207" text-anchor="middle" class="small">No-FIPS?</text>
+  <path d="M 360 195 L 385 195" class="arrow"/>
+
+  <!-- Fix Non-Compliant -->
+  <rect x="380" y="75" width="150" height="65" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="455" y="98" text-anchor="middle" class="section-title" fill="#E53935">Corregir Primero</text>
+  <text x="390" y="118" class="small">• Reemplazar MD5/SHA-1</text>
+  <text x="390" y="133" class="small">• Actualizar claves débiles</text>
+  <path d="M 455 165 L 455 140" class="arrow"/>
+  <text x="465" y="160" class="small">Sí</text>
+
+  <!-- Phase 2: Backup -->
+  <rect x="560" y="105" width="140" height="35" rx="4" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="630" y="128" text-anchor="middle" class="label" fill="#fff">Fase 2: Respaldo</text>
+  <path d="M 525 195 L 560 195" class="arrow"/>
+  <path d="M 530 108 L 540 108 L 540 195" stroke="#1976D2" stroke-width="1.5" fill="none"/>
+  <text x="525" y="215" class="small">Ninguno</text>
+
+  <rect x="560" y="165" width="140" height="70" rx="4" fill="#FCE4EC" stroke="#E91E63" stroke-width="1"/>
+  <text x="630" y="188" text-anchor="middle" class="section-title" fill="#E91E63">Respaldar Todo</text>
+  <text x="570" y="206" class="small">• Certificados</text>
+  <text x="570" y="221" class="small">• Configs de servicios</text>
+  <path d="M 630 140 L 630 165" class="arrow"/>
+
+  <!-- Phase 3: Enable - NOW with REBOOT warning -->
+  <rect x="780" y="105" width="140" height="35" rx="4" fill="#E53935" stroke="#C62828" stroke-width="2"/>
+  <text x="850" y="128" text-anchor="middle" class="label" fill="#fff">Fase 3: Habilitar</text>
+  <path d="M 700 200 L 730 200" class="arrow"/>
+
+  <rect x="730" y="165" width="240" height="70" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="850" y="188" text-anchor="middle" class="code">fips-mode-setup --enable</text>
+  <rect x="745" y="200" width="210" height="28" rx="3" fill="#FFC107" stroke="#FF8F00" stroke-width="1"/>
+  <text x="850" y="220" text-anchor="middle" class="label" fill="#333">⚠️ REQUIERE REINICIO</text>
+  <path d="M 850 140 L 850 165" class="arrow"/>
+
+  <!-- Phase 4: Verification -->
+  <rect x="30" y="265" width="940" height="250" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="295" text-anchor="middle" class="section-title" fill="#388E3C">Fase 4: Verificación (Después del Reinicio)</text>
+  <path d="M 850 235 L 850 245 L 500 245 L 500 265" class="arrow"/>
+
+  <!-- Verify Kernel -->
+  <rect x="50" y="315" width="210" height="45" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="155" y="335" text-anchor="middle" class="label" fill="#388E3C">Verificar Flag Kernel</text>
+  <text x="65" y="352" class="code">cat /proc/sys/crypto/fips_enabled</text>
+
+  <polygon points="160,385 210,405 160,425 110,405" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="160" y="410" text-anchor="middle" class="small">=1?</text>
+  <path d="M 160 360 L 160 385" class="arrow"/>
+
+  <!-- Verify Policy -->
+  <rect x="280" y="315" width="210" height="45" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="385" y="335" text-anchor="middle" class="label" fill="#388E3C">Verificar Crypto-Policy</text>
+  <text x="305" y="352" class="code">update-crypto-policies --show</text>
+  <path d="M 210 405 L 300 405 L 300 360" class="arrow"/>
+  <text x="240" y="400" class="small" fill="#388E3C">Sí</text>
+
+  <polygon points="390,385 440,405 390,425 340,405" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="390" y="410" text-anchor="middle" class="small">¿FIPS?</text>
+  <path d="M 390 360 L 390 385" class="arrow"/>
+
+  <!-- Test Blocked -->
+  <rect x="510" y="315" width="210" height="45" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="615" y="335" text-anchor="middle" class="label" fill="#388E3C">Probar Algos Bloqueados</text>
+  <text x="520" y="352" class="code">openssl md5 /etc/hosts (debe fallar)</text>
+  <path d="M 440 405 L 530 405 L 530 360" class="arrow"/>
+  <text x="470" y="400" class="small" fill="#388E3C">Sí</text>
+
+  <polygon points="620,385 670,405 620,425 570,405" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="620" y="410" text-anchor="middle" class="small">¿Falla?</text>
+  <path d="M 620 360 L 620 385" class="arrow"/>
+
+  <!-- Test Allowed -->
+  <rect x="740" y="315" width="210" height="45" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="845" y="335" text-anchor="middle" class="label" fill="#388E3C">Probar Algos Permitidos</text>
+  <text x="755" y="352" class="code">openssl sha256 /etc/hosts (funciona)</text>
+  <path d="M 670 405 L 760 405 L 760 360" class="arrow"/>
+  <text x="700" y="400" class="small" fill="#388E3C">Sí</text>
+
+  <!-- Failed Paths - All "No" go to troubleshoot box -->
+  <rect x="285" y="450" width="200" height="45" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+  <text x="385" y="473" text-anchor="middle" class="label" fill="#E53935">⚠️ FIPS No Activo</text>
+  <text x="385" y="488" text-anchor="middle" class="small">Verificar grub/kernel, reejecutar</text>
+
+  <!-- No from =1? -->
+  <path d="M 160 425 L 160 473 L 285 473" stroke="#E53935" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="170" y="450" class="small" fill="#E53935">No</text>
+
+  <!-- No from FIPS? -->
+  <path d="M 390 425 L 390 450" stroke="#E53935" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="400" y="440" class="small" fill="#E53935">No</text>
+
+  <!-- No from Fails? (if MD5 works, FIPS isn't enforcing) -->
+  <path d="M 620 425 L 620 473 L 485 473" stroke="#E53935" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="600" y="450" class="small" fill="#E53935">No</text>
+
+  <!-- Phase 5-6: Test Services -->
+  <rect x="30" y="540" width="380" height="90" rx="6" fill="#CFE2FF" stroke="#1976D2" stroke-width="2"/>
+  <text x="220" y="563" text-anchor="middle" class="section-title" fill="#1976D2">Fases 5-6: Probar Servicios</text>
+  <text x="50" y="585" class="small">Para cada servicio (httpd, nginx, postfix, sshd...):</text>
+  <text x="60" y="603" class="code">1. Iniciar servicio    2. Probar conexiones</text>
+  <text x="60" y="618" class="code">3. Verificar logs      4. Sin errores FIPS</text>
+  <path d="M 845 360 L 845 550 L 410 550" class="arrow"/>
+
+  <!-- Service OK Decision -->
+  <polygon points="550,565 610,595 550,625 490,595" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="550" y="600" text-anchor="middle" class="small">¿Todo OK?</text>
+  <path d="M 410 595 L 490 595" class="arrow"/>
+
+  <!-- Fix Services -->
+  <rect x="660" y="575" width="180" height="45" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1"/>
+  <text x="750" y="595" text-anchor="middle" class="small">Corregir: Actualizar certs/configs</text>
+  <text x="750" y="610" text-anchor="middle" class="small">Usar algos FIPS-aprobados</text>
+  <path d="M 610 595 L 660 595" stroke="#F57C00" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="620" y="585" class="small" fill="#F57C00">No</text>
+
+  <!-- Fix loop back to test -->
+  <path d="M 750 575 L 750 560 L 410 560" stroke="#F57C00" stroke-width="1.5" stroke-dasharray="4,2" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Phase 7: Monitor -->
+  <rect x="470" y="650" width="160" height="70" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="550" y="673" text-anchor="middle" class="section-title" fill="#388E3C">Fase 7: Monitorear</text>
+  <text x="485" y="693" class="small">• Violaciones FIPS</text>
+  <text x="485" y="708" class="small">• Errores de algoritmo</text>
+  <path d="M 550 625 L 550 650" stroke="#388E3C" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="560" y="638" class="small" fill="#388E3C">Sí</text>
+
+  <!-- Success -->
+  <ellipse cx="750" cy="685" rx="90" ry="30" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="750" y="683" text-anchor="middle" class="label" fill="#388E3C">✓ Modo FIPS Activo</text>
+  <text x="750" y="698" text-anchor="middle" class="small" fill="#388E3C">Sistema Conforme</text>
+  <path d="M 630 685 L 660 685" stroke="#388E3C" stroke-width="1.5" fill="none" marker-end="url(#arrowhead-green)"/>
+
+  <!-- Emergency Disable -->
+  <rect x="30" y="665" width="380" height="45" rx="4" fill="#E53935" stroke="#C62828" stroke-width="2"/>
+  <text x="220" y="685" text-anchor="middle" class="label" fill="#fff">Deshabilitar Emergencia</text>
+  <text x="220" y="700" text-anchor="middle" class="code" fill="#fff">fips-mode-setup --disable</text>
+</svg>

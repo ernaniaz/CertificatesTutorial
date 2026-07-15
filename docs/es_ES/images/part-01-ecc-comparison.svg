@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" width="1000" height="650">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Comparación de Tamaño de Clave RSA vs ECC</text>
+
+  <!-- Key Size Comparison Section -->
+  <rect x="30" y="50" width="940" height="250" rx="8" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="500" y="75" text-anchor="middle" class="section-title">Niveles de Seguridad Equivalentes</text>
+
+  <!-- RSA Column -->
+  <rect x="60" y="95" width="280" height="180" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="200" y="120" text-anchor="middle" class="section-title" fill="#1976D2">RSA</text>
+
+  <!-- RSA 2048 -->
+  <rect x="80" y="135" width="240" height="35" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1"/>
+  <text x="200" y="150" text-anchor="middle" class="label">RSA 2048-bit</text>
+  <text x="200" y="165" text-anchor="middle" class="small">Seguridad: 112 bits ⚠️ Mínimo</text>
+
+  <!-- RSA 3072 -->
+  <rect x="80" y="180" width="240" height="35" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="200" y="195" text-anchor="middle" class="label">RSA 3072-bit</text>
+  <text x="200" y="210" text-anchor="middle" class="small">Seguridad: 128 bits ✓ Bueno</text>
+
+  <!-- RSA 4096 -->
+  <rect x="80" y="225" width="240" height="35" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="200" y="240" text-anchor="middle" class="label">RSA 4096-bit</text>
+  <text x="200" y="255" text-anchor="middle" class="small">Seguridad: 128+ bits ✓ Recomendado</text>
+
+  <!-- Equivalence Arrows -->
+  <text x="500" y="160" text-anchor="middle" class="small">≈ Equivalente</text>
+  <line x1="350" y1="165" x2="450" y2="165" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="550" y1="165" x2="650" y2="165" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <text x="500" y="210" text-anchor="middle" class="small">≈ Equivalente</text>
+  <line x1="350" y1="197" x2="450" y2="197" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="550" y1="197" x2="650" y2="197" stroke="#999" stroke-width="1.5" stroke-dasharray="5,3"/>
+
+  <!-- ECC Column -->
+  <rect x="660" y="95" width="280" height="180" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="800" y="120" text-anchor="middle" class="section-title" fill="#388E3C">ECC</text>
+
+  <!-- ECC P-256 -->
+  <rect x="680" y="155" width="240" height="50" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="800" y="175" text-anchor="middle" class="label">ECC P-256 (secp256r1)</text>
+  <text x="800" y="195" text-anchor="middle" class="small">Seguridad: 128 bits | Clave: ~65 bytes</text>
+
+  <!-- ECC P-384 -->
+  <rect x="680" y="215" width="240" height="50" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="800" y="235" text-anchor="middle" class="label">ECC P-384 (secp384r1)</text>
+  <text x="800" y="255" text-anchor="middle" class="small">Seguridad: 192 bits | Clave: ~97 bytes</text>
+
+  <!-- Performance Comparison Section -->
+  <rect x="30" y="320" width="450" height="180" rx="8" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="255" y="345" text-anchor="middle" class="section-title" fill="#388E3C">Ventajas de ECC</text>
+
+  <text x="60" y="375" class="label">✓ Generación de claves más rápida</text>
+  <text x="60" y="400" class="label">✓ Operaciones de firma más rápidas</text>
+  <text x="60" y="425" class="label">✓ Verificación más rápida</text>
+  <text x="60" y="450" class="label">✓ Claves mucho más pequeñas (256 vs 3072 bits)</text>
+  <text x="60" y="475" class="label">✓ Menos ancho de banda y almacenamiento</text>
+
+  <!-- RSA Advantages -->
+  <rect x="520" y="320" width="450" height="180" rx="8" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="745" y="345" text-anchor="middle" class="section-title" fill="#F57C00">Ventajas de RSA</text>
+
+  <text x="550" y="375" class="label">✓ Mayor compatibilidad (sistemas legacy)</text>
+  <text x="550" y="400" class="label">✓ Mejor entendido por la industria</text>
+  <text x="550" y="425" class="label">✓ Implementación más simple</text>
+  <text x="550" y="450" class="label">✗ Operaciones más lentas</text>
+  <text x="550" y="475" class="label">✗ Tamaños de clave más grandes requeridos</text>
+
+  <!-- RHEL Recommendations Section -->
+  <rect x="30" y="520" width="940" height="110" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="500" y="545" text-anchor="middle" class="section-title" fill="#1976D2">Recomendaciones RHEL</text>
+
+  <rect x="60" y="560" width="200" height="50" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="160" y="580" text-anchor="middle" class="label">Mínimo</text>
+  <text x="160" y="598" text-anchor="middle" class="small">RSA 2048 o ECC P-256</text>
+
+  <rect x="290" y="560" width="200" height="50" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="390" y="580" text-anchor="middle" class="label">Recomendado</text>
+  <text x="390" y="598" text-anchor="middle" class="small">RSA 4096 o ECC P-384</text>
+
+  <rect x="520" y="560" width="200" height="50" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="620" y="580" text-anchor="middle" class="label">Rendimiento Crítico</text>
+  <text x="620" y="598" text-anchor="middle" class="small">ECC P-256 o P-384</text>
+
+  <rect x="750" y="560" width="200" height="50" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="850" y="580" text-anchor="middle" class="label">Máx Compatibilidad</text>
+  <text x="850" y="598" text-anchor="middle" class="small">RSA 2048 o 4096</text>
+</svg>

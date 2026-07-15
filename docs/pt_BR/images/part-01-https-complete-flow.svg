@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 560" width="940" height="560">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 19px; font-weight: bold; fill: #333; }
+      .heading { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 11px; fill: #444; }
+      .pillar { font-family: Arial, sans-serif; font-size: 10px; font-weight: bold; }
+    </style>
+    <marker id="aR" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#546E7A"/></marker>
+    <filter id="sh" x="-3%" y="-3%" width="106%" height="106%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter>
+  </defs>
+
+
+  <text x="470" y="28" text-anchor="middle" class="title">Conexão HTTPS Completa &#8212; Do navegador ao servidor</text>
+
+  <!-- URL bar -->
+  <rect x="250" y="42" width="440" height="30" rx="8" fill="#ECEFF1" stroke="#90A4AE" stroke-width="1.5"/>
+  <text x="270" y="62" class="code" style="fill:#2E7D32">https://</text>
+  <text x="340" y="62" class="code" style="fill:#333">loja.exemplo.com</text>
+
+  <!-- STEP 1: DNS -->
+  <rect x="30" y="90" width="200" height="80" rx="12" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="55" cy="110" r="13" fill="#1565C0"/>
+  <text x="55" y="115" text-anchor="middle" class="heading" style="fill:#fff">1</text>
+  <text x="75" y="114" class="heading" style="fill:#1565C0">Resolução DNS</text>
+  <text x="45" y="136" class="small">loja.exemplo.com</text>
+  <text x="45" y="152" class="small" font-weight="bold" style="fill:#1565C0">&#8594; 203.0.113.42</text>
+
+  <line x1="230" y1="130" x2="268" y2="130" stroke="#546E7A" stroke-width="2" marker-end="url(#aR)"/>
+
+  <!-- STEP 2: TCP -->
+  <rect x="270" y="90" width="200" height="80" rx="12" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="295" cy="110" r="13" fill="#7B1FA2"/>
+  <text x="295" y="115" text-anchor="middle" class="heading" style="fill:#fff">2</text>
+  <text x="315" y="114" class="heading" style="fill:#7B1FA2">Conexão TCP</text>
+  <text x="285" y="136" class="small">Handshake de 3 vias</text>
+  <text x="285" y="152" class="small" font-weight="bold" style="fill:#7B1FA2">&#8594; porta 443</text>
+
+  <line x1="470" y1="130" x2="508" y2="130" stroke="#546E7A" stroke-width="2" marker-end="url(#aR)"/>
+
+  <!-- STEP 3: TLS -->
+  <rect x="510" y="90" width="200" height="80" rx="12" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="535" cy="110" r="13" fill="#E65100"/>
+  <text x="535" y="115" text-anchor="middle" class="heading" style="fill:#fff">3</text>
+  <text x="555" y="114" class="heading" style="fill:#E65100">Handshake TLS</text>
+  <text x="525" y="136" class="small">Certificado + chaves</text>
+  <text x="525" y="152" class="small" font-weight="bold" style="fill:#E65100">&#8594; sessão segura</text>
+
+  <line x1="710" y1="130" x2="748" y2="130" stroke="#546E7A" stroke-width="2" marker-end="url(#aR)"/>
+
+  <!-- STEP 4: Encrypted -->
+  <rect x="750" y="90" width="160" height="80" rx="12" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1.5" filter="url(#sh)"/>
+  <circle cx="775" cy="110" r="13" fill="#2E7D32"/>
+  <text x="775" y="115" text-anchor="middle" class="heading" style="fill:#fff">4</text>
+  <text x="795" y="114" class="heading" style="fill:#2E7D32">Dados Cifrados</text>
+  <text x="765" y="136" class="small">AES-256-GCM</text>
+  <text x="765" y="152" class="small" font-weight="bold" style="fill:#2E7D32">&#10003; Seguro!</text>
+
+  <!-- TLS DETAIL -->
+  <rect x="30" y="195" width="880" height="210" rx="14" fill="#FFF8E1" stroke="#FF6F00" stroke-width="2" filter="url(#sh)"/>
+  <text x="470" y="220" text-anchor="middle" class="heading" style="fill:#E65100">Passo 3 em detalhe: Handshake TLS</text>
+
+  <rect x="50" y="238" width="260" height="70" rx="8" fill="#FFF3E0" stroke="#E65100" stroke-width="1"/>
+  <text x="60" y="258" class="heading" style="fill:#E65100">Autenticidade</text>
+  <text x="60" y="276" class="small">Servidor envia certificado</text>
+  <text x="60" y="292" class="small">Cliente valida cadeia de confiança &#10004;</text>
+
+  <line x1="310" y1="273" x2="340" y2="273" stroke="#546E7A" stroke-width="1.5" marker-end="url(#aR)"/>
+
+  <rect x="342" y="238" width="260" height="70" rx="8" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1"/>
+  <text x="352" y="258" class="heading" style="fill:#2E7D32">Confidencialidade</text>
+  <text x="352" y="276" class="small">Troca de chaves ECDHE</text>
+  <text x="352" y="292" class="small">Chaves de sessão AES-256 criadas</text>
+
+  <line x1="602" y1="273" x2="632" y2="273" stroke="#546E7A" stroke-width="1.5" marker-end="url(#aR)"/>
+
+  <rect x="634" y="238" width="260" height="70" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="1"/>
+  <text x="644" y="258" class="heading" style="fill:#1565C0">Integridade</text>
+  <text x="644" y="276" class="small">Mensagem "Finished" com hash</text>
+  <text x="644" y="292" class="small">de todo o handshake &#10004;</text>
+
+  <!-- Chain of trust -->
+  <rect x="50" y="320" width="844" height="30" rx="6" fill="#FAFAFA" stroke="#FF6F00" stroke-width="1"/>
+  <text x="470" y="340" text-anchor="middle" class="small" style="fill:#E65100">Cadeia: certificado do servidor &#8594; assinado pela CA intermediária &#8594; assinada pela CA raiz &#8594; confiável pelo SO (/etc/pki/ca-trust/)</text>
+
+  <!-- TLS 1.2 vs 1.3 -->
+  <rect x="50" y="360" width="420" height="30" rx="6" fill="#ECEFF1"/>
+  <text x="260" y="380" text-anchor="middle" class="small">TLS 1.2: 2 viagens de ida e volta</text>
+  <rect x="474" y="360" width="420" height="30" rx="6" fill="#C8E6C9"/>
+  <text x="684" y="380" text-anchor="middle" class="small" font-weight="bold" style="fill:#2E7D32">TLS 1.3: 1 viagem (ou 0 com 0-RTT!) &#10003;</text>
+
+  <!-- FOUR PILLARS -->
+  <rect x="30" y="425" width="880" height="120" rx="14" fill="#ECEFF1" stroke="#546E7A" stroke-width="1.5" filter="url(#sh)"/>
+  <text x="470" y="450" text-anchor="middle" class="heading" style="fill:#37474F">Os Quatro Pilares em Ação &#8212; Comunicação cifrada</text>
+
+  <rect x="50" y="465" width="195" height="60" rx="8" fill="#1565C0"/>
+  <text x="148" y="485" text-anchor="middle" class="pillar" style="fill:#fff">CONFIDENCIALIDADE</text>
+  <text x="148" y="502" text-anchor="middle" class="small" style="fill:#B3E5FC">Dados cifrados (AES-256)</text>
+  <text x="148" y="516" text-anchor="middle" class="small" style="fill:#B3E5FC">Ninguém pode ler</text>
+
+  <rect x="258" y="465" width="195" height="60" rx="8" fill="#2E7D32"/>
+  <text x="356" y="485" text-anchor="middle" class="pillar" style="fill:#fff">INTEGRIDADE</text>
+  <text x="356" y="502" text-anchor="middle" class="small" style="fill:#C8E6C9">Tag GCM em cada pacote</text>
+  <text x="356" y="516" text-anchor="middle" class="small" style="fill:#C8E6C9">Adulteração detectada</text>
+
+  <rect x="466" y="465" width="195" height="60" rx="8" fill="#E65100"/>
+  <text x="564" y="485" text-anchor="middle" class="pillar" style="fill:#fff">AUTENTICIDADE</text>
+  <text x="564" y="502" text-anchor="middle" class="small" style="fill:#FFE0B2">Certificado válidado</text>
+  <text x="564" y="516" text-anchor="middle" class="small" style="fill:#FFE0B2">Servidor é quem diz ser</text>
+
+  <rect x="674" y="465" width="195" height="60" rx="8" fill="#AD1457"/>
+  <text x="772" y="485" text-anchor="middle" class="pillar" style="fill:#fff">NÃO-REPÚDIO</text>
+  <text x="772" y="502" text-anchor="middle" class="small" style="fill:#F8BBD0">Chave privada assinou</text>
+  <text x="772" y="516" text-anchor="middle" class="small" style="fill:#F8BBD0">Não pode negar</text>
+</svg>

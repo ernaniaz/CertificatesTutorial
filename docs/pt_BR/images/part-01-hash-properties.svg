@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 500" width="900" height="500">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+      .safe { fill: #2E7D32; font-weight: bold; }
+      .broken { fill: #C62828; font-weight: bold; }
+    </style>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1565C0" />
+    </marker>
+  </defs>
+
+
+  <text x="450" y="30" text-anchor="middle" class="title">Funções Hash: Propriedades e Segurança</text>
+
+  <!-- How it works -->
+  <rect x="30" y="50" width="840" height="90" rx="8" fill="#E3F2FD" stroke="#1565C0" stroke-width="2"/>
+  <text x="60" y="75" class="section-title" style="fill:#1565C0">Como funciona:</text>
+
+  <rect x="60" y="88" width="150" height="35" rx="4" fill="#FAFAFA" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="135" y="110" text-anchor="middle" class="code">Entrada (qualquer tam.)</text>
+
+  <line x1="210" y1="105" x2="283" y2="105" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="285" y="85" width="120" height="40" rx="6" fill="#1565C0"/>
+  <text x="345" y="110" text-anchor="middle" class="label" style="fill:#fff">SHA-256</text>
+
+  <line x1="405" y1="105" x2="478" y2="105" stroke="#1565C0" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <rect x="480" y="88" width="370" height="35" rx="4" fill="#FAFAFA" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="665" y="110" text-anchor="middle" class="code">a591a6d40bf420404a011733cfb7b190... (256 bits fixos)</text>
+
+  <!-- Properties grid -->
+  <text x="450" y="175" text-anchor="middle" class="section-title">Propriedades Essenciais</text>
+
+  <!-- Property 1: Deterministic -->
+  <rect x="30" y="190" width="200" height="100" rx="6" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="130" y="212" text-anchor="middle" class="section-title" style="fill:#2E7D32">1. Determinística</text>
+  <text x="40" y="235" class="code">"Hello" &#8594; 185f8d...</text>
+  <text x="40" y="252" class="code">"Hello" &#8594; 185f8d...</text>
+  <text x="130" y="278" text-anchor="middle" class="small">Sempre o mesmo resultado</text>
+
+  <!-- Property 2: One-way -->
+  <rect x="245" y="190" width="200" height="100" rx="6" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5"/>
+  <text x="345" y="212" text-anchor="middle" class="section-title" style="fill:#E65100">2. Unidirecional</text>
+  <text x="255" y="235" class="code">185f8d... &#8594; ???</text>
+  <text x="255" y="252" class="small" style="fill:#C62828">Impossível reverter!</text>
+  <text x="345" y="278" text-anchor="middle" class="small">Não se descobre a entrada</text>
+
+  <!-- Property 3: Collision Resistant -->
+  <rect x="460" y="190" width="200" height="100" rx="6" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="560" y="212" text-anchor="middle" class="section-title" style="fill:#1565C0">3. Sem Colisões</text>
+  <text x="470" y="235" class="code">"A" &#8594; hash1</text>
+  <text x="470" y="252" class="code">"B" &#8594; hash2</text>
+  <text x="560" y="278" text-anchor="middle" class="small">hash1 &#8800; hash2 (garantido)</text>
+
+  <!-- Property 4: Avalanche -->
+  <rect x="675" y="190" width="200" height="100" rx="6" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="1.5"/>
+  <text x="775" y="212" text-anchor="middle" class="section-title" style="fill:#7B1FA2">4. Efeito Avalanche</text>
+  <text x="685" y="235" class="code">"Hello"  &#8594; a591a6...</text>
+  <text x="685" y="252" class="code">"Hello!" &#8594; 7f83b1...</text>
+  <text x="775" y="278" text-anchor="middle" class="small">1 bit muda = tudo muda</text>
+
+  <!-- Security status table -->
+  <text x="450" y="330" text-anchor="middle" class="section-title">Segurança dos Algorítmos Hash</text>
+
+  <rect x="100" y="345" width="700" height="30" rx="0" fill="#37474F"/>
+  <text x="200" y="365" text-anchor="middle" class="label" style="fill:#fff">Algorítmo</text>
+  <text x="340" y="365" text-anchor="middle" class="label" style="fill:#fff">Tamanho</text>
+  <text x="470" y="365" text-anchor="middle" class="label" style="fill:#fff">Estado</text>
+  <text x="640" y="365" text-anchor="middle" class="label" style="fill:#fff">Uso</text>
+
+  <rect x="100" y="375" width="700" height="28" fill="#FFEBEE" stroke="#E0E0E0" stroke-width="0.5"/>
+  <text x="200" y="394" text-anchor="middle" class="label">MD5</text>
+  <text x="340" y="394" text-anchor="middle" class="label">128 bits</text>
+  <text x="470" y="394" text-anchor="middle" class="label broken">QUEBRADO</text>
+  <text x="640" y="394" text-anchor="middle" class="small">Nunca usar para segurança</text>
+
+  <rect x="100" y="403" width="700" height="28" fill="#FFF3E0" stroke="#E0E0E0" stroke-width="0.5"/>
+  <text x="200" y="422" text-anchor="middle" class="label">SHA-1</text>
+  <text x="340" y="422" text-anchor="middle" class="label">160 bits</text>
+  <text x="470" y="422" text-anchor="middle" class="label broken">QUEBRADO</text>
+  <text x="640" y="422" text-anchor="middle" class="small">Bloqueado no RHEL 9+</text>
+
+  <rect x="100" y="431" width="700" height="28" fill="#E8F5E9" stroke="#E0E0E0" stroke-width="0.5"/>
+  <text x="200" y="450" text-anchor="middle" class="label">SHA-256</text>
+  <text x="340" y="450" text-anchor="middle" class="label">256 bits</text>
+  <text x="470" y="450" text-anchor="middle" class="label safe">SEGURO &#10004;</text>
+  <text x="640" y="450" text-anchor="middle" class="small">Padrão atual recomendado</text>
+
+  <rect x="100" y="459" width="700" height="28" fill="#E8F5E9" stroke="#E0E0E0" stroke-width="0.5"/>
+  <text x="200" y="478" text-anchor="middle" class="label">SHA-512</text>
+  <text x="340" y="478" text-anchor="middle" class="label">512 bits</text>
+  <text x="470" y="478" text-anchor="middle" class="label safe">SEGURO &#10004;</text>
+  <text x="640" y="478" text-anchor="middle" class="small">Segurança máxima SHA-2</text>
+</svg>

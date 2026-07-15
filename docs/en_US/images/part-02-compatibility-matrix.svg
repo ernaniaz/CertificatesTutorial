@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Cross-Version Certificate Compatibility Matrix</text>
+
+  <!-- Matrix Header -->
+  <rect x="30" y="50" width="600" height="300" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+
+  <!-- Column Headers -->
+  <rect x="130" y="60" width="120" height="30" rx="3" fill="#6C757D"/>
+  <text x="190" y="80" text-anchor="middle" class="label" fill="#fff">RHEL 7 Server</text>
+
+  <rect x="260" y="60" width="120" height="30" rx="3" fill="#388E3C"/>
+  <text x="320" y="80" text-anchor="middle" class="label" fill="#fff">RHEL 8 Server</text>
+
+  <rect x="390" y="60" width="120" height="30" rx="3" fill="#1976D2"/>
+  <text x="450" y="80" text-anchor="middle" class="label" fill="#fff">RHEL 9 Server</text>
+
+  <rect x="520" y="60" width="100" height="30" rx="3" fill="#00ACC1"/>
+  <text x="570" y="80" text-anchor="middle" class="label" fill="#fff">RHEL 10</text>
+
+  <!-- Row Headers -->
+  <rect x="40" y="100" width="80" height="45" rx="3" fill="#6C757D"/>
+  <text x="80" y="120" text-anchor="middle" class="label" fill="#fff">RHEL 7</text>
+  <text x="80" y="135" text-anchor="middle" class="small" fill="#fff">Client</text>
+
+  <rect x="40" y="155" width="80" height="45" rx="3" fill="#388E3C"/>
+  <text x="80" y="175" text-anchor="middle" class="label" fill="#fff">RHEL 8</text>
+  <text x="80" y="190" text-anchor="middle" class="small" fill="#fff">Client</text>
+
+  <rect x="40" y="210" width="80" height="45" rx="3" fill="#1976D2"/>
+  <text x="80" y="230" text-anchor="middle" class="label" fill="#fff">RHEL 9</text>
+  <text x="80" y="245" text-anchor="middle" class="small" fill="#fff">Client</text>
+
+  <rect x="40" y="265" width="80" height="45" rx="3" fill="#00ACC1"/>
+  <text x="80" y="285" text-anchor="middle" class="label" fill="#fff">RHEL 10</text>
+  <text x="80" y="300" text-anchor="middle" class="small" fill="#fff">Client</text>
+
+  <!-- Matrix Cells -->
+  <!-- Row 1: RHEL 7 Client -->
+  <rect x="130" y="100" width="120" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="190" y="127" text-anchor="middle" class="small">✓ Works</text>
+
+  <rect x="260" y="100" width="120" height="45" rx="2" fill="#FFF3CD" stroke="#F57C00"/>
+  <text x="320" y="120" text-anchor="middle" class="small">⚠️ SHA-1</text>
+  <text x="320" y="135" text-anchor="middle" class="small">deprecated</text>
+
+  <rect x="390" y="100" width="120" height="45" rx="2" fill="#FFEBEE" stroke="#E53935"/>
+  <text x="450" y="120" text-anchor="middle" class="small" fill="#E53935">✗ SHA-1</text>
+  <text x="450" y="135" text-anchor="middle" class="small" fill="#E53935">BLOCKED</text>
+
+  <rect x="520" y="100" width="100" height="45" rx="2" fill="#FFEBEE" stroke="#E53935"/>
+  <text x="570" y="127" text-anchor="middle" class="small" fill="#E53935">✗ Blocked</text>
+
+  <!-- Row 2: RHEL 8 Client -->
+  <rect x="130" y="155" width="120" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="190" y="182" text-anchor="middle" class="small">✓ Works</text>
+
+  <rect x="260" y="155" width="120" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="320" y="182" text-anchor="middle" class="small">✓ Works</text>
+
+  <rect x="390" y="155" width="120" height="45" rx="2" fill="#FFF3CD" stroke="#F57C00"/>
+  <text x="450" y="175" text-anchor="middle" class="small">⚠️ SANs</text>
+  <text x="450" y="190" text-anchor="middle" class="small">required</text>
+
+  <rect x="520" y="155" width="100" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="570" y="182" text-anchor="middle" class="small">✓ Works</text>
+
+  <!-- Row 3: RHEL 9 Client -->
+  <rect x="130" y="210" width="120" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="190" y="237" text-anchor="middle" class="small">✓ Works</text>
+
+  <rect x="260" y="210" width="120" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="320" y="237" text-anchor="middle" class="small">✓ Works</text>
+
+  <rect x="390" y="210" width="120" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="450" y="237" text-anchor="middle" class="small">✓ Works</text>
+
+  <rect x="520" y="210" width="100" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="570" y="237" text-anchor="middle" class="small">✓ Works</text>
+
+  <!-- Row 4: RHEL 10 Client -->
+  <rect x="130" y="265" width="120" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="190" y="292" text-anchor="middle" class="small">✓ Works</text>
+
+  <rect x="260" y="265" width="120" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="320" y="292" text-anchor="middle" class="small">✓ Works</text>
+
+  <rect x="390" y="265" width="120" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="450" y="292" text-anchor="middle" class="small">✓ Works</text>
+
+  <rect x="520" y="265" width="100" height="45" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="570" y="292" text-anchor="middle" class="small">✓ Works</text>
+
+  <!-- Requirements by Version -->
+  <rect x="650" y="50" width="320" height="300" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="810" y="75" text-anchor="middle" class="section-title" fill="#1976D2">Certificate Requirements</text>
+
+  <!-- RHEL 7 Requirements -->
+  <rect x="665" y="90" width="290" height="50" rx="4" fill="#fff" stroke="#6C757D" stroke-width="1"/>
+  <text x="810" y="108" text-anchor="middle" class="label">RHEL 7 Server</text>
+  <text x="810" y="128" text-anchor="middle" class="small">• Any TLS • SHA-1 OK • RSA 1024+ • No SAN req</text>
+
+  <!-- RHEL 8 Requirements -->
+  <rect x="665" y="150" width="290" height="50" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="810" y="168" text-anchor="middle" class="label">RHEL 8 Server</text>
+  <text x="810" y="188" text-anchor="middle" class="small">• TLS 1.2+ • SHA-256+ • RSA 2048+ • SANs rec.</text>
+
+  <!-- RHEL 9 Requirements -->
+  <rect x="665" y="210" width="290" height="55" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1"/>
+  <text x="810" y="228" text-anchor="middle" class="label" fill="#F57C00">RHEL 9 Server ⚠️</text>
+  <text x="810" y="248" text-anchor="middle" class="small">• TLS 1.2+ mandatory • SHA-256+ mandatory</text>
+  <text x="810" y="260" text-anchor="middle" class="small">• RSA 2048+ • SANs REQUIRED • No SHA-1 ever</text>
+
+  <!-- RHEL 10 Requirements -->
+  <rect x="665" y="275" width="290" height="50" rx="4" fill="#fff" stroke="#00ACC1" stroke-width="1"/>
+  <text x="810" y="293" text-anchor="middle" class="label">RHEL 10 Server</text>
+  <text x="810" y="313" text-anchor="middle" class="small">• TLS 1.2/1.3 • Modern algs • SANs required</text>
+
+  <!-- Best Practice Certificate -->
+  <rect x="30" y="370" width="940" height="200" rx="8" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="400" text-anchor="middle" class="section-title" fill="#388E3C">Universal Compatible Certificate - Works on ALL RHEL Versions</text>
+
+  <rect x="60" y="420" width="280" height="130" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="200" y="445" text-anchor="middle" class="label">Required Settings</text>
+  <text x="80" y="470" class="small">✓ Signature: SHA-256 or SHA-384</text>
+  <text x="80" y="490" class="small">✓ Key: RSA 2048+ or ECC P-256+</text>
+  <text x="80" y="510" class="small">✓ SANs: Always include DNS/IP</text>
+  <text x="80" y="530" class="small">✓ TLS: Support 1.2 and 1.3</text>
+
+  <rect x="360" y="420" width="280" height="130" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="500" y="445" text-anchor="middle" class="label">Recommended Settings</text>
+  <text x="380" y="470" class="small">✓ Include full certificate chain</text>
+  <text x="380" y="490" class="small">✓ Validity: Not too long (&lt;397 days)</text>
+  <text x="380" y="510" class="small">✓ Use modern cipher suites</text>
+  <text x="380" y="530" class="small">✓ Enable OCSP stapling</text>
+
+  <rect x="660" y="420" width="280" height="130" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="2"/>
+  <text x="800" y="445" text-anchor="middle" class="label" fill="#fff">Result</text>
+  <text x="800" y="480" text-anchor="middle" class="section-title" fill="#fff">Works on RHEL</text>
+  <text x="800" y="510" text-anchor="middle" class="title" fill="#fff">7, 8, 9, 10 ✓</text>
+
+  <!-- Legend -->
+  <rect x="30" y="590" width="940" height="60" rx="4" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="500" y="615" text-anchor="middle" class="section-title">Legend</text>
+
+  <rect x="100" y="625" width="20" height="15" rx="2" fill="#D4EDDA" stroke="#388E3C"/>
+  <text x="130" y="637" class="small">✓ Full Compatibility</text>
+
+  <rect x="300" y="625" width="20" height="15" rx="2" fill="#FFF3CD" stroke="#F57C00"/>
+  <text x="330" y="637" class="small">⚠️ Deprecated/Warning</text>
+
+  <rect x="520" y="625" width="20" height="15" rx="2" fill="#FFEBEE" stroke="#E53935"/>
+  <text x="550" y="637" class="small">✗ Blocked/Fails</text>
+
+  <!-- Critical Warning -->
+  <rect x="30" y="670" width="940" height="60" rx="6" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="500" y="695" text-anchor="middle" class="section-title" fill="#E53935">⚠️ Critical: RHEL 8 → RHEL 9 Migration Breaking Change</text>
+  <text x="500" y="718" text-anchor="middle" class="small">SHA-1 certificates that worked on RHEL 8 will FAIL on RHEL 9. Certificates without SANs may cause warnings or failures.</text>
+</svg>

@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 750" width="940" height="750">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #333; }
+      .heading { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+    </style>
+    <marker id="arrowD" markerWidth="10" markerHeight="12" refX="5" refY="5" orient="auto">
+      <polygon points="0 0, 10 5, 0 10" fill="#546E7A"/>
+    </marker>
+    <filter id="shadow" x="-3%" y="-3%" width="106%" height="106%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.13"/>
+    </filter>
+    <linearGradient id="rootGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#EF5350"/>
+      <stop offset="100%" stop-color="#C62828"/>
+    </linearGradient>
+    <linearGradient id="intGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFA726"/>
+      <stop offset="100%" stop-color="#E65100"/>
+    </linearGradient>
+    <linearGradient id="srvGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#1565C0"/>
+    </linearGradient>
+    <linearGradient id="cliGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#66BB6A"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+    <linearGradient id="codeGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#AB47BC"/>
+      <stop offset="100%" stop-color="#6A1B9A"/>
+    </linearGradient>
+  </defs>
+
+
+  <!-- Title -->
+  <text x="470" y="30" text-anchor="middle" class="title">PKI Architecture &#8212; Chain of Trust</text>
+
+  <!-- TIER 1: ROOT CA -->
+  <rect x="280" y="52" width="380" height="105" rx="14" fill="#FFEBEE" stroke="#C62828" stroke-width="2" filter="url(#shadow)"/>
+  <!-- Colored header bar -->
+  <rect x="280" y="52" width="380" height="38" rx="14" fill="url(#rootGrad)"/>
+  <rect x="280" y="72" width="380" height="18" fill="url(#rootGrad)"/>
+  <text x="470" y="77" text-anchor="middle" class="heading" style="fill:#fff">Root CA (Trust Anchor)</text>
+
+  <!-- Lock icon placeholder -->
+  <circle cx="310" cy="68" r="10" fill="none" stroke="#fff" stroke-width="1.5"/>
+  <rect x="304" y="65" width="12" height="10" rx="2" fill="none" stroke="#fff" stroke-width="1.5"/>
+
+  <text x="470" y="110" text-anchor="middle" class="label">Self-signed &#183; Stored offline in HSM</text>
+  <text x="470" y="128" text-anchor="middle" class="small">Valid for 20-30 years &#183; Used ONLY to sign Intermediate CAs</text>
+  <text x="470" y="146" text-anchor="middle" class="code">CN=DigiCert High Assurance EV Root CA</text>
+
+  <!-- Arrow Root -> Intermediate -->
+  <line x1="470" y1="157" x2="470" y2="197" stroke="#546E7A" stroke-width="2.5" marker-end="url(#arrowD)"/>
+  <rect x="485" y="168" width="50" height="18" rx="4" fill="#FFF3E0"/>
+  <text x="510" y="181" text-anchor="middle" class="small" font-weight="bold" style="fill:#E65100">signs</text>
+
+  <!-- TIER 2: INTERMEDIATE CA -->
+  <rect x="220" y="205" width="500" height="105" rx="14" fill="#FFF3E0" stroke="#E65100" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="220" y="205" width="500" height="38" rx="14" fill="url(#intGrad)"/>
+  <rect x="220" y="225" width="500" height="18" fill="url(#intGrad)"/>
+  <text x="470" y="230" text-anchor="middle" class="heading" style="fill:#fff">Intermediate CA (Issuing CA)</text>
+
+  <text x="470" y="263" text-anchor="middle" class="label">Signed by Root &#183; Does daily issuance work</text>
+  <text x="470" y="281" text-anchor="middle" class="small">Compromise contained &#183; Can be revoked and replaced</text>
+  <text x="470" y="299" text-anchor="middle" class="code">CN=DigiCert SHA2 Extended Validation Server CA</text>
+
+  <!-- Arrows Intermediate -> End entities (3 branches) -->
+  <line x1="310" y1="310" x2="150" y2="370" stroke="#546E7A" stroke-width="2" marker-end="url(#arrowD)"/>
+  <line x1="470" y1="310" x2="470" y2="370" stroke="#546E7A" stroke-width="2" marker-end="url(#arrowD)"/>
+  <line x1="630" y1="310" x2="790" y2="370" stroke="#546E7A" stroke-width="2" marker-end="url(#arrowD)"/>
+
+  <rect x="220" y="335" width="50" height="18" rx="4" fill="#FFF3E0"/>
+  <text x="245" y="348" text-anchor="middle" class="small" font-weight="bold" style="fill:#E65100">signs</text>
+  <rect x="478" y="335" width="50" height="18" rx="4" fill="#FFF3E0"/>
+  <text x="503" y="348" text-anchor="middle" class="small" font-weight="bold" style="fill:#E65100">signs</text>
+  <rect x="700" y="335" width="50" height="18" rx="4" fill="#FFF3E0"/>
+  <text x="725" y="348" text-anchor="middle" class="small" font-weight="bold" style="fill:#E65100">signs</text>
+
+  <!-- TIER 3: END-ENTITY CERTIFICATES -->
+  <!-- Server Certificate -->
+  <rect x="35" y="378" width="230" height="95" rx="12" fill="#E3F2FD" stroke="#1565C0" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="35" y="378" width="230" height="32" rx="12" fill="url(#srvGrad)"/>
+  <rect x="35" y="396" width="230" height="14" fill="url(#srvGrad)"/>
+  <text x="150" y="400" text-anchor="middle" class="heading" style="fill:#fff">Server Certificate</text>
+  <text x="150" y="430" text-anchor="middle" class="code">CN=banco.com</text>
+  <text x="150" y="448" text-anchor="middle" class="small">Public key + identity</text>
+  <text x="150" y="464" text-anchor="middle" class="small">HTTPS, LDAPS, SMTPS</text>
+
+  <!-- Client Certificate -->
+  <rect x="355" y="378" width="230" height="95" rx="12" fill="#E8F5E9" stroke="#2E7D32" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="355" y="378" width="230" height="32" rx="12" fill="url(#cliGrad)"/>
+  <rect x="355" y="396" width="230" height="14" fill="url(#cliGrad)"/>
+  <text x="470" y="400" text-anchor="middle" class="heading" style="fill:#fff">Client Certificate</text>
+  <text x="470" y="430" text-anchor="middle" class="code">CN=admin@empresa.com</text>
+  <text x="470" y="448" text-anchor="middle" class="small">Mutual authentication (mTLS)</text>
+  <text x="470" y="464" text-anchor="middle" class="small">VPN, Smart Card</text>
+
+  <!-- Code Signing Certificate -->
+  <rect x="675" y="378" width="230" height="95" rx="12" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="2" filter="url(#shadow)"/>
+  <rect x="675" y="378" width="230" height="32" rx="12" fill="url(#codeGrad)"/>
+  <rect x="675" y="396" width="230" height="14" fill="url(#codeGrad)"/>
+  <text x="790" y="400" text-anchor="middle" class="heading" style="fill:#fff">Code Certificate</text>
+  <text x="790" y="430" text-anchor="middle" class="code">CN=Software Corp</text>
+  <text x="790" y="448" text-anchor="middle" class="small">Software signing</text>
+  <text x="790" y="464" text-anchor="middle" class="small">RPMs, JARs, EXEs</text>
+
+  <!-- LIFECYCLE -->
+  <rect x="35" y="500" width="870" height="52" rx="10" fill="#ECEFF1" stroke="#90A4AE" stroke-width="1.5"/>
+  <text x="470" y="520" text-anchor="middle" class="heading" style="fill:#37474F">Certificate Lifecycle</text>
+
+  <!-- Lifecycle steps -->
+  <rect x="55" y="530" width="90" height="16" rx="4" fill="#1565C0"/>
+  <text x="100" y="542" text-anchor="middle" class="small" style="fill:#fff">1. Create CSR</text>
+  <text x="155" y="542" text-anchor="middle" class="small" style="fill:#546E7A">&#8594;</text>
+  <rect x="165" y="530" width="100" height="16" rx="4" fill="#1565C0"/>
+  <text x="215" y="542" text-anchor="middle" class="small" style="fill:#fff">2. Submit to CA</text>
+  <text x="275" y="542" text-anchor="middle" class="small" style="fill:#546E7A">&#8594;</text>
+  <rect x="285" y="530" width="100" height="16" rx="4" fill="#2E7D32"/>
+  <text x="335" y="542" text-anchor="middle" class="small" style="fill:#fff">3. CA Issues</text>
+  <text x="395" y="542" text-anchor="middle" class="small" style="fill:#546E7A">&#8594;</text>
+  <rect x="405" y="530" width="90" height="16" rx="4" fill="#2E7D32"/>
+  <text x="450" y="542" text-anchor="middle" class="small" style="fill:#fff">4. Install</text>
+  <text x="505" y="542" text-anchor="middle" class="small" style="fill:#546E7A">&#8594;</text>
+  <rect x="515" y="530" width="70" height="16" rx="4" fill="#FF6F00"/>
+  <text x="550" y="542" text-anchor="middle" class="small" style="fill:#fff">5. Use</text>
+  <text x="595" y="542" text-anchor="middle" class="small" style="fill:#546E7A">&#8594;</text>
+  <rect x="605" y="530" width="100" height="16" rx="4" fill="#FF6F00"/>
+  <text x="655" y="542" text-anchor="middle" class="small" style="fill:#fff">6. Renew</text>
+  <text x="715" y="542" text-anchor="middle" class="small" style="fill:#546E7A">or</text>
+  <rect x="730" y="530" width="90" height="16" rx="4" fill="#C62828"/>
+  <text x="775" y="542" text-anchor="middle" class="small" style="fill:#fff">7. Revoke</text>
+
+  <!-- SUPPORTING SERVICES -->
+  <text x="470" y="588" text-anchor="middle" class="heading" style="fill:#37474F">PKI Support Services</text>
+  <line x1="80" y1="597" x2="860" y2="597" stroke="#CFD8DC" stroke-width="1"/>
+
+  <!-- CRL -->
+  <rect x="35" y="610" width="270" height="80" rx="10" fill="#FAFAFA" stroke="#90A4AE" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="35" y="610" width="270" height="30" rx="10" fill="#546E7A"/>
+  <rect x="35" y="628" width="270" height="12" fill="#546E7A"/>
+  <text x="170" y="632" text-anchor="middle" class="heading" style="fill:#fff">CRL (Revocation List)</text>
+  <text x="170" y="660" text-anchor="middle" class="small">List of revoked certificates</text>
+  <text x="170" y="678" text-anchor="middle" class="small">Published periodically by CA</text>
+
+  <!-- OCSP -->
+  <rect x="335" y="610" width="270" height="80" rx="10" fill="#FAFAFA" stroke="#90A4AE" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="335" y="610" width="270" height="30" rx="10" fill="#546E7A"/>
+  <rect x="335" y="628" width="270" height="12" fill="#546E7A"/>
+  <text x="470" y="632" text-anchor="middle" class="heading" style="fill:#fff">OCSP (Online Status)</text>
+  <text x="470" y="660" text-anchor="middle" class="small">Real-time verification</text>
+  <text x="470" y="678" text-anchor="middle" class="small">"Is this certificate still valid?"</text>
+
+  <!-- RA -->
+  <rect x="635" y="610" width="270" height="80" rx="10" fill="#FAFAFA" stroke="#90A4AE" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="635" y="610" width="270" height="30" rx="10" fill="#546E7A"/>
+  <rect x="635" y="628" width="270" height="12" fill="#546E7A"/>
+  <text x="770" y="632" text-anchor="middle" class="heading" style="fill:#fff">RA (Registration Authority)</text>
+  <text x="770" y="660" text-anchor="middle" class="small">Verifies requester identity</text>
+  <text x="770" y="678" text-anchor="middle" class="small">before certificate issuance</text>
+
+  <!-- TRUST VERIFICATION FLOW -->
+  <rect x="70" y="710" width="800" height="32" rx="8" fill="#2E7D32" filter="url(#shadow)"/>
+  <text x="470" y="731" text-anchor="middle" class="heading" style="fill:#fff">Verification: Server Cert &#8594; signed by Intermediate &#8594; signed by Root &#8594; trusted by OS &#10004;</text>
+</svg>

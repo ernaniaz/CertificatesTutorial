@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="1000" height="500">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Evolução do Gerenciamento de Certificados no RHEL</text>
+
+  <!-- Timeline Base -->
+  <line x1="80" y1="100" x2="950" y2="100" stroke="#666" stroke-width="3"/>
+
+  <!-- RHEL 7 Section -->
+  <circle cx="180" cy="100" r="12" fill="#6C757D"/>
+  <rect x="80" y="120" width="200" height="180" rx="6" fill="#F5F5F5" stroke="#6C757D" stroke-width="2"/>
+  <rect x="80" y="120" width="200" height="35" rx="6" fill="#6C757D"/>
+  <text x="180" y="145" text-anchor="middle" class="section-title" fill="#fff">RHEL 7 (2014-2024)</text>
+  <text x="100" y="175" class="label">OpenSSL 1.0.2k</text>
+  <text x="100" y="200" class="small">• Configuração TLS manual</text>
+  <text x="100" y="218" class="small">• Sem crypto-policies</text>
+  <text x="100" y="236" class="small">• SHA-1 permitido</text>
+  <text x="100" y="254" class="small">• TLS 1.0/1.1 suportado</text>
+  <text x="100" y="272" class="small">• certmonger disponível</text>
+  <rect x="100" y="280" width="60" height="15" rx="2" fill="#FFC107"/>
+  <text x="130" y="291" text-anchor="middle" class="small">EOL 2024</text>
+
+  <!-- RHEL 8 Section -->
+  <circle cx="395" cy="100" r="12" fill="#388E3C"/>
+  <rect x="295" y="120" width="200" height="180" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <rect x="295" y="120" width="200" height="35" rx="6" fill="#388E3C"/>
+  <text x="395" y="145" text-anchor="middle" class="section-title" fill="#fff">RHEL 8 (2019-2029)</text>
+  <text x="315" y="175" class="label">OpenSSL 1.1.1k</text>
+  <text x="315" y="200" class="small">• Crypto-policies introduzido ⭐</text>
+  <text x="315" y="218" class="small">• TLS 1.2+ padrão</text>
+  <text x="315" y="236" class="small">• SHA-1 depreciado</text>
+  <text x="315" y="254" class="small">• Segurança em nível de sistema</text>
+  <text x="315" y="272" class="small">• RSA 2048+ obrigatório</text>
+  <rect x="315" y="280" width="80" height="15" rx="2" fill="#388E3C"/>
+  <text x="355" y="291" text-anchor="middle" class="small" fill="#fff">Suportado</text>
+
+  <!-- RHEL 9 Section -->
+  <circle cx="620" cy="100" r="12" fill="#1976D2"/>
+  <rect x="520" y="120" width="200" height="180" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <rect x="520" y="120" width="200" height="35" rx="6" fill="#1976D2"/>
+  <text x="620" y="145" text-anchor="middle" class="section-title" fill="#fff">RHEL 9 (2022-2032)</text>
+  <text x="540" y="175" class="label">OpenSSL 3.0+</text>
+  <text x="540" y="200" class="small">• Padrões mais rígidos</text>
+  <text x="540" y="218" class="small">• SHA-1 bloqueado ⚠️</text>
+  <text x="540" y="236" class="small">• SANs obrigatórios ⭐</text>
+  <text x="540" y="254" class="small">• Provider legacy p/ compat.</text>
+  <text x="540" y="272" class="small">• Validação aprimorada</text>
+  <rect x="540" y="280" width="80" height="15" rx="2" fill="#1976D2"/>
+  <text x="580" y="291" text-anchor="middle" class="small" fill="#fff">Atual</text>
+
+  <!-- RHEL 10 Section -->
+  <circle cx="845" cy="100" r="12" fill="#00ACC1"/>
+  <rect x="745" y="120" width="200" height="180" rx="6" fill="#E0F7FA" stroke="#00ACC1" stroke-width="2"/>
+  <rect x="745" y="120" width="200" height="35" rx="6" fill="#00ACC1"/>
+  <text x="845" y="145" text-anchor="middle" class="section-title" fill="#fff">RHEL 10 (2024-2034)</text>
+  <text x="765" y="175" class="label">OpenSSL 3.5.5</text>
+  <text x="765" y="200" class="small">• Segurança aprimorada</text>
+  <text x="765" y="218" class="small">• Apenas algoritmos modernos</text>
+  <text x="765" y="236" class="small">• Crypto-policies melhorado</text>
+  <text x="765" y="254" class="small">• Melhor suporte FIPS</text>
+  <text x="765" y="272" class="small">• Criptografia preparada</text>
+  <rect x="765" y="280" width="80" height="15" rx="2" fill="#00ACC1"/>
+  <text x="805" y="291" text-anchor="middle" class="small" fill="#fff">Mais Novo</text>
+
+  <!-- Timeline arrows -->
+  <path d="M 250 100 L 315 100" stroke="#999" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 465 100 L 540 100" stroke="#999" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 690 100 L 765 100" stroke="#999" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <!-- Years on timeline -->
+  <text x="180" y="85" text-anchor="middle" class="small">2014</text>
+  <text x="395" y="85" text-anchor="middle" class="small">2019</text>
+  <text x="620" y="85" text-anchor="middle" class="small">2022</text>
+  <text x="845" y="85" text-anchor="middle" class="small">2024</text>
+
+  <!-- Key Changes Section -->
+  <rect x="80" y="320" width="860" height="160" rx="6" fill="#FFF9C4" stroke="#F57C00" stroke-width="1"/>
+  <text x="510" y="345" text-anchor="middle" class="section-title" fill="#F57C00">Considerações Principais de Migração</text>
+
+  <rect x="100" y="360" width="250" height="100" rx="4" fill="#fff" stroke="#F57C00" stroke-width="1"/>
+  <text x="225" y="380" text-anchor="middle" class="label">RHEL 7 → 8</text>
+  <text x="115" y="400" class="small">• Adotar crypto-policies</text>
+  <text x="115" y="418" class="small">• Atualizar configs SSL manuais</text>
+  <text x="115" y="436" class="small">• Migrar para SHA-256</text>
+
+  <rect x="380" y="360" width="250" height="100" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="505" y="380" text-anchor="middle" class="label" fill="#E53935">RHEL 8 → 9 ⚠️</text>
+  <text x="395" y="400" class="small">• Remover todos certs SHA-1</text>
+  <text x="395" y="418" class="small">• Adicionar SANs em todos certs</text>
+  <text x="395" y="436" class="small">• Testar compat. OpenSSL 3.x</text>
+
+  <rect x="660" y="360" width="250" height="100" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="785" y="380" text-anchor="middle" class="label">RHEL 9 → 10</text>
+  <text x="675" y="400" class="small">• Revisar recursos modernos</text>
+  <text x="675" y="418" class="small">• Atualizar p/ melhores práticas</text>
+  <text x="675" y="436" class="small">• Boa compatibilidade</text>
+</svg>

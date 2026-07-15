@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1220 680" width="1220" height="680">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2.5; fill: none; marker-end: url(#arrow-blue); }
+      .arrow-green { stroke: #388E3C; stroke-width: 2.5; fill: none; marker-end: url(#arrow-green); }
+    </style>
+    <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2"/>
+    </marker>
+    <marker id="arrow-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388E3C"/>
+    </marker>
+  </defs>
+
+  <text x="610" y="32" text-anchor="middle" class="title">MOK Enrollment Flow on RHEL</text>
+
+  <rect x="20" y="50" width="1180" height="340" rx="10" fill="#FAFAFA" stroke="#E0E0E0" stroke-width="1.5"/>
+
+  <rect x="40" y="90" width="210" height="125" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="145" y="115" text-anchor="middle" class="section-title" fill="#1976D2">1. Generate Key Pair</text>
+  <text x="46" y="140" class="code">efikeygen --dbdir /etc/pki/pesign</text>
+  <text x="46" y="160" class="small">Create X.509 key pair for module/kernel sign.</text>
+  <text x="46" y="180" class="small">Private key stays under admin control</text>
+
+  <rect x="280" y="90" width="220" height="125" rx="8" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="390" y="115" text-anchor="middle" class="section-title" fill="#388E3C">2. Export Public Cert</text>
+  <text x="295" y="140" class="code">certutil -d /etc/pki/pesign</text>
+  <text x="295" y="158" class="code">-n 'Custom Secure Boot key'</text>
+  <text x="295" y="176" class="code">-Lr &gt; sb_cert.cer</text>
+
+  <rect x="530" y="90" width="220" height="125" rx="8" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="640" y="115" text-anchor="middle" class="section-title" fill="#F57C00">3. Queue Enrollment</text>
+  <text x="545" y="145" class="code">mokutil --import sb_cert.cer</text>
+  <text x="545" y="165" class="small">Set temporary enrollment password</text>
+  <text x="545" y="183" class="small">Request is stored for next boot</text>
+
+  <rect x="780" y="90" width="210" height="125" rx="8" fill="#EDE7F6" stroke="#5E35B1" stroke-width="2"/>
+  <text x="885" y="115" text-anchor="middle" class="section-title" fill="#5E35B1">4. Reboot</text>
+  <text x="795" y="145" class="small">shim sees pending MOK request</text>
+  <text x="795" y="165" class="small">Starts MokManager.efi in UEFI UI</text>
+  <text x="795" y="183" class="small">Normal boot pauses for confirmation</text>
+
+  <rect x="1020" y="90" width="160" height="125" rx="8" fill="#FFF8E1" stroke="#F9A825" stroke-width="2"/>
+  <text x="1100" y="115" text-anchor="middle" class="section-title" fill="#F9A825">5. Enroll MOK</text>
+  <text x="1035" y="145" class="small">Choose "Enroll MOK"</text>
+  <text x="1035" y="165" class="small">Enter password</text>
+  <text x="1035" y="183" class="small">Confirm certificate</text>
+  <text x="1035" y="198" class="small">enrollment</text>
+
+  <path d="M 250 152 L 280 152" class="arrow"/>
+  <path d="M 500 152 L 530 152" class="arrow"/>
+  <path d="M 750 152 L 780 152" class="arrow"/>
+  <path d="M 990 152 L 1020 152" class="arrow"/>
+
+  <rect x="80" y="255" width="1040" height="105" rx="8" fill="#FFFFFF" stroke="#BDBDBD" stroke-width="1.5"/>
+  <text x="600" y="280" text-anchor="middle" class="section-title">Persistence and Runtime Effect</text>
+  <text x="110" y="305" class="small">After enrollment, the public certificate is stored in the persistent MOK list.</text>
+  <text x="110" y="327" class="small">On Secure Boot-enabled boots, the key propagates into the kernel platform keyring.</text>
+  <text x="110" y="349" class="small">That is what makes your signed kernel or module trusted on this system.</text>
+
+  <path d="M 1100 215 L 1100 225 L 600 225 L 600 255" class="arrow-green"/>
+
+  <rect x="20" y="420" width="360" height="210" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="200" y="445" text-anchor="middle" class="section-title" fill="#1976D2">Check Commands</text>
+  <text x="40" y="475" class="code">mokutil --sb-state</text>
+  <text x="40" y="497" class="code">mokutil --list-enrolled</text>
+  <text x="40" y="519" class="code">keyctl list %:.platform</text>
+  <text x="40" y="549" class="small">Use these after reboot to confirm the key is both</text>
+  <text x="40" y="568" class="small">enrolled and visible to the running kernel.</text>
+
+  <rect x="420" y="420" width="360" height="210" rx="8" fill="#FFEBEE" stroke="#D32F2F" stroke-width="1.5"/>
+  <text x="600" y="445" text-anchor="middle" class="section-title" fill="#D32F2F">Common Failure</text>
+  <text x="440" y="475" class="small">Running</text>
+  <text x="490" y="475" class="code">mokutil --import</text>
+  <text x="594" y="475" class="small">is not enough.</text>
+  <text x="440" y="500" class="small">If the admin never completes the MokManager</text>
+  <text x="440" y="519" class="small">screen after reboot, the target host still does</text>
+  <text x="440" y="538" class="small">not trust the signer.</text>
+
+  <rect x="820" y="420" width="380" height="210" rx="8" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="1010" y="445" text-anchor="middle" class="section-title" fill="#388E3C">When To Use MOK</text>
+  <text x="840" y="475" class="small">- Custom kernel modules</text>
+  <text x="840" y="497" class="small">- Custom kernels or GRUB binaries</text>
+  <text x="840" y="519" class="small">- Systems where firmware db is unchanged</text>
+  <text x="840" y="541" class="small">- Owner-controlled trust without disabling Secure</text>
+  <text x="840" y="560" class="small">  Boot globally</text>
+</svg>

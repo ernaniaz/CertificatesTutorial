@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388E3C" />
+    </marker>
+    <marker id="arrowhead-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#E53935" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Flujo de Lista de Verificación de Migración</text>
+
+  <!-- Start -->
+  <ellipse cx="120" cy="80" rx="90" ry="28" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="120" y="78" text-anchor="middle" class="small">Planificación de</text>
+  <text x="120" y="92" text-anchor="middle" class="small">Migración Requerida</text>
+
+  <path d="M 120 108 L 120 140" class="arrow"/>
+
+  <!-- Phase 1: Assessment -->
+  <rect x="40" y="145" width="160" height="35" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="120" y="168" text-anchor="middle" class="label" fill="#fff">Fase 1: Evaluación</text>
+
+  <path d="M 120 180 L 120 210" class="arrow"/>
+
+  <rect x="40" y="210" width="160" height="80" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="120" y="230" text-anchor="middle" class="section-title" fill="#1976D2">Inventario</text>
+  <text x="55" y="250" class="small">• Todos los certificados</text>
+  <text x="55" y="265" class="small">• Fechas y algoritmos</text>
+  <text x="55" y="280" class="small">• Servicios usando certs</text>
+
+  <path d="M 200 250 L 250 250" class="arrow"/>
+
+  <!-- Phase 2: Planning -->
+  <rect x="255" y="145" width="160" height="35" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="335" y="168" text-anchor="middle" class="label" fill="#fff">Fase 2: Planificación</text>
+
+  <path d="M 335 180 L 335 210" class="arrow"/>
+
+  <rect x="255" y="210" width="160" height="80" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="335" y="230" text-anchor="middle" class="section-title" fill="#F57C00">Cronograma</text>
+  <text x="270" y="250" class="small">• Tareas pre-migración</text>
+  <text x="270" y="265" class="small">• Ventana de migración</text>
+  <text x="270" y="280" class="small">• Plan de rollback</text>
+
+  <path d="M 415 250 L 465 250" class="arrow"/>
+
+  <!-- Phase 3: Testing -->
+  <rect x="470" y="145" width="160" height="35" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="550" y="168" text-anchor="middle" class="label" fill="#fff">Fase 3: Pruebas</text>
+
+  <path d="M 550 180 L 550 210" class="arrow"/>
+
+  <rect x="470" y="210" width="160" height="80" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="550" y="230" text-anchor="middle" class="section-title" fill="#388E3C">Entorno de Prueba</text>
+  <text x="485" y="250" class="small">• Clonar producción</text>
+  <text x="485" y="265" class="small">• Actualizar a destino</text>
+  <text x="485" y="280" class="small">• Probar todos los certs</text>
+
+  <path d="M 550 290 L 550 330" class="arrow"/>
+
+  <!-- Test Decision -->
+  <polygon points="550,330 620,365 550,400 480,365" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="550" y="370" text-anchor="middle" class="label">¿Pasa?</text>
+
+  <!-- No - Fix & Retest -->
+  <path d="M 480 365 L 430 365 L 430 250" stroke="#0D47A1" stroke-width="1.5" fill="none"/>
+  <text x="440" y="355" class="small" fill="#F57C00">No - Corregir</text>
+
+  <!-- Yes - Continue -->
+  <path d="M 620 365 L 660 365 L 660 250 L 690 250" class="arrow"/>
+  <text x="630" y="355" class="small" fill="#388E3C">Sí</text>
+
+  <!-- Phase 4: Backup -->
+  <rect x="690" y="145" width="160" height="35" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="770" y="168" text-anchor="middle" class="label" fill="#fff">Fase 4: Respaldo</text>
+
+  <rect x="690" y="210" width="160" height="80" rx="4" fill="#FCE4EC" stroke="#E91E63" stroke-width="1"/>
+  <text x="770" y="230" text-anchor="middle" class="section-title" fill="#E91E63">Respaldo Completo</text>
+  <text x="705" y="250" class="small">• Todo /etc/pki/</text>
+  <text x="705" y="265" class="small">• Configs de servicios</text>
+  <text x="705" y="280" class="small">• Probar restauración</text>
+
+  <path d="M 770 180 L 770 210" class="arrow"/>
+  <path d="M 850 250 L 870 250 L 870 510 L 850 510" class="arrow"/>
+
+  <!-- Phase 5: Execute -->
+  <rect x="690" y="410" width="160" height="35" rx="6" fill="#E53935" stroke="#C62828" stroke-width="2"/>
+  <text x="770" y="433" text-anchor="middle" class="label" fill="#fff">Fase 5: Ejecutar</text>
+
+  <rect x="690" y="470" width="160" height="80" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="770" y="490" text-anchor="middle" class="section-title" fill="#E53935">Migración</text>
+  <text x="705" y="510" class="small">• Detener servicios</text>
+  <text x="705" y="525" class="small">• Realizar upgrade</text>
+  <text x="705" y="540" class="small">• Reiniciar sistema</text>
+
+  <path d="M 770 445 L 770 470" class="arrow"/>
+  <path d="M 690 510 L 630 510" class="arrow"/>
+
+  <!-- Phase 6: Validate -->
+  <rect x="470" y="410" width="160" height="35" rx="6" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="550" y="433" text-anchor="middle" class="label" fill="#fff">Fase 6: Validar</text>
+
+  <rect x="470" y="470" width="160" height="100" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="550" y="490" text-anchor="middle" class="section-title" fill="#388E3C">Lista de Verificación</text>
+  <text x="485" y="510" class="small">✓ Versión OS correcta</text>
+  <text x="485" y="525" class="small">✓ Versión OpenSSL</text>
+  <text x="485" y="540" class="small">✓ Crypto-policies</text>
+  <text x="485" y="555" class="small">✓ Todos los certs</text>
+
+  <path d="M 550 445 L 550 470" class="arrow"/>
+  <path d="M 550 570 L 550 600" class="arrow"/>
+
+  <!-- Validation Decision -->
+  <polygon points="550,600 620,635 550,670 480,635" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="550" y="640" text-anchor="middle" class="label">¿Todo OK?</text>
+
+  <!-- No - Troubleshoot -->
+  <path d="M 480 635 L 350 635" stroke="#F57C00" stroke-width="2" fill="none" marker-end="url(#arrowhead)"/>
+  <text x="410" y="625" class="small" fill="#F57C00">No</text>
+
+  <rect x="200" y="600" width="145" height="70" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1"/>
+  <text x="272" y="625" text-anchor="middle" class="section-title" fill="#F57C00">Solucionar</text>
+  <text x="215" y="645" class="small">• Verificar compatibilidad</text>
+  <text x="215" y="660" class="small">• Revisar políticas</text>
+
+  <!-- Critical decision -->
+  <polygon points="120,600 180,635 120,670 60,635" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+  <text x="120" y="640" text-anchor="middle" class="small">¿Crítico?</text>
+
+  <path d="M 200 635 L 180 635" stroke="#F57C00" stroke-width="1.5" fill="none" marker-end="url(#arrowhead)"/>
+
+  <!-- Rollback path -->
+  <path d="M 120 670 L 120 720" stroke="#E53935" stroke-width="2" fill="none" marker-end="url(#arrowhead-red)"/>
+  <text x="135" y="700" class="small" fill="#E53935">Sí</text>
+
+  <rect x="40" y="725" width="160" height="60" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="120" y="750" text-anchor="middle" class="section-title" fill="#E53935">ROLLBACK</text>
+  <text x="55" y="770" class="small">Restaurar, revertir RHEL</text>
+
+  <!-- Fix and retry loop -->
+  <path d="M 60 635 L 30 635 L 30 310 L 490 310 L 490 290" stroke="#388E3C" stroke-width="1.5" stroke-dasharray="4,2" fill="none" marker-end="url(#arrowhead-green)"/>
+  <text x="45" y="475" class="small" fill="#388E3C">No - Corregir</text>
+
+  <!-- Yes - Monitor -->
+  <path d="M 620 635 L 770 635 L 770 665" class="arrow"/>
+  <text x="665" y="625" class="small" fill="#388E3C">Sí</text>
+
+  <!-- Phase 7: Monitor -->
+  <rect x="690" y="665" width="160" height="35" rx="6" fill="#CFE2FF" stroke="#1976D2" stroke-width="2"/>
+  <text x="770" y="688" text-anchor="middle" class="label" fill="#1976D2">Fase 7: Monitorear</text>
+
+  <rect x="690" y="725" width="160" height="65" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="770" y="745" text-anchor="middle" class="section-title" fill="#1976D2">1-2 Semanas</text>
+  <text x="705" y="765" class="small">• Errores de certificado</text>
+  <text x="705" y="780" class="small">• Estabilidad del servicio</text>
+
+  <path d="M 770 700 L 770 725" class="arrow"/>
+
+  <!-- Success & Phase 8 -->
+  <ellipse cx="550" cy="760" rx="80" ry="28" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="550" y="758" text-anchor="middle" class="label" fill="#388E3C">✓ Migración</text>
+  <text x="550" y="773" text-anchor="middle" class="label" fill="#388E3C">Completa</text>
+
+  <path d="M 690 760 L 630 760" class="arrow"/>
+
+  <rect x="255" y="725" width="160" height="60" rx="4" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="335" y="748" text-anchor="middle" class="section-title">Fase 8: Aprender</text>
+  <text x="270" y="770" class="small">Documentar lecciones</text>
+
+  <path d="M 470 760 L 415 760" class="arrow"/>
+</svg>

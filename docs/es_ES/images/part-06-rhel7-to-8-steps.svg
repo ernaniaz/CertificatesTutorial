@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Pasos de Migración de Certificados RHEL 7 → 8</text>
+
+  <!-- Start -->
+  <ellipse cx="100" cy="70" rx="85" ry="30" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="100" y="68" text-anchor="middle" class="label">RHEL 7→8</text>
+  <text x="100" y="83" text-anchor="middle" class="small">Planificación Migración</text>
+
+  <!-- Fase 1: Evaluación -->
+  <rect x="30" y="125" width="140" height="35" rx="4" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="100" y="148" text-anchor="middle" class="label" fill="#fff">Fase 1: Evaluación</text>
+  <path d="M 100 100 L 100 125" class="arrow"/>
+
+  <rect x="30" y="185" width="140" height="80" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="100" y="205" text-anchor="middle" class="section-title" fill="#1976D2">Inventario</text>
+  <text x="45" y="225" class="small">• Todos los certificados</text>
+  <text x="45" y="240" class="small">• Configs de servicios</text>
+  <text x="45" y="255" class="small">• Config SSL personalizada</text>
+  <path d="M 100 160 L 100 185" class="arrow"/>
+
+  <!-- Verificar Algoritmos -->
+  <rect x="195" y="185" width="170" height="80" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="280" y="205" text-anchor="middle" class="section-title" fill="#F57C00">Verificar Algoritmos</text>
+  <text x="205" y="225" class="code">find /etc/pki -name '*.crt'</text>
+  <text x="205" y="240" class="code">| openssl x509 -text</text>
+  <text x="205" y="255" class="code">| grep 'Signature Algo'</text>
+  <path d="M 170 225 L 195 225" class="arrow"/>
+
+  <!-- Weak Algorithm Decision -->
+  <polygon points="275,295 345,325 275,355 205,325" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="275" y="322" text-anchor="middle" class="small">¿Algos</text>
+  <text x="275" y="337" text-anchor="middle" class="small">Débiles?</text>
+  <path d="M 275 265 L 275 295" class="arrow"/>
+
+  <!-- Regen Path -->
+  <rect x="400" y="295" width="150" height="60" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+  <text x="475" y="318" text-anchor="middle" class="section-title" fill="#E53935">Marcar para Regen</text>
+  <text x="415" y="340" class="small">SHA-1 obsoleto en 8</text>
+  <path d="M 345 325 L 400 325" class="arrow"/>
+  <text x="358" y="315" class="small">Sí</text>
+
+  <!-- Phase 2: Backup -->
+  <rect x="530" y="125" width="140" height="35" rx="4" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="600" y="148" text-anchor="middle" class="label" fill="#fff">Fase 2: Respaldo</text>
+  <path d="M 550 325 L 600 325 L 600 265" class="arrow"/>
+  <path d="M 275 355 L 275 375 L 600 375" stroke="#1976D2" stroke-width="1.5" fill="none"/>
+  <path d="M 600 400 L 600 325" stroke="#1976D2" stroke-width="1.5" fill="none"/>
+  <text x="290" y="365" class="small">Todos fuertes</text>
+
+  <rect x="530" y="185" width="140" height="80" rx="4" fill="#FCE4EC" stroke="#E91E63" stroke-width="1"/>
+  <text x="600" y="205" text-anchor="middle" class="section-title" fill="#E91E63">Respaldo Completo</text>
+  <text x="545" y="225" class="small">• /etc/pki/</text>
+  <text x="545" y="240" class="small">• /etc/httpd/conf.d/</text>
+  <text x="545" y="255" class="small">• /etc/nginx/</text>
+  <path d="M 600 160 L 600 185" class="arrow"/>
+
+  <!-- Phase 3: Prueba -->
+  <rect x="695" y="125" width="140" height="35" rx="4" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="765" y="148" text-anchor="middle" class="label" fill="#fff">Fase 3: Prueba</text>
+  <path d="M 670 142 L 695 142" class="arrow"/>
+
+  <rect x="695" y="185" width="140" height="80" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="775" y="205" text-anchor="middle" class="section-title" fill="#388E3C">Entorno Prueba</text>
+  <text x="720" y="225" class="small">• Clonar a RHEL 8</text>
+  <text x="720" y="240" class="small">• Probar compatibilidad</text>
+  <text x="720" y="255" class="small">• Probar servicios</text>
+  <path d="M 765 160 L 765 185" class="arrow"/>
+
+  <!-- Phase 4: Migrate -->
+  <rect x="860" y="125" width="120" height="35" rx="4" fill="#E53935" stroke="#C62828" stroke-width="2"/>
+  <text x="920" y="148" text-anchor="middle" class="label" fill="#fff">Fase 4: Migrar</text>
+  <path d="M 835 142 L 860 142" class="arrow"/>
+
+  <rect x="860" y="185" width="120" height="50" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="920" y="205" text-anchor="middle" class="section-title" fill="#E53935">Actualizar SO</text>
+  <text x="875" y="225" class="small">RHEL 7 → RHEL 8</text>
+  <path d="M 920 160 L 920 185" class="arrow"/>
+
+  <!-- NEW: Crypto-Policies -->
+  <rect x="720" y="295" width="260" height="70" rx="6" fill="#388E3C" stroke="#2E7D32" stroke-width="2"/>
+  <text x="850" y="320" text-anchor="middle" class="section-title" fill="#fff">¡NUEVO: Crypto-Policies Activo!</text>
+  <text x="850" y="345" text-anchor="middle" class="label" fill="#fff">Valores por defecto de seguridad del sistema</text>
+  <path d="M 920 235 L 920 270 L 850 270 L 850 295" class="arrow"/>
+
+  <!-- Policy Check -->
+  <rect x="720" y="390" width="260" height="80" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="850" y="415" text-anchor="middle" class="section-title" fill="#388E3C">Verificar Política</text>
+  <text x="735" y="438" class="code">update-crypto-policies --show</text>
+  <text x="735" y="458" class="small">DEFAULT: TLS 1.2+, RSA 2048+</text>
+  <path d="M 850 365 L 850 390" class="arrow"/>
+
+  <!-- Services Check -->
+  <rect x="400" y="390" width="280" height="80" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="540" y="415" text-anchor="middle" class="section-title" fill="#1976D2">Verificar Todos los Servicios</text>
+  <text x="415" y="438" class="small">Para cada servicio: 1. systemctl status  2. Verificar logs</text>
+  <text x="415" y="458" class="small">3. Probar conexiones  4. Verificar certificados</text>
+  <path d="M 720 430 L 680 430" class="arrow"/>
+
+  <!-- Issues Decision -->
+  <polygon points="540,500 610,530 540,560 470,530" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="540" y="535" text-anchor="middle" class="small">¿Problemas?</text>
+  <path d="M 540 470 L 540 500" class="arrow"/>
+
+  <!-- Issue Types -->
+  <rect x="30" y="490" width="180" height="80" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1"/>
+  <text x="120" y="515" text-anchor="middle" class="section-title" fill="#F57C00">Configs Manuales</text>
+  <text x="45" y="535" class="small">Convertir SSL/TLS manual</text>
+  <text x="45" y="550" class="small">para usar crypto-policies</text>
+  <path d="M 470 530 L 415 530" class="arrow"/>
+
+  <rect x="235" y="490" width="180" height="80" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1"/>
+  <text x="325" y="515" text-anchor="middle" class="section-title" fill="#F57C00">Cifrados Débiles</text>
+  <text x="250" y="535" class="small">Eliminar directivas de cifrado débil</text>
+  <text x="250" y="550" class="small">Dejar que políticas lo manejen</text>
+  <path d="M 235 530 L 210 530" class="arrow"/>
+
+  <!-- Validation -->
+  <rect x="720" y="490" width="260" height="100" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="850" y="515" text-anchor="middle" class="section-title" fill="#388E3C">Fase 6: Validación</text>
+  <text x="735" y="540" class="small">✓ Todos los servicios inician</text>
+  <text x="735" y="555" class="small">✓ Certificados válidos</text>
+  <text x="735" y="570" class="small">✓ Sin errores TLS</text>
+  <text x="735" y="585" class="small">✓ Clientes pueden conectar</text>
+  <path d="M 610 530 L 720 530" class="arrow"/>
+  <text x="660" y="520" class="small">Ninguno</text>
+
+  <!-- Fix loop -->
+  <path d="M 120 570 L 120 620 L 540 620 L 540 560" stroke="#F57C00" stroke-width="1.5" stroke-dasharray="4,2" fill="none"/>
+  <text x="330" y="635" class="small" fill="#F57C00">Reprobar servicios</text>
+
+  <!-- Monitor -->
+  <rect x="720" y="615" width="260" height="60" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="850" y="640" text-anchor="middle" class="section-title" fill="#1976D2">Fase 7: Monitorear</text>
+  <text x="735" y="660" class="small">Monitorear 1-2 semanas: errores, estabilidad</text>
+  <path d="M 850 590 L 850 615" class="arrow"/>
+
+  <!-- Completa -->
+  <ellipse cx="850" cy="730" rx="100" ry="30" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="850" y="735" text-anchor="middle" class="label" fill="#388E3C">✓ Migración Completa</text>
+  <path d="M 850 675 L 850 700" class="arrow"/>
+</svg>

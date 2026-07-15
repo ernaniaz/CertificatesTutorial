@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .connector { stroke: #1976D2; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Arquitectura de certmonger</text>
+
+  <!-- Main certmonger Service -->
+  <rect x="350" y="50" width="300" height="60" rx="8" fill="#1976D2" stroke="#0D47A1" stroke-width="3"/>
+  <text x="500" y="78" text-anchor="middle" class="section-title" fill="#fff">Servicio certmonger</text>
+  <text x="500" y="98" text-anchor="middle" class="code" fill="#fff">getcert / certmongerd</text>
+
+  <!-- Connectors -->
+  <path d="M 400 110 L 400 150 L 150 150 L 150 180" class="connector"/>
+  <path d="M 500 110 L 500 180" class="connector"/>
+  <path d="M 600 110 L 600 150 L 850 150 L 850 180" class="connector"/>
+
+  <!-- Tracking Database -->
+  <rect x="30" y="180" width="240" height="120" rx="6" fill="#FFF3CD" stroke="#F57C00" stroke-width="2"/>
+  <text x="150" y="205" text-anchor="middle" class="section-title">Base de Datos de Seguimiento</text>
+  <text x="150" y="230" text-anchor="middle" class="code">/var/lib/certmonger/</text>
+  <text x="50" y="255" class="small">• Metadatos del certificado</text>
+  <text x="50" y="270" class="small">• Seguimiento de expiración</text>
+
+  <!-- Certificate Authorities -->
+  <rect x="380" y="160" width="240" height="140" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="185" text-anchor="middle" class="section-title" fill="#388E3C">Autoridades de Certificación</text>
+
+  <rect x="400" y="200" width="95" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="448" y="222" text-anchor="middle" class="small">Auto-firmado</text>
+
+  <rect x="505" y="200" width="95" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="553" y="222" text-anchor="middle" class="small">Local/Dogtag</text>
+
+  <rect x="400" y="245" width="95" height="35" rx="4" fill="#1976D2" stroke="#0D47A1" stroke-width="1"/>
+  <text x="448" y="267" text-anchor="middle" class="small" fill="#fff">FreeIPA</text>
+
+  <rect x="505" y="245" width="95" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="553" y="267" text-anchor="middle" class="small">CA Externa</text>
+
+  <text x="500" y="295" text-anchor="middle" class="code">Scripts auxiliares personalizados</text>
+
+  <!-- Post-Save Hooks -->
+  <rect x="730" y="180" width="240" height="120" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="850" y="205" text-anchor="middle" class="section-title" fill="#1976D2">Hooks Post-Guardado</text>
+  <text x="750" y="235" class="small">Recarga de Servicio:</text>
+  <text x="760" y="252" class="code">systemctl reload httpd</text>
+  <text x="750" y="270" class="small">Scripts Personalizados:</text>
+  <text x="760" y="287" class="code">/path/to/script.sh</text>
+
+  <!-- Renewal Monitoring Flow -->
+  <rect x="30" y="310" width="600" height="180" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="330" y="335" text-anchor="middle" class="section-title">Flujo de Monitoreo de Renovación</text>
+
+  <rect x="50" y="380" width="100" height="40" rx="4" fill="#FFC107" stroke="#F57C00" stroke-width="1"/>
+  <text x="100" y="405" text-anchor="middle" class="small">Verif. Diaria</text>
+
+  <path d="M 150 400 L 255 380" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <path d="M 150 400 L 255 430" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <text x="205" y="375" text-anchor="middle" class="code">&gt;= 2/3 vida?</text>
+  <text x="205" y="440" text-anchor="middle" class="code">&lt; 2/3 vida?</text>
+
+  <rect x="255" y="360" width="80" height="40" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="1"/>
+  <text x="295" y="385" text-anchor="middle" class="small" fill="#fff">Renovar</text>
+
+  <path d="M 335 380 L 365 380" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <rect x="365" y="360" width="80" height="40" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="405" y="385" text-anchor="middle" class="small">Instalar</text>
+
+  <path d="M 445 380 L 535 400" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Wait path -->
+  <rect x="255" y="410" width="190" height="40" rx="4" fill="#1976D2" stroke="#0D47A1" stroke-width="1"/>
+  <text x="350" y="435" text-anchor="middle" class="small" fill="#fff">Esperar</text>
+
+  <path d="M 445 430 L 535 400" stroke="#666" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Complete -->
+  <rect x="535" y="380" width="80" height="40" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="575" y="405" text-anchor="middle" class="small">Completado</text>
+
+  <!-- Managed Certificates -->
+  <rect x="660" y="310" width="310" height="180" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="815" y="335" text-anchor="middle" class="section-title" fill="#388E3C">Certificados Gestionados</text>
+
+  <rect x="680" y="355" width="130" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="745" y="370" text-anchor="middle" class="small">Certificado 1</text>
+  <text x="745" y="383" text-anchor="middle" class="code">Auto-renovado</text>
+
+  <rect x="820" y="355" width="130" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="885" y="370" text-anchor="middle" class="small">Certificado 2</text>
+  <text x="885" y="383" text-anchor="middle" class="code">Monitoreado</text>
+
+  <rect x="680" y="400" width="130" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="745" y="415" text-anchor="middle" class="small">Certificado N</text>
+  <text x="745" y="428" text-anchor="middle" class="code">Rastreado</text>
+
+  <text x="815" y="470" text-anchor="middle" class="code">getcert list</text>
+
+  <!-- Key Commands Section -->
+  <rect x="30" y="510" width="940" height="170" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="500" y="535" text-anchor="middle" class="section-title" fill="#1976D2">Comandos Clave</text>
+
+  <rect x="60" y="555" width="170" height="55" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="145" y="575" text-anchor="middle" class="label">getcert request</text>
+  <text x="145" y="595" text-anchor="middle" class="small">Solicitar nuevo cert</text>
+
+  <rect x="250" y="555" width="170" height="55" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="335" y="575" text-anchor="middle" class="label">getcert list</text>
+  <text x="335" y="595" text-anchor="middle" class="small">Mostrar certs rastreados</text>
+
+  <rect x="440" y="555" width="170" height="55" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="525" y="575" text-anchor="middle" class="label">getcert resubmit</text>
+  <text x="525" y="595" text-anchor="middle" class="small">Forzar renovación</text>
+
+  <rect x="630" y="555" width="170" height="55" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="715" y="575" text-anchor="middle" class="label">getcert status</text>
+  <text x="715" y="595" text-anchor="middle" class="small">Verificar cert específico</text>
+
+  <rect x="60" y="620" width="360" height="45" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="240" y="640" text-anchor="middle" class="label">getcert start-tracking</text>
+  <text x="240" y="658" text-anchor="middle" class="small">Rastrear certificado existente</text>
+
+  <rect x="440" y="620" width="360" height="45" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="620" y="640" text-anchor="middle" class="label">getcert stop-tracking</text>
+  <text x="620" y="658" text-anchor="middle" class="small">Eliminar de monitoreo</text>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#666" />
+    </marker>
+  </defs>
+</svg>

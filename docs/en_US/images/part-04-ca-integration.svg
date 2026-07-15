@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .connector { stroke: #1976D2; stroke-width: 1.5; fill: none; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">certmonger CA Integration</text>
+
+  <!-- Main certmonger -->
+  <rect x="400" y="55" width="200" height="50" rx="8" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="500" y="85" text-anchor="middle" class="section-title" fill="#fff">certmonger</text>
+
+  <!-- CA Branches -->
+  <path d="M 450 105 L 450 130 L 150 130 L 150 160" class="connector"/>
+  <path d="M 500 105 L 500 160" class="connector"/>
+  <path d="M 550 105 L 550 130 L 850 130 L 850 160" class="connector"/>
+
+  <!-- Self-Signed Section -->
+  <rect x="30" y="160" width="240" height="240" rx="6" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <rect x="30" y="160" width="240" height="35" rx="6" fill="#F57C00"/>
+  <text x="150" y="185" text-anchor="middle" class="label" fill="#fff">Self-Signed (certmonger)</text>
+
+  <rect x="50" y="210" width="200" height="50" rx="4" fill="#fff" stroke="#F57C00" stroke-width="1"/>
+  <text x="150" y="230" text-anchor="middle" class="small">Configuration:</text>
+  <text x="150" y="248" text-anchor="middle" class="code">CA: certmonger</text>
+
+  <rect x="50" y="270" width="200" height="60" rx="4" fill="#fff" stroke="#F57C00" stroke-width="1"/>
+  <text x="150" y="290" text-anchor="middle" class="small">Use Cases:</text>
+  <text x="60" y="308" class="code">• Testing/Dev</text>
+  <text x="60" y="322" class="code">• Internal services</text>
+
+  <rect x="50" y="340" width="200" height="50" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1"/>
+  <text x="150" y="358" text-anchor="middle" class="small" fill="#F57C00">Limitations:</text>
+  <text x="60" y="378" class="code" fill="#F57C00">⚠️ Not trusted by default</text>
+
+  <!-- IPA Section -->
+  <rect x="380" y="160" width="240" height="240" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <rect x="380" y="160" width="240" height="35" rx="6" fill="#388E3C"/>
+  <text x="500" y="185" text-anchor="middle" class="label" fill="#fff">FreeIPA (Enterprise)</text>
+
+  <rect x="400" y="210" width="200" height="50" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="500" y="230" text-anchor="middle" class="small">Configuration:</text>
+  <text x="500" y="248" text-anchor="middle" class="code">CA: IPA | Kerberos auth</text>
+
+  <rect x="400" y="270" width="200" height="60" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="500" y="290" text-anchor="middle" class="small">Use Cases:</text>
+  <text x="410" y="308" class="code">• Enterprise PKI</text>
+  <text x="410" y="322" class="code">• Central management</text>
+
+  <rect x="400" y="340" width="200" height="50" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="500" y="358" text-anchor="middle" class="small" fill="#388E3C">Benefits:</text>
+  <text x="410" y="378" class="code" fill="#388E3C">✓ Auto-trust in domain</text>
+
+  <!-- External Section -->
+  <rect x="730" y="160" width="240" height="240" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <rect x="730" y="160" width="240" height="35" rx="6" fill="#1976D2"/>
+  <text x="850" y="185" text-anchor="middle" class="label" fill="#fff">External CAs</text>
+
+  <!-- Let's Encrypt -->
+  <rect x="750" y="210" width="200" height="65" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="850" y="230" text-anchor="middle" class="label" fill="#1976D2">Let's Encrypt</text>
+  <text x="850" y="248" text-anchor="middle" class="code">ACME protocol</text>
+  <text x="850" y="263" text-anchor="middle" class="small">Free, 90-day certs</text>
+
+  <!-- Custom CA -->
+  <rect x="750" y="285" width="200" height="65" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="850" y="305" text-anchor="middle" class="label" fill="#1976D2">Custom CA</text>
+  <text x="850" y="323" text-anchor="middle" class="code">Helper scripts</text>
+  <text x="850" y="338" text-anchor="middle" class="small">Proprietary integration</text>
+
+  <rect x="750" y="360" width="200" height="30" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="850" y="380" text-anchor="middle" class="small" fill="#388E3C">✓ Browser-trusted</text>
+
+  <!-- Commands Section -->
+  <rect x="30" y="420" width="940" height="260" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="500" y="445" text-anchor="middle" class="section-title">getcert Commands</text>
+
+  <!-- Request Command -->
+  <rect x="50" y="465" width="420" height="80" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="260" y="485" text-anchor="middle" class="label" fill="#1976D2">Request Certificate</text>
+  <text x="70" y="510" class="code">getcert request -c CA_NAME \</text>
+  <text x="80" y="525" class="code">-f /path/to/cert.crt -k /path/to/key.key \</text>
+  <text x="80" y="540" class="code">-N "CN=hostname" -D "DNS:hostname"</text>
+
+  <!-- List Command -->
+  <rect x="500" y="465" width="220" height="80" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="610" y="485" text-anchor="middle" class="label" fill="#1976D2">List Tracked</text>
+  <text x="520" y="515" class="code">getcert list</text>
+  <text x="520" y="535" class="small">(show all tracked certs)</text>
+
+  <!-- Resubmit Command -->
+  <rect x="750" y="465" width="200" height="80" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="850" y="485" text-anchor="middle" class="label" fill="#1976D2">Force Renewal</text>
+  <text x="770" y="515" class="code">getcert resubmit</text>
+  <text x="780" y="535" class="code">-i REQUEST_ID</text>
+
+  <!-- Example for IPA -->
+  <rect x="50" y="560" width="420" height="100" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="260" y="580" text-anchor="middle" class="label" fill="#388E3C">Example: IPA Certificate Request</text>
+  <text x="70" y="605" class="code">getcert request -c IPA \</text>
+  <text x="80" y="620" class="code">-K host/server.example.com \</text>
+  <text x="80" y="635" class="code">-f /etc/pki/tls/certs/server.crt \</text>
+  <text x="80" y="650" class="code">-k /etc/pki/tls/private/server.key</text>
+
+  <!-- Example for Self-Signed -->
+  <rect x="500" y="560" width="450" height="100" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="725" y="580" text-anchor="middle" class="label" fill="#F57C00">Example: Self-Signed Request</text>
+  <text x="520" y="605" class="code">getcert request -c certmonger \</text>
+  <text x="530" y="620" class="code">-N "CN=myserver.local" \</text>
+  <text x="530" y="635" class="code">-f /etc/pki/tls/certs/selfsigned.crt \</text>
+  <text x="530" y="650" class="code">-k /etc/pki/tls/private/selfsigned.key</text>
+</svg>

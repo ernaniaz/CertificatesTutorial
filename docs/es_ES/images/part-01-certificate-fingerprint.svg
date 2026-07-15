@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Cálculo de Huella del Certificado</text>
+
+  <!-- Start -->
+  <ellipse cx="215" cy="80" rx="90" ry="30" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="215" y="85" text-anchor="middle" class="label">Calcular Huella</text>
+
+  <path d="M 215 110 L 215 150" class="arrow"/>
+
+  <!-- Choose Algorithm -->
+  <polygon points="215,150 315,200 215,250 115,200" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="215" y="195" text-anchor="middle" class="label">Algoritmo</text>
+  <text x="215" y="212" text-anchor="middle" class="label">Hash?</text>
+
+  <!-- Algorithm Options -->
+  <path d="M 115 200 L 85 200 L 85 300" stroke="#1976D2" stroke-width="1.5" fill="none"/>
+  <path d="M 215 250 L 215 300" stroke="#1976D2" stroke-width="1.5" fill="none"/>
+  <path d="M 315 200 L 345 200 L 345 300" stroke="#1976D2" stroke-width="1.5" fill="none"/>
+
+  <!-- MD5 (Deprecated) -->
+  <rect x="30" y="300" width="110" height="55" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+  <text x="85" y="323" text-anchor="middle" class="label">MD5</text>
+  <text x="85" y="342" text-anchor="middle" class="small" fill="#E53935">⚠️ Inseguro</text>
+
+  <!-- SHA-1 (Deprecated) -->
+  <rect x="160" y="300" width="110" height="55" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="215" y="323" text-anchor="middle" class="label">SHA-1</text>
+  <text x="215" y="342" text-anchor="middle" class="small" fill="#F57C00">⚠️ Obsoleto</text>
+
+  <!-- SHA-256 (Recommended) -->
+  <rect x="290" y="300" width="110" height="55" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="345" y="323" text-anchor="middle" class="label" fill="#388E3C">SHA-256</text>
+  <text x="345" y="342" text-anchor="middle" class="small" fill="#388E3C">✓ Recomendado</text>
+
+  <!-- Process Flow -->
+  <rect x="430" y="70" width="540" height="300" rx="8" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="700" y="95" text-anchor="middle" class="section-title">Proceso de Huella Digital</text>
+
+  <!-- Step 1 -->
+  <rect x="450" y="115" width="200" height="55" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="550" y="138" text-anchor="middle" class="label">1. Cargar Certificado</text>
+  <text x="550" y="158" text-anchor="middle" class="small">Leer datos codificados DER</text>
+
+  <path d="M 650 142 L 700 142" class="arrow"/>
+
+  <!-- Step 2 -->
+  <rect x="700" y="115" width="250" height="55" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="825" y="138" text-anchor="middle" class="label">2. Extraer Datos del Cert</text>
+  <text x="825" y="158" text-anchor="middle" class="small">Cert completo (sin cabeceras PEM)</text>
+
+  <!-- Step 3 -->
+  <path d="M 825 170 L 825 200" class="arrow"/>
+
+  <rect x="500" y="200" width="400" height="55" rx="4" fill="#FFC107" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="700" y="223" text-anchor="middle" class="label">3. Aplicar Función Hash</text>
+  <text x="700" y="243" text-anchor="middle" class="code">openssl x509 -noout -fingerprint -sha256 -in cert.crt</text>
+
+  <!-- Output -->
+  <path d="M 700 255 L 700 280" class="arrow"/>
+
+  <rect x="500" y="280" width="400" height="70" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="700" y="305" text-anchor="middle" class="label" fill="#388E3C">Salida de Huella Digital</text>
+  <text x="700" y="325" text-anchor="middle" class="code">SHA256 Fingerprint=AB:CD:EF:01:23:45:67:89:...</text>
+  <text x="700" y="342" text-anchor="middle" class="small">(64 caracteres hex para SHA-256)</text>
+
+  <!-- Use Cases Section -->
+  <rect x="30" y="400" width="940" height="140" rx="8" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="500" y="425" text-anchor="middle" class="section-title" fill="#1976D2">Casos de Uso Comunes</text>
+
+  <!-- Use Case 1 -->
+  <rect x="60" y="445" width="200" height="75" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="160" y="468" text-anchor="middle" class="label">Pinning de Certificado</text>
+  <text x="160" y="488" text-anchor="middle" class="small">Verificar certificado específico</text>
+  <text x="160" y="505" text-anchor="middle" class="small">en apps móvil/web</text>
+
+  <!-- Use Case 2 -->
+  <rect x="290" y="445" width="200" height="75" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="390" y="468" text-anchor="middle" class="label">Comparación Rápida</text>
+  <text x="390" y="488" text-anchor="middle" class="small">Comparar certificados</text>
+  <text x="390" y="505" text-anchor="middle" class="small">sin leer contenido</text>
+
+  <!-- Use Case 3 -->
+  <rect x="520" y="445" width="200" height="75" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="620" y="468" text-anchor="middle" class="label">Verificación de Confianza</text>
+  <text x="620" y="488" text-anchor="middle" class="small">Validación fuera de banda</text>
+  <text x="620" y="505" text-anchor="middle" class="small">vía teléfono/canal seguro</text>
+
+  <!-- Use Case 4 -->
+  <rect x="750" y="445" width="200" height="75" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="850" y="468" text-anchor="middle" class="label">Documentación</text>
+  <text x="850" y="488" text-anchor="middle" class="small">Identificar certificados</text>
+  <text x="850" y="505" text-anchor="middle" class="small">en registros/logs</text>
+
+  <!-- Important Notes -->
+  <rect x="30" y="560" width="940" height="120" rx="6" fill="#FFF9C4" stroke="#F57C00" stroke-width="1"/>
+  <text x="500" y="585" text-anchor="middle" class="section-title" fill="#F57C00">Notas Importantes</text>
+
+  <text x="80" y="610" class="small">• La huella NO es parte del certificado - se calcula a partir de los datos del cert</text>
+  <text x="80" y="630" class="small">• Mismo certificado = Misma huella (independiente del formato - PEM o DER)</text>
+  <text x="80" y="650" class="small">• Algoritmos hash diferentes producen huellas diferentes para el mismo certificado</text>
+  <text x="80" y="670" class="small">• SHA-256 es recomendado; SHA-1 y MD5 están obsoletos por debilidades de seguridad</text>
+</svg>

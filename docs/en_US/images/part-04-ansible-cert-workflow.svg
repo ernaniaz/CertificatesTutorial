@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 750" width="1000" height="750">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #E53935; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#E53935" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Ansible Certificate Automation Workflow</text>
+
+  <!-- Playbook Start -->
+  <rect x="30" y="55" width="200" height="50" rx="8" fill="#E53935" stroke="#C62828" stroke-width="2"/>
+  <text x="130" y="78" text-anchor="middle" class="label" fill="#fff">Ansible Playbook</text>
+  <text x="130" y="95" text-anchor="middle" class="code" fill="#fff">deploy-certificates.yml</text>
+
+  <path d="M 130 105 L 130 138" class="arrow"/>
+
+  <!-- Task Steps -->
+  <rect x="30" y="140" width="600" height="380" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="330" y="165" text-anchor="middle" class="section-title">Ansible Tasks</text>
+
+  <!-- Step 1 -->
+  <rect x="50" y="185" width="250" height="45" rx="4" fill="#fff" stroke="#E53935" stroke-width="1"/>
+  <text x="175" y="205" text-anchor="middle" class="label">1. Ensure Directories</text>
+  <text x="175" y="222" text-anchor="middle" class="code">file: state=directory</text>
+
+  <path d="M 175 230 L 175 253" class="arrow"/>
+
+  <!-- Step 2 -->
+  <rect x="50" y="255" width="250" height="45" rx="4" fill="#fff" stroke="#E53935" stroke-width="1"/>
+  <text x="175" y="275" text-anchor="middle" class="label">2. Generate Private Key</text>
+  <text x="175" y="292" text-anchor="middle" class="code">openssl_privatekey: size=2048</text>
+
+  <path d="M 175 300 L 175 323" class="arrow"/>
+
+  <!-- Step 3 -->
+  <rect x="50" y="325" width="250" height="45" rx="4" fill="#fff" stroke="#E53935" stroke-width="1"/>
+  <text x="175" y="345" text-anchor="middle" class="label">3. Generate CSR</text>
+  <text x="175" y="362" text-anchor="middle" class="code">openssl_csr: subject_alt_name</text>
+
+  <path d="M 175 370 L 175 393" class="arrow"/>
+
+  <!-- CA Choice Decision -->
+  <polygon points="175,395 260,425 175,455 90,425" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="175" y="422" text-anchor="middle" class="small">CA Source?</text>
+
+  <!-- Self-Signed Path -->
+  <path d="M 90 425 L 50 425 L 50 474" stroke="#E53935" stroke-width="1.5" fill="none"/>
+  <text x="60" y="450" class="small">Self</text>
+
+  <rect x="40" y="475" width="80" height="35" rx="3" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="80" y="497" text-anchor="middle" class="code">selfsigned</text>
+
+  <!-- CA-Signed Path -->
+  <path d="M 175 455 L 175 474" stroke="#E53935" stroke-width="1.5" fill="none"/>
+  <text x="180" y="467" class="small">CA</text>
+
+  <rect x="130" y="475" width="90" height="35" rx="3" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="175" y="497" text-anchor="middle" class="code">Submit CA</text>
+
+  <!-- ACME Path -->
+  <path d="M 260 425 L 300 425 L 300 474" stroke="#E53935" stroke-width="1.5" fill="none"/>
+  <text x="260" y="450" class="small">ACME</text>
+
+  <rect x="230" y="475" width="80" height="35" rx="3" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="275" y="497" text-anchor="middle" class="code">acme_cert</text>
+
+  <!-- Continue with steps 5-9 -->
+  <rect x="360" y="185" width="250" height="45" rx="4" fill="#fff" stroke="#E53935" stroke-width="1"/>
+  <text x="485" y="205" text-anchor="middle" class="label">5. Set Permissions</text>
+  <text x="485" y="222" text-anchor="middle" class="code">file: mode=0600 (key)</text>
+
+  <path d="M 485 230 L 485 253" class="arrow"/>
+
+  <rect x="360" y="255" width="250" height="45" rx="4" fill="#fff" stroke="#E53935" stroke-width="1"/>
+  <text x="485" y="275" text-anchor="middle" class="label">6. Copy to Destination</text>
+  <text x="485" y="292" text-anchor="middle" class="code">copy: dest=/etc/pki/tls/</text>
+
+  <path d="M 485 300 L 485 323" class="arrow"/>
+
+  <rect x="360" y="325" width="250" height="45" rx="4" fill="#fff" stroke="#E53935" stroke-width="1"/>
+  <text x="485" y="345" text-anchor="middle" class="label">7. Update Service Config</text>
+  <text x="485" y="362" text-anchor="middle" class="code">template: src=ssl.conf.j2</text>
+
+  <path d="M 485 370 L 485 393" class="arrow"/>
+
+  <rect x="360" y="395" width="250" height="45" rx="4" fill="#fff" stroke="#E53935" stroke-width="1"/>
+  <text x="485" y="415" text-anchor="middle" class="label">8. Validate Config</text>
+  <text x="485" y="432" text-anchor="middle" class="code">command: apachectl configtest</text>
+
+  <path d="M 485 440 L 485 473" class="arrow"/>
+
+  <rect x="360" y="475" width="250" height="35" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="485" y="498" text-anchor="middle" class="label" fill="#fff">9. Reload Service</text>
+
+  <!-- Right Side: Features -->
+  <rect x="660" y="55" width="310" height="200" rx="6" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="815" y="80" text-anchor="middle" class="section-title" fill="#388E3C">Idempotency</text>
+  <text x="680" y="105" class="small">Ansible ensures safe re-runs:</text>
+  <text x="690" y="125" class="small">1. Check current state</text>
+  <text x="690" y="143" class="small">2. Skip if already configured</text>
+  <text x="690" y="161" class="small">3. Only change if needed</text>
+  <text x="690" y="179" class="small">4. Report: changed/ok/failed</text>
+  <text x="680" y="205" class="code">Result: Safe to run multiple times</text>
+  <rect x="680" y="220" width="270" height="20" rx="2" fill="#388E3C"/>
+  <text x="815" y="234" text-anchor="middle" class="small" fill="#fff">✓ Idempotent operations</text>
+
+  <!-- Multi-Host Deployment -->
+  <rect x="660" y="275" width="310" height="120" rx="6" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="815" y="300" text-anchor="middle" class="section-title" fill="#1976D2">Multi-Host Deployment</text>
+  <text x="680" y="325" class="small">Deployment strategies:</text>
+  <text x="690" y="345" class="code">• Parallel: forks=10</text>
+  <text x="690" y="363" class="code">• Serial: serial=1</text>
+  <text x="690" y="381" class="code">• Rolling: serial=20%</text>
+
+  <!-- Testing -->
+  <rect x="660" y="415" width="310" height="120" rx="6" fill="#CFE2FF" stroke="#1976D2" stroke-width="2"/>
+  <text x="815" y="440" text-anchor="middle" class="section-title" fill="#1976D2">Testing</text>
+  <text x="680" y="465" class="code">--check   Dry-run, no changes</text>
+  <text x="680" y="485" class="code">--diff    Show what changes</text>
+  <text x="680" y="505" class="code">--limit   Test on subset</text>
+  <text x="680" y="525" class="code">-v        Verbose output</text>
+
+  <!-- Handlers Section -->
+  <rect x="30" y="545" width="940" height="90" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="500" y="570" text-anchor="middle" class="section-title">Handlers (Triggered on Change)</text>
+
+  <rect x="60" y="585" width="400" height="35" rx="4" fill="#fff" stroke="#E53935" stroke-width="1"/>
+  <text x="260" y="607" text-anchor="middle" class="code">on: certificate changed → systemctl reload httpd</text>
+
+  <rect x="500" y="585" width="400" height="35" rx="4" fill="#fff" stroke="#E53935" stroke-width="1"/>
+  <text x="700" y="607" text-anchor="middle" class="code">on: config changed → systemctl restart nginx</text>
+
+  <!-- Example Command -->
+  <rect x="30" y="655" width="940" height="75" rx="6" fill="#E53935" stroke="#C62828" stroke-width="2"/>
+  <text x="500" y="680" text-anchor="middle" class="section-title" fill="#fff">Example Command</text>
+  <text x="500" y="708" text-anchor="middle" class="code" fill="#fff">ansible-playbook -i inventory.yml deploy-certificates.yml --check --diff --limit test-servers</text>
+</svg>

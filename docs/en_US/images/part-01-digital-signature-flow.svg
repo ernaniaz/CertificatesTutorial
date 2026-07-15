@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .arrow-green { stroke: #388E3C; stroke-width: 2; fill: none; marker-end: url(#arrowhead-green); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+    <marker id="arrowhead-green" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#388E3C" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Digital Signature Flow</text>
+
+  <!-- Signing Process Header -->
+  <rect x="30" y="50" width="940" height="35" rx="4" fill="#1976D2"/>
+  <text x="500" y="73" text-anchor="middle" class="section-title" fill="#fff">SIGNING PROCESS (Alice)</text>
+
+  <!-- Step 1: Create Document -->
+  <rect x="50" y="100" width="140" height="60" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="120" y="125" text-anchor="middle" class="label">1. Alice</text>
+  <text x="120" y="145" text-anchor="middle" class="small">Creates document</text>
+
+  <path d="M 190 130 L 238 130" class="arrow"/>
+
+  <!-- Document -->
+  <rect x="240" y="100" width="120" height="60" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="300" y="125" text-anchor="middle" class="label">Document</text>
+  <text x="300" y="145" text-anchor="middle" class="code">message.txt</text>
+
+  <path d="M 360 130 L 408 130" class="arrow"/>
+
+  <!-- Hash Function -->
+  <rect x="410" y="100" width="140" height="60" rx="4" fill="#FFC107" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="480" y="125" text-anchor="middle" class="label">2. Hash Function</text>
+  <text x="480" y="145" text-anchor="middle" class="code">SHA-256</text>
+
+  <path d="M 550 130 L 598 130" class="arrow"/>
+
+  <!-- Hash Digest -->
+  <rect x="600" y="100" width="120" height="60" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="660" y="125" text-anchor="middle" class="label">3. Hash Digest</text>
+  <text x="660" y="145" text-anchor="middle" class="small">(256 bits)</text>
+
+  <path d="M 720 130 L 768 130" class="arrow"/>
+
+  <!-- Private Key -->
+  <rect x="770" y="100" width="140" height="60" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="1.5"/>
+  <text x="840" y="125" text-anchor="middle" class="label">4. Private Key</text>
+  <text x="840" y="145" text-anchor="middle" class="small">Encrypt hash</text>
+
+  <!-- Arrow down -->
+  <path d="M 840 160 L 840 200 L 660 200 L 660 228" class="arrow"/>
+
+  <!-- Signature Created -->
+  <rect x="580" y="230" width="160" height="55" rx="4" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="660" y="255" text-anchor="middle" class="label" fill="#fff">5. Digital Signature</text>
+  <text x="660" y="275" text-anchor="middle" class="small" fill="#fff">Created</text>
+
+  <!-- Send to Bob -->
+  <path d="M 660 285 L 660 310 L 500 310 L 500 348" class="arrow"/>
+  <text x="590" y="325" text-anchor="middle" class="small">6. Send document + signature</text>
+
+  <!-- Verification Process Header -->
+  <rect x="30" y="350" width="940" height="35" rx="4" fill="#388E3C"/>
+  <text x="500" y="373" text-anchor="middle" class="section-title" fill="#fff">VERIFICATION PROCESS (Bob)</text>
+
+  <!-- Bob receives -->
+  <rect x="50" y="410" width="120" height="50" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="110" y="430" text-anchor="middle" class="label">7. Bob</text>
+  <text x="110" y="450" text-anchor="middle" class="small">Receives both</text>
+
+  <!-- Document received -->
+  <path d="M 170 430 L 200 410" stroke="#388E3C" stroke-width="1.5"/>
+  <rect x="200" y="395" width="100" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="250" y="418" text-anchor="middle" class="small">Document</text>
+
+  <!-- Signature received -->
+  <path d="M 170 440 L 200 455" stroke="#388E3C" stroke-width="1.5"/>
+  <rect x="200" y="440" width="100" height="35" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="250" y="463" text-anchor="middle" class="small">Signature</text>
+
+  <!-- Path 1: Hash received document -->
+  <path d="M 300 412 L 358 412" class="arrow-green"/>
+
+  <rect x="360" y="395" width="130" height="40" rx="4" fill="#FFC107" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="425" y="418" text-anchor="middle" class="label">9. Hash Doc</text>
+
+  <path d="M 490 415 L 548 415" class="arrow-green"/>
+
+  <rect x="550" y="395" width="110" height="40" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="605" y="412" text-anchor="middle" class="label">10. Computed</text>
+  <text x="605" y="428" text-anchor="middle" class="small">Hash</text>
+
+  <!-- Path 2: Decrypt signature -->
+  <path d="M 300 455 L 358 455" class="arrow-green"/>
+
+  <rect x="360" y="440" width="130" height="40" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="425" y="458" text-anchor="middle" class="label">11. Public Key</text>
+  <text x="425" y="472" text-anchor="middle" class="small">Decrypt sig</text>
+
+  <path d="M 490 460 L 548 460" class="arrow-green"/>
+
+  <rect x="550" y="440" width="110" height="40" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1.5"/>
+  <text x="605" y="457" text-anchor="middle" class="label">12. Original</text>
+  <text x="605" y="473" text-anchor="middle" class="small">Hash</text>
+
+  <!-- Compare -->
+  <path d="M 660 410 L 720 430" stroke="#388E3C" stroke-width="1.5"/>
+  <path d="M 660 460 L 720 440" stroke="#388E3C" stroke-width="1.5"/>
+
+  <rect x="720" y="410" width="130" height="50" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="2"/>
+  <text x="785" y="430" text-anchor="middle" class="label" fill="#fff">13. Compare</text>
+  <text x="785" y="453" text-anchor="middle" class="small" fill="#fff">Hashes</text>
+
+  <!-- Results -->
+  <path d="M 850 430 L 890 410" stroke="#388E3C" stroke-width="2"/>
+  <path d="M 850 440 L 890 460" stroke="#E53935" stroke-width="2"/>
+
+  <!-- Match -->
+  <rect x="890" y="400" width="80" height="40" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="930" y="415" text-anchor="middle" class="label" fill="#388E3C">Match</text>
+  <text x="930" y="430" text-anchor="middle" class="small" fill="#388E3C">✓ Valid</text>
+
+  <!-- No Match -->
+  <rect x="890" y="445" width="80" height="40" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="930" y="460" text-anchor="middle" class="label" fill="#E53935">No match</text>
+  <text x="930" y="475" text-anchor="middle" class="small" fill="#E53935">✗ Invalid</text>
+
+  <!-- Properties Section -->
+  <rect x="50" y="550" width="900" height="130" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="500" y="575" text-anchor="middle" class="section-title">Properties Verified by Digital Signatures</text>
+
+  <rect x="80" y="595" width="250" height="70" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="205" y="618" text-anchor="middle" class="label" fill="#1976D2">Authentication</text>
+  <text x="205" y="640" text-anchor="middle" class="small">Proves Alice signed it</text>
+  <text x="205" y="655" text-anchor="middle" class="small">(Only she has private key)</text>
+
+  <rect x="370" y="595" width="250" height="70" rx="4" fill="#E8F5E9" stroke="#388E3C" stroke-width="1"/>
+  <text x="495" y="618" text-anchor="middle" class="label" fill="#388E3C">Integrity</text>
+  <text x="495" y="640" text-anchor="middle" class="small">Detects any changes</text>
+  <text x="495" y="655" text-anchor="middle" class="small">(Hash would differ)</text>
+
+  <rect x="660" y="595" width="260" height="70" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="790" y="618" text-anchor="middle" class="label" fill="#F57C00">Non-Repudiation</text>
+  <text x="790" y="640" text-anchor="middle" class="small">Alice cannot deny signing</text>
+  <text x="790" y="655" text-anchor="middle" class="small">(Cryptographic proof exists)</text>
+</svg>

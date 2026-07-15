@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 800" width="1000" height="800">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Fluxograma de Resolução de Erros</text>
+
+  <!-- Start -->
+  <ellipse cx="500" cy="70" rx="100" ry="28" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="500" y="75" text-anchor="middle" class="label">Erro de Certificado</text>
+
+  <path d="M 500 98 L 500 130" class="arrow"/>
+
+  <!-- Symptom Decision -->
+  <polygon points="500,140 600,180 500,220 400,180" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="500" y="178" text-anchor="middle" class="label">Sintoma?</text>
+
+  <!-- Error Type Branches -->
+  <!-- Expired -->
+  <rect x="30" y="250" width="130" height="40" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="95" y="275" text-anchor="middle" class="label">Expirado</text>
+  <path d="M 400 180 L 95 180 L 95 250" class="arrow"/>
+
+  <rect x="30" y="310" width="130" height="70" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="95" y="333" text-anchor="middle" class="section-title" fill="#1976D2">Solução:</text>
+  <text x="95" y="355" text-anchor="middle" class="code">1. Obter novo cert</text>
+  <text x="95" y="370" text-anchor="middle" class="code">2. Inst. e recarregar</text>
+
+  <!-- Hostname -->
+  <rect x="185" y="250" width="130" height="40" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="250" y="275" text-anchor="middle" class="label">Hostname</text>
+  <path d="M 424 190 L 250 190 L 250 250" class="arrow"/>
+
+  <rect x="185" y="310" width="130" height="70" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="250" y="333" text-anchor="middle" class="section-title" fill="#1976D2">Solução:</text>
+  <text x="250" y="355" text-anchor="middle" class="code">1. Adicionar SANs corretos</text>
+  <text x="250" y="370" text-anchor="middle" class="code">2. Regenerar cert</text>
+
+  <!-- Chain -->
+  <rect x="340" y="250" width="130" height="40" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="405" y="275" text-anchor="middle" class="label">Cadeia Inválida</text>
+  <path d="M 450 200 L 405 200 L 405 250" class="arrow"/>
+
+  <rect x="340" y="310" width="130" height="70" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="405" y="333" text-anchor="middle" class="section-title" fill="#1976D2">Solução:</text>
+  <text x="405" y="355" text-anchor="middle" class="code">1. Obter intermediários</text>
+  <text x="405" y="370" text-anchor="middle" class="code">2. Concatenar certs</text>
+
+  <!-- Permissions -->
+  <rect x="495" y="250" width="130" height="40" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="560" y="275" text-anchor="middle" class="label">Permissão</text>
+  <path d="M 550 200 L 560 200 L 560 250" class="arrow"/>
+
+  <rect x="495" y="310" width="130" height="70" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="560" y="333" text-anchor="middle" class="section-title" fill="#1976D2">Solução:</text>
+  <text x="560" y="355" text-anchor="middle" class="code">1. chmod 600 key</text>
+  <text x="560" y="370" text-anchor="middle" class="code">2. chown root:root</text>
+
+  <!-- SELinux -->
+  <rect x="650" y="250" width="130" height="40" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="715" y="275" text-anchor="middle" class="label">SELinux</text>
+  <path d="M 574 190 L 715 190 L 715 250" class="arrow"/>
+
+  <rect x="650" y="310" width="130" height="70" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="715" y="333" text-anchor="middle" class="section-title" fill="#1976D2">Solução:</text>
+  <text x="715" y="355" text-anchor="middle" class="code">1. restorecon -Rv</text>
+  <text x="715" y="370" text-anchor="middle" class="code">2. Verificar booleans</text>
+
+  <!-- Protocol -->
+  <rect x="805" y="250" width="130" height="40" rx="4" fill="#FFF3CD" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="870" y="275" text-anchor="middle" class="label">Protocolo</text>
+  <path d="M 600 180 L 870 180 L 870 250" class="arrow"/>
+
+  <rect x="805" y="310" width="130" height="70" rx="4" fill="#CFE2FF" stroke="#1976D2" stroke-width="1"/>
+  <text x="870" y="333" text-anchor="middle" class="section-title" fill="#1976D2">Solução:</text>
+  <text x="870" y="355" text-anchor="middle" class="code">1. Verificar política</text>
+  <text x="870" y="370" text-anchor="middle" class="code">2. --set LEGACY?</text>
+
+  <!-- Verify Section -->
+  <rect x="250" y="420" width="500" height="120" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="450" text-anchor="middle" class="section-title" fill="#388E3C">Passos de Verificação</text>
+
+  <rect x="280" y="470" width="200" height="55" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="380" y="492" text-anchor="middle" class="small">Expirado/Hostname/Cadeia:</text>
+  <text x="380" y="512" text-anchor="middle" class="code">curl -v https://hostname</text>
+
+  <rect x="520" y="470" width="200" height="55" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="620" y="492" text-anchor="middle" class="small">Perms/SELinux/Protocolo:</text>
+  <text x="620" y="512" text-anchor="middle" class="code">systemctl status service</text>
+
+  <!-- Merge to verify -->
+  <path d="M 95 380 L 95 400 L 380 400 L 380 470" stroke="#388E3C" stroke-width="1.5" fill="none"/>
+  <path d="M 250 380 L 250 400 L 380 400 L 380 470" stroke="#388E3C" stroke-width="1.5" fill="none"/>
+  <path d="M 405 380 L 405 400 L 380 400 L 380 470" stroke="#388E3C" stroke-width="1.5" fill="none"/>
+  <path d="M 560 380 L 560 400 L 620 400 L 620 470" stroke="#388E3C" stroke-width="1.5" fill="none"/>
+  <path d="M 715 380 L 715 400 L 620 400 L 620 470" stroke="#388E3C" stroke-width="1.5" fill="none"/>
+  <path d="M 870 380 L 870 400 L 620 400 L 620 470" stroke="#388E3C" stroke-width="1.5" fill="none"/>
+
+  <!-- Success -->
+  <ellipse cx="500" cy="620" rx="100" ry="30" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="618" text-anchor="middle" class="label" fill="#388E3C">✓ Corrigido e</text>
+  <text x="500" y="635" text-anchor="middle" class="label" fill="#388E3C">Verificado</text>
+
+  <path d="M 500 540 L 500 590" class="arrow"/>
+
+  <!-- Document Section -->
+  <rect x="250" y="680" width="500" height="100" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="500" y="705" text-anchor="middle" class="section-title">Documentar a Correção</text>
+  <text x="270" y="730" class="small">1. O que quebrou</text>
+  <text x="270" y="750" class="small">2. O que corrigiu</text>
+  <text x="270" y="770" class="small">3. Como prevenir</text>
+  <text x="500" y="730" class="small">4. Cronologia dos eventos</text>
+  <text x="500" y="750" class="small">5. Comandos usados</text>
+  <text x="500" y="770" class="small">6. Atualizar runbooks</text>
+
+  <path d="M 500 650 L 500 680" class="arrow"/>
+</svg>

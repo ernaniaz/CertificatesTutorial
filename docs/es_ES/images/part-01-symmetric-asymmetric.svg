@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 680" width="940" height="680">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 19px; font-weight: bold; fill: #333; }
+      .heading { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 10px; fill: #444; }
+    </style>
+    <marker id="ar" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#546E7A"/></marker>
+    <filter id="sh" x="-3%" y="-3%" width="106%" height="106%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.12"/></filter>
+    <linearGradient id="symH" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#1565C0"/><stop offset="100%" stop-color="#42A5F5"/></linearGradient>
+    <linearGradient id="asymH" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#2E7D32"/><stop offset="100%" stop-color="#66BB6A"/></linearGradient>
+    <linearGradient id="hybH" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#E65100"/><stop offset="100%" stop-color="#FFA726"/></linearGradient>
+    <radialGradient id="keyG" cx="50%" cy="40%"><stop offset="0%" stop-color="#FFF176"/><stop offset="100%" stop-color="#F9A825"/></radialGradient>
+  </defs>
+
+
+  <text x="470" y="28" text-anchor="middle" class="title">Criptograf&#237;a Sim&#233;trica vs Asim&#233;trica vs H&#237;brida</text>
+
+  <!-- SYMMETRIC -->
+  <rect x="20" y="45" width="900" height="180" rx="14" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="20" y="45" width="900" height="36" rx="14" fill="url(#symH)"/>
+  <rect x="20" y="65" width="900" height="16" fill="url(#symH)"/>
+  <text x="470" y="70" text-anchor="middle" class="heading" style="fill:#fff">Criptograf&#237;a Sim&#233;trica &#8212; Una clave para todo</text>
+
+  <rect x="60" y="100" width="90" height="45" rx="8" fill="#FAFAFA" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="105" y="120" text-anchor="middle" class="label" font-weight="bold">Alice</text>
+  <text x="105" y="135" text-anchor="middle" class="small">(remitente)</text>
+
+  <rect x="185" y="105" width="95" height="34" rx="6" fill="url(#keyG)" stroke="#F57F17" stroke-width="1.5"/>
+  <text x="232" y="127" text-anchor="middle" class="label" font-weight="bold" style="fill:#5D4037">Clave K</text>
+
+  <line x1="280" y1="122" x2="358" y2="122" stroke="#546E7A" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="318" y="113" text-anchor="middle" class="small">cifra</text>
+
+  <rect x="360" y="100" width="220" height="45" rx="8" fill="#263238" stroke="#546E7A" stroke-width="1.5"/>
+  <text x="470" y="120" text-anchor="middle" class="code" style="fill:#90CAF9">7f3a9b&#9608;&#9608;&#9608;&#9608;&#9608;&#9608;c2d4e8...</text>
+  <text x="470" y="136" text-anchor="middle" class="small" style="fill:#B0BEC5">datos cifrados</text>
+
+  <line x1="580" y1="122" x2="658" y2="122" stroke="#546E7A" stroke-width="2" marker-end="url(#ar)"/>
+  <text x="618" y="113" text-anchor="middle" class="small">descifra</text>
+
+  <rect x="660" y="105" width="95" height="34" rx="6" fill="url(#keyG)" stroke="#F57F17" stroke-width="1.5"/>
+  <text x="707" y="127" text-anchor="middle" class="label" font-weight="bold" style="fill:#5D4037">Clave K</text>
+
+  <rect x="790" y="100" width="90" height="45" rx="8" fill="#FAFAFA" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="835" y="120" text-anchor="middle" class="label" font-weight="bold">Bob</text>
+  <text x="835" y="135" text-anchor="middle" class="small">(destinatario)</text>
+
+  <path d="M 232 140 Q 232 170 470 170 Q 707 170 707 140" fill="none" stroke="#F57F17" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="470" y="168" text-anchor="middle" class="label" font-weight="bold" style="fill:#F57F17">MISMA clave</text>
+
+  <text x="60" y="205" class="small" style="fill:#1565C0">&#10003; R&#225;pido (AES-256, ChaCha20)</text>
+  <text x="310" y="205" class="small" style="fill:#1565C0">&#10003; Eficiente para datos masivos</text>
+  <text x="610" y="205" class="small" style="fill:#C62828">&#10007; Problema: &#191;c&#243;mo compartir la clave?</text>
+
+  <!-- ASYMMETRIC -->
+  <rect x="20" y="240" width="900" height="190" rx="14" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="20" y="240" width="900" height="36" rx="14" fill="url(#asymH)"/>
+  <rect x="20" y="260" width="900" height="16" fill="url(#asymH)"/>
+  <text x="470" y="265" text-anchor="middle" class="heading" style="fill:#fff">Criptograf&#237;a Asim&#233;trica &#8212; Dos claves, dos roles</text>
+
+  <rect x="50" y="295" width="170" height="70" rx="8" fill="#FAFAFA" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="135" y="313" text-anchor="middle" class="label" font-weight="bold">Alice</text>
+  <rect x="62" y="320" width="68" height="20" rx="4" fill="#2E7D32"/>
+  <text x="96" y="334" text-anchor="middle" class="small" style="fill:#fff">P&#250;blica</text>
+  <rect x="140" y="320" width="68" height="20" rx="4" fill="#C62828"/>
+  <text x="174" y="334" text-anchor="middle" class="small" style="fill:#fff">Privada</text>
+  <text x="135" y="358" text-anchor="middle" class="small">comparte p&#250;blica</text>
+
+  <rect x="720" y="295" width="170" height="70" rx="8" fill="#FAFAFA" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="805" y="313" text-anchor="middle" class="label" font-weight="bold">Bob</text>
+  <rect x="732" y="320" width="68" height="20" rx="4" fill="#2E7D32"/>
+  <text x="766" y="334" text-anchor="middle" class="small" style="fill:#fff">P&#250;blica</text>
+  <rect x="810" y="320" width="68" height="20" rx="4" fill="#C62828"/>
+  <text x="844" y="334" text-anchor="middle" class="small" style="fill:#fff">Privada</text>
+  <text x="805" y="358" text-anchor="middle" class="small">comparte p&#250;blica</text>
+
+  <rect x="280" y="295" width="380" height="70" rx="8" fill="#F1F8E9" stroke="#8BC34A" stroke-width="1"/>
+  <text x="470" y="313" text-anchor="middle" class="label" font-weight="bold" style="fill:#2E7D32">Alice env&#237;a secreto a Bob:</text>
+  <text x="470" y="332" text-anchor="middle" class="small">1. Cifra con la clave PUBLICA de Bob</text>
+  <text x="470" y="348" text-anchor="middle" class="small">2. Solo la clave PRIVADA de Bob puede descifrar</text>
+
+  <line x1="220" y1="330" x2="278" y2="330" stroke="#546E7A" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="660" y1="330" x2="718" y2="330" stroke="#546E7A" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <text x="60" y="405" class="small" style="fill:#2E7D32">&#10003; Sin secreto precompartido</text>
+  <text x="310" y="405" class="small" style="fill:#2E7D32">&#10003; Resuelve distribuci&#243;n de claves</text>
+  <text x="610" y="405" class="small" style="fill:#C62828">&#10007; 1000x m&#225;s lenta que sim&#233;trica</text>
+
+  <!-- HYBRID -->
+  <rect x="20" y="445" width="900" height="220" rx="14" fill="#FFF3E0" stroke="#E65100" stroke-width="1.5" filter="url(#sh)"/>
+  <rect x="20" y="445" width="900" height="36" rx="14" fill="url(#hybH)"/>
+  <rect x="20" y="465" width="900" height="16" fill="url(#hybH)"/>
+  <text x="470" y="470" text-anchor="middle" class="heading" style="fill:#fff">Criptograf&#237;a H&#237;brida (TLS) &#8212; Lo mejor de ambos mundos</text>
+
+  <rect x="50" y="500" width="260" height="70" rx="10" fill="#E8F5E9" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="60" y="520" class="heading" style="fill:#2E7D32">Paso 1: Asim&#233;trica</text>
+  <text x="60" y="538" class="label">RSA o ECDHE intercambia un</text>
+  <text x="60" y="554" class="label" font-weight="bold">secreto compartido</text>
+
+  <line x1="310" y1="535" x2="348" y2="535" stroke="#546E7A" stroke-width="2.5" marker-end="url(#ar)"/>
+
+  <rect x="350" y="500" width="240" height="70" rx="10" fill="#F3E5F5" stroke="#7B1FA2" stroke-width="1.5"/>
+  <text x="360" y="520" class="heading" style="fill:#7B1FA2">Paso 2: Derivar</text>
+  <text x="360" y="538" class="label">Del secreto, generar clave</text>
+  <text x="360" y="554" class="label" font-weight="bold">de sesi&#243;n AES-256</text>
+
+  <line x1="590" y1="535" x2="628" y2="535" stroke="#546E7A" stroke-width="2.5" marker-end="url(#ar)"/>
+
+  <rect x="630" y="500" width="260" height="70" rx="10" fill="#E3F2FD" stroke="#1565C0" stroke-width="1.5"/>
+  <text x="640" y="520" class="heading" style="fill:#1565C0">Paso 3: Sim&#233;trica</text>
+  <text x="640" y="538" class="label">AES-256-GCM cifra</text>
+  <text x="640" y="554" class="label" font-weight="bold">TODOS los datos</text>
+
+  <rect x="50" y="590" width="860" height="60" rx="10" fill="#FAFAFA" stroke="#E65100" stroke-width="1.5"/>
+  <text x="470" y="612" text-anchor="middle" class="heading" style="fill:#E65100">Resultado: Intercambio de claves SEGURO + Datos cifrados R&#193;PIDOS</text>
+  <text x="470" y="632" text-anchor="middle" class="small">Esto es exactamente lo que ocurre en CADA conexi&#243;n HTTPS del mundo</text>
+</svg>

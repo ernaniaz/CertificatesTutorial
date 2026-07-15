@@ -1,0 +1,67 @@
+name: Create Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v6
+
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+
+      - name: Install mdBook
+        run: |
+          cargo install mdbook --version 0.5.4
+          cargo install mdbook-mermaid --version 0.17.0
+
+      - name: Setup mdbook-mermaid
+        run: |
+          cd docs
+          cd en_US && mdbook-mermaid install && cd ..
+          cd es_ES && mdbook-mermaid install && cd ..
+          cd pt_BR && mdbook-mermaid install && cd ..
+
+      - name: Build book
+        run: |
+          cd docs
+          cd en_US && mdbook build && cd ..
+          cd es_ES && mdbook build && cd ..
+          cd pt_BR && mdbook build && cd ..
+          cp index.html book/index.html
+          cp 404.html book/404.html
+          if [ -f CNAME ]; then cp CNAME book/CNAME; fi
+
+      - name: Extract version
+        id: version
+        run: echo "VERSION=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Create archives
+        env:
+          VERSION: ${{ steps.version.outputs.VERSION }}
+        run: |
+          DEST="${RUNNER_TEMP}/release"
+          mkdir -p "${DEST}"
+          tar czf "${DEST}/CertificatesTutorial-${VERSION}-source.tar.gz" \
+            --exclude='.git' \
+            --exclude='docs/book' \
+            .
+          tar czf "${DEST}/CertificatesTutorial-${VERSION}-full.tar.gz" \
+            --exclude='.git' \
+            .
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          generate_release_notes: true
+          files: |
+            ${{ runner.temp }}/release/CertificatesTutorial-${{ steps.version.outputs.VERSION }}-source.tar.gz
+            ${{ runner.temp }}/release/CertificatesTutorial-${{ steps.version.outputs.VERSION }}-full.tar.gz

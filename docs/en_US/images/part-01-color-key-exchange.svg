@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 780" width="940" height="780">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; fill: #333; }
+      .heading { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 11px; fill: #555; }
+      .step { font-family: Arial, sans-serif; font-size: 13px; font-weight: bold; fill: #37474F; }
+      .person { font-family: Arial, sans-serif; font-size: 15px; font-weight: bold; }
+    </style>
+    <radialGradient id="gYellow" cx="50%" cy="40%"><stop offset="0%" stop-color="#FFF176"/><stop offset="100%" stop-color="#F9A825"/></radialGradient>
+    <radialGradient id="gRed" cx="50%" cy="40%"><stop offset="0%" stop-color="#EF5350"/><stop offset="100%" stop-color="#B71C1C"/></radialGradient>
+    <radialGradient id="gBlue" cx="50%" cy="40%"><stop offset="0%" stop-color="#42A5F5"/><stop offset="100%" stop-color="#0D47A1"/></radialGradient>
+    <radialGradient id="gOrange" cx="50%" cy="40%"><stop offset="0%" stop-color="#FFA726"/><stop offset="100%" stop-color="#E65100"/></radialGradient>
+    <radialGradient id="gGreen" cx="50%" cy="40%"><stop offset="0%" stop-color="#66BB6A"/><stop offset="100%" stop-color="#1B5E20"/></radialGradient>
+    <radialGradient id="gBrown" cx="50%" cy="40%"><stop offset="0%" stop-color="#8D6E63"/><stop offset="100%" stop-color="#3E2723"/></radialGradient>
+    <marker id="arrowR" markerWidth="10" markerHeight="8" refX="9" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#546E7A"/></marker>
+    <marker id="arrowL" markerWidth="10" markerHeight="8" refX="1" refY="4" orient="auto"><polygon points="0 0, 10 4, 0 8" fill="#546E7A"/></marker>
+    <filter id="shadow" x="-4%" y="-4%" width="108%" height="108%"><feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.15"/></filter>
+  </defs>
+
+
+  <text x="470" y="30" text-anchor="middle" class="title">Diffie-Hellman Key Exchange: Paint Mixing Analogy</text>
+
+  <!-- Column backgrounds -->
+  <rect x="20" y="45" width="250" height="725" rx="12" fill="#E3F2FD" stroke="#90CAF9" stroke-width="1.5" opacity="0.85"/>
+  <rect x="345" y="45" width="250" height="725" rx="12" fill="#FBE9E7" stroke="#FFAB91" stroke-width="1.5" opacity="0.7" stroke-dasharray="6,3"/>
+  <rect x="670" y="45" width="250" height="725" rx="12" fill="#E8F5E9" stroke="#A5D6A7" stroke-width="1.5" opacity="0.85"/>
+
+  <text x="145" y="72" text-anchor="middle" class="person" style="fill:#1565C0">Alice</text>
+  <text x="470" y="72" text-anchor="middle" class="person" style="fill:#C62828">Public Channel (Eve sees)</text>
+  <text x="795" y="72" text-anchor="middle" class="person" style="fill:#2E7D32">Bob</text>
+
+  <!-- STEP 1 -->
+  <text x="470" y="108" text-anchor="middle" class="step">Step 1 &#8212; Agree on a public color</text>
+  <circle cx="145" cy="140" r="26" fill="url(#gYellow)" stroke="#F57F17" stroke-width="2" filter="url(#shadow)"/>
+  <text x="145" y="145" text-anchor="middle" class="label" font-weight="bold" style="fill:#5D4037">Yellow</text>
+  <line x1="175" y1="140" x2="765" y2="140" stroke="#F9A825" stroke-width="3" stroke-dasharray="8,4"/>
+  <text x="470" y="156" text-anchor="middle" class="small" style="fill:#C62828">Eve sees: YELLOW</text>
+  <circle cx="795" cy="140" r="26" fill="url(#gYellow)" stroke="#F57F17" stroke-width="2" filter="url(#shadow)"/>
+  <text x="795" y="145" text-anchor="middle" class="label" font-weight="bold" style="fill:#5D4037">Yellow</text>
+
+  <!-- STEP 2 -->
+  <text x="470" y="200" text-anchor="middle" class="step">Step 2 &#8212; Each picks a secret color</text>
+  <circle cx="145" cy="240" r="30" fill="url(#gRed)" stroke="#B71C1C" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="145" y="244" text-anchor="middle" class="label" font-weight="bold" style="fill:#fff">Red</text>
+  <rect x="98" y="278" width="94" height="22" rx="4" fill="#B71C1C"/>
+  <text x="145" y="293" text-anchor="middle" class="small" style="fill:#fff">SECRET!</text>
+  <circle cx="795" cy="240" r="30" fill="url(#gBlue)" stroke="#0D47A1" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="795" y="244" text-anchor="middle" class="label" font-weight="bold" style="fill:#fff">Blue</text>
+  <rect x="748" y="278" width="94" height="22" rx="4" fill="#0D47A1"/>
+  <text x="795" y="293" text-anchor="middle" class="small" style="fill:#fff">SECRET!</text>
+  <rect x="410" y="224" width="120" height="28" rx="6" fill="#FFCDD2" stroke="#E53935" stroke-width="1"/>
+  <text x="470" y="243" text-anchor="middle" class="small" font-weight="bold" style="fill:#C62828">Eve CANNOT see</text>
+
+  <!-- STEP 3 -->
+  <text x="470" y="340" text-anchor="middle" class="step">Step 3 &#8212; Mix: secret color + public color</text>
+  <circle cx="95" cy="385" r="18" fill="url(#gYellow)" stroke="#F57F17" stroke-width="1.5"/>
+  <text x="125" y="390" text-anchor="middle" class="label">+</text>
+  <circle cx="155" cy="385" r="18" fill="url(#gRed)" stroke="#B71C1C" stroke-width="1.5"/>
+  <text x="185" y="390" text-anchor="middle" class="label">=</text>
+  <circle cx="220" cy="385" r="22" fill="url(#gOrange)" stroke="#E65100" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="145" y="422" text-anchor="middle" class="label" font-weight="bold" style="fill:#E65100">ORANGE</text>
+  <circle cx="740" cy="385" r="18" fill="url(#gYellow)" stroke="#F57F17" stroke-width="1.5"/>
+  <text x="770" y="390" text-anchor="middle" class="label">+</text>
+  <circle cx="800" cy="385" r="18" fill="url(#gBlue)" stroke="#0D47A1" stroke-width="1.5"/>
+  <text x="830" y="390" text-anchor="middle" class="label">=</text>
+  <circle cx="865" cy="385" r="22" fill="url(#gGreen)" stroke="#1B5E20" stroke-width="2.5" filter="url(#shadow)"/>
+  <text x="795" y="422" text-anchor="middle" class="label" font-weight="bold" style="fill:#1B5E20">GREEN</text>
+
+  <!-- STEP 4 -->
+  <text x="470" y="465" text-anchor="middle" class="step">Step 4 &#8212; Exchange mixtures over public channel</text>
+  <circle cx="200" cy="500" r="18" fill="url(#gOrange)" stroke="#E65100" stroke-width="2"/>
+  <line x1="222" y1="500" x2="733" y2="500" stroke="#E65100" stroke-width="2.5" marker-end="url(#arrowR)"/>
+  <text x="470" y="496" text-anchor="middle" class="label" style="fill:#E65100">ORANGE &#8594;</text>
+  <circle cx="740" cy="540" r="18" fill="url(#gGreen)" stroke="#1B5E20" stroke-width="2"/>
+  <line x1="718" y1="540" x2="207" y2="540" stroke="#1B5E20" stroke-width="2.5" marker-end="url(#arrowL)"/>
+  <text x="470" y="536" text-anchor="middle" class="label" style="fill:#1B5E20">&#8592; GREEN</text>
+  <text x="470" y="572" text-anchor="middle" class="small" style="fill:#C62828">Eve sees: ORANGE and GREEN (but cannot unmix!)</text>
+
+  <!-- STEP 5 -->
+  <text x="470" y="610" text-anchor="middle" class="step">Step 5 &#8212; Mix: received color + own secret = SAME result!</text>
+  <circle cx="80" cy="655" r="18" fill="url(#gGreen)" stroke="#1B5E20" stroke-width="1.5"/>
+  <text x="108" y="660" text-anchor="middle" class="label">+</text>
+  <circle cx="135" cy="655" r="18" fill="url(#gRed)" stroke="#B71C1C" stroke-width="1.5"/>
+  <text x="165" y="660" text-anchor="middle" class="label">=</text>
+  <circle cx="205" cy="655" r="28" fill="url(#gBrown)" stroke="#3E2723" stroke-width="3" filter="url(#shadow)"/>
+  <text x="205" y="660" text-anchor="middle" class="label" font-weight="bold" style="fill:#fff">BROWN</text>
+  <text x="145" y="700" text-anchor="middle" class="heading" style="fill:#3E2723">&#10004; Secret!</text>
+  <circle cx="730" cy="655" r="18" fill="url(#gOrange)" stroke="#E65100" stroke-width="1.5"/>
+  <text x="758" y="660" text-anchor="middle" class="label">+</text>
+  <circle cx="785" cy="655" r="18" fill="url(#gBlue)" stroke="#0D47A1" stroke-width="1.5"/>
+  <text x="815" y="660" text-anchor="middle" class="label">=</text>
+  <circle cx="855" cy="655" r="28" fill="url(#gBrown)" stroke="#3E2723" stroke-width="3" filter="url(#shadow)"/>
+  <text x="855" y="660" text-anchor="middle" class="label" font-weight="bold" style="fill:#fff">BROWN</text>
+  <text x="795" y="700" text-anchor="middle" class="heading" style="fill:#3E2723">&#10004; Secret!</text>
+
+  <!-- Eve's failure -->
+  <rect x="360" y="632" width="220" height="60" rx="8" fill="#FFCDD2" stroke="#C62828" stroke-width="2"/>
+  <text x="470" y="654" text-anchor="middle" class="small" font-weight="bold" style="fill:#C62828">Eve sees: Yellow, Orange, Green</text>
+  <text x="470" y="672" text-anchor="middle" class="small" style="fill:#C62828">Cannot obtain BROWN &#10008;</text>
+  <text x="470" y="686" text-anchor="middle" class="small" style="fill:#C62828">(Unmixing paint is impossible!)</text>
+
+  <!-- Bottom bar -->
+  <rect x="180" y="730" width="580" height="36" rx="8" fill="#3E2723" filter="url(#shadow)"/>
+  <text x="470" y="754" text-anchor="middle" class="heading" style="fill:#FFD54F">Both arrived at the same secret: BROWN &#8212; without ever transmitting it!</text>
+</svg>

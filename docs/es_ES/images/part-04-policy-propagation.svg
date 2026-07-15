@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 780" width="1000" height="780">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+      .arrow { stroke: #1976D2; stroke-width: 2; fill: none; marker-end: url(#arrowhead); }
+      .connector { stroke: #1976D2; stroke-width: 2; fill: none; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#1976D2" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Flujo de Propagación de Política Criptográfica</text>
+
+  <!-- ==================== LEFT COLUMN: Policy Update Flow ==================== -->
+
+  <!-- Start -->
+  <ellipse cx="150" cy="75" rx="120" ry="30" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="150" y="80" text-anchor="middle" class="label">Cambiar Política Cripto</text>
+
+  <path d="M 150 105 L 150 140" class="arrow"/>
+
+  <!-- Command -->
+  <rect x="50" y="145" width="200" height="45" rx="4" fill="#1976D2" stroke="#0D47A1" stroke-width="2"/>
+  <text x="150" y="168" text-anchor="middle" class="code" fill="#fff">update-crypto-policies</text>
+  <text x="150" y="183" text-anchor="middle" class="code" fill="#fff">--set POLÍTICA</text>
+
+  <path d="M 150 190 L 150 220" class="arrow"/>
+
+  <!-- Parse -->
+  <rect x="50" y="225" width="200" height="40" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="150" y="245" text-anchor="middle" class="label">Analizar Política</text>
+  <text x="150" y="260" text-anchor="middle" class="code">DEFAULT/LEGACY/FUTURE/FIPS</text>
+
+  <path d="M 150 265 L 150 300" class="arrow"/>
+
+  <!-- Generate Backends -->
+  <rect x="30" y="305" width="240" height="40" rx="4" fill="#FFC107" stroke="#F57C00" stroke-width="1.5"/>
+  <text x="150" y="330" text-anchor="middle" class="section-title">Generar Configs Back-End</text>
+
+  <!-- Arrow from Generate to right section -->
+  <path d="M 270 325 L 300 325" class="arrow"/>
+
+  <!-- ==================== RIGHT SECTION: Back-End Configuration ==================== -->
+
+  <!-- Backends Section Box -->
+  <rect x="300" y="55" width="670" height="290" rx="6" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="2"/>
+  <text x="635" y="80" text-anchor="middle" class="section-title">Archivos de Configuración Back-End</text>
+  <text x="635" y="100" text-anchor="middle" class="code">/etc/crypto-policies/back-ends/</text>
+
+  <!-- Backend boxes -->
+  <rect x="320" y="120" width="150" height="70" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="395" y="145" text-anchor="middle" class="label" fill="#1976D2">OpenSSL</text>
+  <text x="395" y="165" text-anchor="middle" class="code">opensslcnf.config</text>
+  <text x="395" y="180" text-anchor="middle" class="small">TLS/Cifrados/Claves</text>
+
+  <rect x="490" y="120" width="150" height="70" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="565" y="145" text-anchor="middle" class="label" fill="#1976D2">GnuTLS</text>
+  <text x="565" y="165" text-anchor="middle" class="code">gnutls.config</text>
+  <text x="565" y="180" text-anchor="middle" class="small">Cadenas prioridad</text>
+
+  <rect x="660" y="120" width="150" height="70" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="735" y="145" text-anchor="middle" class="label" fill="#1976D2">NSS</text>
+  <text x="735" y="165" text-anchor="middle" class="code">nss.config</text>
+  <text x="735" y="180" text-anchor="middle" class="small">Política NSS</text>
+
+  <rect x="830" y="120" width="120" height="70" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="890" y="145" text-anchor="middle" class="label" fill="#1976D2">Java</text>
+  <text x="890" y="165" text-anchor="middle" class="code">java.config</text>
+  <text x="890" y="180" text-anchor="middle" class="small">Props seguridad</text>
+
+  <!-- Update Symlinks -->
+  <rect x="450" y="210" width="200" height="40" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="1.5"/>
+  <text x="550" y="235" text-anchor="middle" class="label">Actualizar Enlaces Simbólicos</text>
+
+  <path d="M 550 250 L 550 270" class="arrow"/>
+
+  <!-- Link info -->
+  <rect x="400" y="275" width="300" height="30" rx="4" fill="#fff" stroke="#1976D2" stroke-width="1"/>
+  <text x="550" y="295" text-anchor="middle" class="code">/etc/crypto-policies/config → política actual</text>
+
+  <!-- Arrow exiting right section -->
+  <path d="M 550 305 L 550 320" class="connector"/>
+  <path d="M 550 320 L 550 345 L 550 360" class="arrow"/>
+
+  <!-- ==================== NOTIFY APPLICATIONS (below sections) ==================== -->
+
+  <rect x="450" y="365" width="200" height="35" rx="4" fill="#388E3C" stroke="#2E7D32" stroke-width="1.5"/>
+  <text x="550" y="388" text-anchor="middle" class="label" fill="#fff">Notificar Aplicaciones</text>
+
+  <!-- Arrow to Applications Section -->
+  <path d="M 550 400 L 550 430" class="arrow"/>
+
+  <!-- ==================== AFFECTED APPLICATIONS SECTION ==================== -->
+
+  <rect x="30" y="440" width="940" height="140" rx="6" fill="#E8F5E9" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="465" text-anchor="middle" class="section-title" fill="#388E3C">Aplicaciones Afectadas</text>
+
+  <!-- Application types -->
+  <rect x="60" y="485" width="180" height="80" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="150" y="508" text-anchor="middle" class="label">Servicios Systemd</text>
+  <text x="70" y="530" class="small">• httpd, nginx</text>
+  <text x="70" y="545" class="small">• postfix, sshd</text>
+  <text x="70" y="560" class="small">Requiere reload/restart</text>
+
+  <rect x="260" y="485" width="180" height="80" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="350" y="508" text-anchor="middle" class="label">Apps en Ejecución</text>
+  <text x="270" y="530" class="small">• Apps enlazadas OpenSSL</text>
+  <text x="270" y="545" class="small">Leen en próximo SSL init</text>
+  <text x="270" y="560" class="small">Sin reinicio necesario</text>
+
+  <rect x="460" y="485" width="180" height="80" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="550" y="508" text-anchor="middle" class="label">Aplicaciones NSS</text>
+  <text x="470" y="530" class="small">• Firefox, Thunderbird</text>
+  <text x="470" y="545" class="small">• Evolution</text>
+  <text x="470" y="560" class="small">Requiere reinicio app</text>
+
+  <rect x="660" y="485" width="180" height="80" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="750" y="508" text-anchor="middle" class="label">Aplicaciones Java</text>
+  <text x="670" y="530" class="small">• Tomcat, JBoss</text>
+  <text x="670" y="545" class="small">Requiere reinicio JVM</text>
+  <text x="670" y="560" class="small">para efecto completo</text>
+
+  <!-- ==================== VERIFICATION SECTION ==================== -->
+
+  <rect x="30" y="595" width="940" height="100" rx="6" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="620" text-anchor="middle" class="section-title" fill="#388E3C">Verificación</text>
+
+  <rect x="60" y="640" width="270" height="40" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="195" y="658" text-anchor="middle" class="code">update-crypto-policies --show</text>
+  <text x="195" y="673" text-anchor="middle" class="small">Verificar política actual</text>
+
+  <rect x="360" y="640" width="300" height="40" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="510" y="658" text-anchor="middle" class="code">openssl s_client -connect host:443</text>
+  <text x="510" y="673" text-anchor="middle" class="small">Probar conexiones TLS</text>
+
+  <rect x="690" y="640" width="260" height="40" rx="4" fill="#fff" stroke="#388E3C" stroke-width="1"/>
+  <text x="820" y="658" text-anchor="middle" class="code">journalctl -u servicename</text>
+  <text x="820" y="673" text-anchor="middle" class="small">Verificar logs servicio</text>
+
+  <!-- ==================== COMPLETE ==================== -->
+
+  <ellipse cx="500" cy="740" rx="150" ry="30" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="500" y="735" text-anchor="middle" class="label" fill="#388E3C">✓ Propagación de Política Completa</text>
+  <text x="500" y="752" text-anchor="middle" class="small" fill="#388E3C">Todas las operaciones cripto siguen nueva política</text>
+</svg>

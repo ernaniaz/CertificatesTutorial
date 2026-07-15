@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
+  <defs>
+    <style>
+      .title { font-family: Arial, sans-serif; font-size: 22px; font-weight: bold; fill: #333; }
+      .section-title { font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; fill: #333; }
+      .label { font-family: Arial, sans-serif; font-size: 12px; fill: #333; }
+      .small { font-family: Arial, sans-serif; font-size: 10px; fill: #555; }
+      .code { font-family: 'Courier New', monospace; font-size: 9px; fill: #333; }
+    </style>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="30" text-anchor="middle" class="title">Matriz de Errores Comunes de Certificados</text>
+
+  <!-- Headers -->
+  <rect x="30" y="55" width="200" height="35" rx="4" fill="#FFEBEE" stroke="#E53935" stroke-width="2"/>
+  <text x="130" y="78" text-anchor="middle" class="section-title" fill="#E53935">Error</text>
+
+  <rect x="240" y="55" width="230" height="35" rx="4" fill="#FFF3E0" stroke="#F57C00" stroke-width="2"/>
+  <text x="355" y="78" text-anchor="middle" class="section-title" fill="#F57C00">Síntoma</text>
+
+  <rect x="480" y="55" width="220" height="35" rx="4" fill="#E3F2FD" stroke="#1976D2" stroke-width="2"/>
+  <text x="590" y="78" text-anchor="middle" class="section-title" fill="#1976D2">Diagnóstico</text>
+
+  <rect x="710" y="55" width="260" height="35" rx="4" fill="#D4EDDA" stroke="#388E3C" stroke-width="2"/>
+  <text x="840" y="78" text-anchor="middle" class="section-title" fill="#388E3C">Solución</text>
+
+  <!-- Row 1: Expired -->
+  <rect x="30" y="100" width="200" height="65" rx="3" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="130" y="125" text-anchor="middle" class="label" fill="#E53935">Certificado Expirado</text>
+
+  <rect x="240" y="100" width="230" height="65" rx="3" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="355" y="120" text-anchor="middle" class="code">ERR_CERT_DATE_INVALID</text>
+  <text x="355" y="138" text-anchor="middle" class="code">curl: problema cert SSL:</text>
+  <text x="355" y="153" text-anchor="middle" class="code">expirado</text>
+
+  <rect x="480" y="100" width="220" height="65" rx="3" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="590" y="125" text-anchor="middle" class="code">openssl x509 -enddate</text>
+  <text x="590" y="145" text-anchor="middle" class="code">-noout -in cert.crt</text>
+
+  <rect x="710" y="100" width="260" height="65" rx="3" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="840" y="125" text-anchor="middle" class="small" fill="#388E3C">Renovar: certbot renew</text>
+  <text x="840" y="145" text-anchor="middle" class="small" fill="#388E3C">o getcert resubmit</text>
+
+  <!-- Row 2: Hostname Mismatch -->
+  <rect x="30" y="175" width="200" height="65" rx="3" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="130" y="200" text-anchor="middle" class="label" fill="#E53935">Hostname No Coincide</text>
+
+  <rect x="240" y="175" width="230" height="65" rx="3" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="355" y="198" text-anchor="middle" class="code">ERR_CERT_COMMON_NAME</text>
+  <text x="355" y="218" text-anchor="middle" class="code">_INVALID</text>
+
+  <rect x="480" y="175" width="220" height="65" rx="3" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="590" y="198" text-anchor="middle" class="code">openssl x509 -text</text>
+  <text x="590" y="218" text-anchor="middle" class="code">| grep DNS:</text>
+
+  <rect x="710" y="175" width="260" height="65" rx="3" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="840" y="200" text-anchor="middle" class="small" fill="#388E3C">Regenerar con SANs:</text>
+  <text x="840" y="220" text-anchor="middle" class="code" fill="#388E3C">-addext 'SAN=DNS:host'</text>
+
+  <!-- Row 3: Untrusted CA -->
+  <rect x="30" y="250" width="200" height="65" rx="3" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="130" y="275" text-anchor="middle" class="label" fill="#E53935">CA No Confiable</text>
+
+  <rect x="240" y="250" width="230" height="65" rx="3" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="355" y="273" text-anchor="middle" class="code">ERR_CERT_AUTHORITY</text>
+  <text x="355" y="293" text-anchor="middle" class="code">_INVALID</text>
+
+  <rect x="480" y="250" width="220" height="65" rx="3" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="590" y="275" text-anchor="middle" class="code">openssl verify</text>
+  <text x="590" y="295" text-anchor="middle" class="code">-CAfile ca.crt cert.crt</text>
+
+  <rect x="710" y="250" width="260" height="65" rx="3" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="840" y="270" text-anchor="middle" class="small" fill="#388E3C">Añadir CA al almacén:</text>
+  <text x="840" y="290" text-anchor="middle" class="code" fill="#388E3C">cp ca.crt /etc/pki/ca-trust/</text>
+  <text x="840" y="305" text-anchor="middle" class="code" fill="#388E3C">source/anchors/</text>
+
+  <!-- Row 4: Invalid Chain -->
+  <rect x="30" y="325" width="200" height="65" rx="3" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="130" y="350" text-anchor="middle" class="label" fill="#E53935">Cadena Inválida</text>
+
+  <rect x="240" y="325" width="230" height="65" rx="3" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="355" y="348" text-anchor="middle" class="code">incapaz de obtener</text>
+  <text x="355" y="368" text-anchor="middle" class="code">certificado del emisor local</text>
+
+  <rect x="480" y="325" width="220" height="65" rx="3" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="590" y="350" text-anchor="middle" class="code">openssl s_client</text>
+  <text x="590" y="370" text-anchor="middle" class="code">-showcerts</text>
+
+  <rect x="710" y="325" width="260" height="65" rx="3" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="840" y="350" text-anchor="middle" class="small" fill="#388E3C">Incluir intermedios:</text>
+  <text x="840" y="370" text-anchor="middle" class="code" fill="#388E3C">cat cert.crt inter.crt > full.crt</text>
+
+  <!-- Row 5: Permission Denied -->
+  <rect x="30" y="400" width="200" height="65" rx="3" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="130" y="425" text-anchor="middle" class="label" fill="#E53935">Permiso Denegado</text>
+
+  <rect x="240" y="400" width="230" height="65" rx="3" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="355" y="423" text-anchor="middle" class="code">El servicio no inicia</text>
+  <text x="355" y="443" text-anchor="middle" class="code">Permiso denegado en logs</text>
+
+  <rect x="480" y="400" width="220" height="65" rx="3" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="590" y="425" text-anchor="middle" class="code">ls -l /etc/pki/tls/</text>
+  <text x="590" y="445" text-anchor="middle" class="code">private/</text>
+
+  <rect x="710" y="400" width="260" height="65" rx="3" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="840" y="425" text-anchor="middle" class="small" fill="#388E3C">Corregir permisos:</text>
+  <text x="840" y="445" text-anchor="middle" class="code" fill="#388E3C">chmod 600 key.pem</text>
+
+  <!-- Row 6: SELinux Blocking -->
+  <rect x="30" y="475" width="200" height="65" rx="3" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="130" y="500" text-anchor="middle" class="label" fill="#E53935">SELinux Bloqueando</text>
+
+  <rect x="240" y="475" width="230" height="65" rx="3" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="355" y="498" text-anchor="middle" class="code">Denegación AVC en logs</text>
+  <text x="355" y="518" text-anchor="middle" class="code">Servicio falla silenciosamente</text>
+
+  <rect x="480" y="475" width="220" height="65" rx="3" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="590" y="500" text-anchor="middle" class="code">ausearch -m avc</text>
+  <text x="590" y="520" text-anchor="middle" class="code">-ts recent</text>
+
+  <rect x="710" y="475" width="260" height="65" rx="3" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="840" y="500" text-anchor="middle" class="small" fill="#388E3C">Restaurar contexto:</text>
+  <text x="840" y="520" text-anchor="middle" class="code" fill="#388E3C">restorecon -Rv /etc/pki</text>
+
+  <!-- Row 7: Protocol Error -->
+  <rect x="30" y="550" width="200" height="65" rx="3" fill="#FFEBEE" stroke="#E53935" stroke-width="1"/>
+  <text x="130" y="575" text-anchor="middle" class="label" fill="#E53935">Error de Protocolo/Cifrado</text>
+
+  <rect x="240" y="550" width="230" height="65" rx="3" fill="#FFF3E0" stroke="#F57C00" stroke-width="1"/>
+  <text x="355" y="573" text-anchor="middle" class="code">Fallo de handshake</text>
+  <text x="355" y="593" text-anchor="middle" class="code">Alerta TLS</text>
+
+  <rect x="480" y="550" width="220" height="65" rx="3" fill="#E3F2FD" stroke="#1976D2" stroke-width="1"/>
+  <text x="590" y="575" text-anchor="middle" class="code">update-crypto-policies</text>
+  <text x="590" y="595" text-anchor="middle" class="code">--show</text>
+
+  <rect x="710" y="550" width="260" height="65" rx="3" fill="#D4EDDA" stroke="#388E3C" stroke-width="1"/>
+  <text x="840" y="575" text-anchor="middle" class="small" fill="#388E3C">Ajustar política:</text>
+  <text x="840" y="595" text-anchor="middle" class="code" fill="#388E3C">--set LEGACY (si necesario)</text>
+
+  <!-- Footer -->
+  <rect x="30" y="635" width="940" height="50" rx="4" fill="#FAFAFA" stroke="#BDBDBD" stroke-width="1"/>
+  <text x="500" y="655" text-anchor="middle" class="small">Prueba rápida: openssl s_client -connect hostname:443 | Verificar: curl -v https://hostname</text>
+  <text x="500" y="673" text-anchor="middle" class="small">Siempre recargar servicio después de correcciones: systemctl reload httpd / nginx / postfix</text>
+</svg>

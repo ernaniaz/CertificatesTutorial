@@ -1,0 +1,115 @@
+---
+# Lab 14: Apache SSL Certificate Deployment Playbook
+# Deploys certificates and configures Apache HTTPS
+
+- name: Deploy SSL Certificates to Apache Servers
+  hosts: webservers
+  become: yes
+
+  vars:
+    cert_dir: /etc/pki/tls/certs
+    key_dir: /etc/pki/tls/private
+    cert_file: "{{ cert_dir }}/lab-ansible.crt"
+    key_file: "{{ key_dir }}/lab-ansible.key"
+
+  tasks:
+    - name: Ensure certificate directories exist
+      file:
+        path: "{{ item }}"
+        state: directory
+        mode: '0755'
+      loop:
+        - "{{ cert_dir }}"
+        - "{{ key_dir }}"
+
+    - name: Generate self-signed certificate (for lab)
+      command: >
+        openssl req -x509 -newkey rsa:2048 -nodes
+        -keyout {{ key_file }}
+        -out {{ cert_file }}
+        -days 365
+        -subj "/CN=ansible-lab.example.com"
+      args:
+        creates: "{{ cert_file }}"
+
+    - name: Set certificate permissions
+      file:
+        path: "{{ cert_file }}"
+        mode: '0644'
+        owner: root
+        group: root
+
+    - name: Set private key permissions
+      file:
+        path: "{{ key_file }}"
+        mode: '0600'
+        owner: root
+        group: root
+
+    - name: Install Apache (if not present)
+      package:
+        name:
+          - httpd
+          - mod_ssl
+        state: present
+
+    - name: Create Apache SSL configuration
+      copy:
+        dest: /etc/httpd/conf.d/ansible-ssl.conf
+        content: |
+          <VirtualHost *:443>
+              ServerName ansible-lab.example.com
+              DocumentRoot /var/www/html
+
+              SSLEngine on
+              SSLCertificateFile {{ cert_file }}
+              SSLCertificateKeyFile {{ key_file }}
+
+              <Directory /var/www/html>
+                  Options -Indexes +FollowSymLinks
+                  AllowOverride None
+                  Require all granted
+              </Directory>
+          </VirtualHost>
+        mode: '0644'
+      notify: Restart Apache
+
+    - name: Create test page
+      copy:
+        dest: /var/www/html/index.html
+        content: |
+          <html>
+          <body>
+          <h1>Lab 14: Ansible SSL Deployment</h1>
+          <p>Certificate deployed successfully via Ansible!</p>
+          </body>
+          </html>
+        mode: '0644'
+
+    - name: Ensure Apache is enabled and started
+      service:
+        name: httpd
+        enabled: yes
+        state: started
+
+    - name: Verify certificate file exists
+      stat:
+        path: "{{ cert_file }}"
+      register: cert_stat
+
+    - name: Display certificate info
+      command: "openssl x509 -in {{ cert_file }} -noout -subject -dates"
+      register: cert_info
+      changed_when: false
+      when: cert_stat.stat.exists
+
+    - name: Show certificate details
+      debug:
+        var: cert_info.stdout_lines
+      when: cert_stat.stat.exists
+
+  handlers:
+    - name: Restart Apache
+      service:
+        name: httpd
+        state: restarted
