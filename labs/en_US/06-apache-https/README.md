@@ -242,4 +242,4 @@ Proceed to **Lab 07: NGINX HTTPS Setup** to learn NGINX configuration.
 
 ---
 
-**Difficulty Level:** Intermediate
+**Difficulty Level**: Intermediate

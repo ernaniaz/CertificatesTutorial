@@ -365,5 +365,5 @@ You've completed migration labs! Next:
 
 ---
 
-**Difficulty Level:** Advanced
-**Note:** OpenSSL 3.x requires careful testing
+**Difficulty Level**: Advanced  
+**Note**: OpenSSL 3.x requires careful testing

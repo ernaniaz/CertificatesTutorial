@@ -379,5 +379,5 @@ Continúe con **Lab 14: Automatización con Ansible** para aprender despliegue d
 
 ---
 
-**Nivel de dificultad:** Intermedio
-**Nota:** Requiere conexión a Internet e idealmente un dominio real para certificados de producción
+**Nivel de dificultad**: Intermedio  
+**Nota**: Requiere conexión a Internet e idealmente un dominio real para certificados de producción

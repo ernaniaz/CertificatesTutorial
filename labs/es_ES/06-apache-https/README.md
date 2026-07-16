@@ -242,4 +242,4 @@ Continúa con **Lab 07: Configuración de NGINX HTTPS** para aprender la configu
 
 ---
 
-**Nivel de dificultad:** Intermedio
+**Nivel de dificultad**: Intermedio

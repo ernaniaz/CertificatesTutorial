@@ -151,4 +151,4 @@ Proceed to **Lab 04: X.509 Certificates** to create actual certificates.
 
 ---
 
-**Difficulty Level:** Beginner
+**Difficulty Level**: Beginner

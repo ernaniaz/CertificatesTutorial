@@ -312,4 +312,4 @@ Continúa con **Lab 11: Fundamentos de certmonger** para aprender la gestión au
 
 ---
 
-**Nivel de dificultad:** Intermedio
+**Nivel de dificultad**: Intermedio

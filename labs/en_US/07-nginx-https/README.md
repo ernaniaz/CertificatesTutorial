@@ -307,4 +307,4 @@ Proceed to **Lab 08: Postfix TLS** to learn mail server TLS configuration.
 
 ---
 
-**Difficulty Level:** Intermediate
+**Difficulty Level**: Intermediate

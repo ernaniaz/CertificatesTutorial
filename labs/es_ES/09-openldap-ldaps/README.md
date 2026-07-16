@@ -322,4 +322,4 @@ Continúa con **Lab 10: PostgreSQL TLS** para aprender la configuración TLS de 
 
 ---
 
-**Nivel de dificultad:** Intermedio a avanzado
+**Nivel de dificultad**: Intermedio a avanzado

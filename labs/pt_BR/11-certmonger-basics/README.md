@@ -363,4 +363,4 @@ Prossiga para o **Lab 12: Crypto-Policies** para aprender gerenciamento de polí
 
 ---
 
-**Nível de dificuldade:** Intermediário a avançado
+**Nível de dificuldade**: Intermediário a avançado

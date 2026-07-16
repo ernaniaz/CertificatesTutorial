@@ -379,5 +379,5 @@ Proceed to **Lab 14: Ansible Automation** to learn certificate deployment at sca
 
 ---
 
-**Difficulty Level:** Intermediate
-**Note:** Requires internet connection and ideally a real domain for production certificates
+**Difficulty Level**: Intermediate  
+**Note**: Requires internet connection and ideally a real domain for production certificates

@@ -305,5 +305,5 @@ Prossiga para o **Lab 18: Migração RHEL 8→9** para aprender o próximo camin
 
 ---
 
-**Nível de dificuldade:** Avançado
-**Nota:** Teste a migração em ambiente não produtivo primeiro
+**Nível de dificuldade**: Avançado  
+**Nota**: Teste a migração em ambiente não produtivo primeiro

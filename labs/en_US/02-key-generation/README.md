@@ -194,4 +194,4 @@ Proceed to **Lab 03: Digital Signatures** to learn how to sign and verify files 
 
 ---
 
-**Difficulty Level:** Beginner
+**Difficulty Level**: Beginner

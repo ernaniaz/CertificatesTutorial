@@ -250,7 +250,7 @@ See `.github/workflows/deploy.yml` for the full workflow. It:
 3. Installs `mdbook` and `mdbook-mermaid`
 4. Runs `mdbook-mermaid install` + `mdbook build` for each language (en_US, es_ES, pt_BR)
 5. Uploads `docs/book/` as a Pages artifact
-6. Deploys to GitHub Pages via `actions/deploy-pages@v4`
+6. Deploys to GitHub Pages via `actions/deploy-pages@v5`
 
 ---
 
@@ -302,13 +302,13 @@ See `.github/workflows/deploy.yml` for the full workflow. It:
 
 ### Adding Mermaid Diagrams
 
-```markdown
+````markdown
 ```mermaid
 graph LR
     A[Subject] -->|Access Request| B[SELinux]
     B -->|Allow/Deny| C[Object]
 ```
-```
+````
 
 Diagrams will render automatically if mdbook-mermaid is installed.
 
@@ -318,20 +318,20 @@ Diagrams will render automatically if mdbook-mermaid is installed.
 
 ### Common Issues
 
-**Issue:** `mdbook: command not found`
+**Issue:** `mdbook: command not found`  
 **Solution:** Make sure Rust and cargo are installed, then install mdbook:
 ```bash
 dnf install -y cargo || curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo install mdbook
 ```
 
-**Issue:** `mermaid preprocessor not found`
+**Issue:** `mermaid preprocessor not found`  
 **Solution:** Install mdbook-mermaid:
 ```bash
 cargo install mdbook-mermaid
 ```
 
-**Issue:** Build fails with "file not found"
+**Issue:** Build fails with "file not found"  
 **Solution:** Check that all files referenced in SUMMARY.md exist:
 ```bash
 # Verify references
@@ -342,7 +342,7 @@ grep -E '^\- \[' SUMMARY.md
 find . -name "*.md" -type f
 ```
 
-**Issue:** Styles/images not loading
+**Issue:** Styles/images not loading  
 **Solution:** Ensure shared resources are accessible:
 ```bash
 # Check that these exist:
@@ -351,23 +351,23 @@ ls docs/mermaid-init.js
 ls docs/en_US/images/
 ```
 
-**Issue:** Diagrams not rendering
+**Issue:** Diagrams not rendering  
 **Solution:** Verify mermaid preprocessor is configured in book.toml:
 ```toml
 [preprocessor.mermaid]
 command = "mdbook-mermaid"
 ```
 
-**Issue:** Build is slow
+**Issue:** Build is slow  
 **Solution:** Use `mdbook serve` for development (auto-rebuild) instead of running `mdbook build` repeatedly.
 
 ---
 
 ## Additional Resources
 
-- **mdbook Documentation:** https://rust-lang.github.io/mdBook/
-- **mdbook-mermaid:** https://github.com/badboy/mdbook-mermaid
-- **Mermaid Syntax:** https://mermaid.js.org/intro/
+- **mdbook Documentation**: [https://rust-lang.github.io/mdBook/](https://rust-lang.github.io/mdBook/)
+- **mdbook-mermaid**: [https://github.com/badboy/mdbook-mermaid](https://github.com/badboy/mdbook-mermaid)
+- **Mermaid Syntax**: [https://mermaid.js.org/intro/](https://mermaid.js.org/intro/)
 
 ---
 

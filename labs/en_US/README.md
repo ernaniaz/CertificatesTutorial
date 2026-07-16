@@ -145,5 +145,5 @@ cd ../XX-lab-name/
 
 ---
 
-**Total Lab Time:** ~15-20 hours for all 22 labs
-**Difficulty:** Beginner → Advanced progression
+**Total Lab Time**: ~15-20 hours for all 22 labs  
+**Difficulty**: Beginner → Advanced progression

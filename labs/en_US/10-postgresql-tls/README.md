@@ -312,4 +312,4 @@ Proceed to **Lab 11: certmonger Basics** to learn automatic certificate manageme
 
 ---
 
-**Difficulty Level:** Intermediate
+**Difficulty Level**: Intermediate

@@ -6,11 +6,7 @@ Get started with the PKI & Digital Certificates Tutorial in under 5 minutes.
 
 ### Option 1: View Pre-built Online (Recommended)
 
-Once deployed to GitHub Pages:
-
-```
-https://ernaniaz.github.io/CertificatesTutorial/
-```
+Once deployed to GitHub Pages: [https://ernaniaz.github.io/CertificatesTutorial/](https://ernaniaz.github.io/CertificatesTutorial/)
 
 No installation needed. Open in browser and start learning.
 
@@ -146,17 +142,17 @@ The tutorial has **41 chapters** across **7 parts** plus **9 appendices**, avail
 
 ### English
 
-- **Online:** `https://ernaniaz.github.io/CertificatesTutorial/en_US/`
+- **Online:** [https://ernaniaz.github.io/CertificatesTutorial/en_US/](https://ernaniaz.github.io/CertificatesTutorial/en_US/)
 - **Local:** `docs/book/en_US/index.html`
 
 ### Spanish (Español)
 
-- **Online:** `https://ernaniaz.github.io/CertificatesTutorial/es_ES/`
+- **Online:** [https://ernaniaz.github.io/CertificatesTutorial/es_ES/](https://ernaniaz.github.io/CertificatesTutorial/es_ES/)
 - **Local:** `docs/book/es_ES/index.html`
 
 ### Portuguese (Português)
 
-- **Online:** `https://ernaniaz.github.io/CertificatesTutorial/pt_BR/`
+- **Online:** [https://ernaniaz.github.io/CertificatesTutorial/pt_BR/](https://ernaniaz.github.io/CertificatesTutorial/pt_BR/)
 - **Local:** `docs/book/pt_BR/index.html`
 
 ---
@@ -386,6 +382,6 @@ Start learning at Chapter 1. 📖
 
 ---
 
-*For build details, see [BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md)*
-*For deployment options, see [DEPLOYMENT.md](DEPLOYMENT.md)*
+*For build details, see [BUILD_INSTRUCTIONS.md](BUILD_INSTRUCTIONS.md)*  
+*For deployment options, see [DEPLOYMENT.md](DEPLOYMENT.md)*  
 *For full documentation, see [README.md](README.md)*

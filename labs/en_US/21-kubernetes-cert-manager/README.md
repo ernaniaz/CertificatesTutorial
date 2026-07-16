@@ -575,5 +575,5 @@ After completing this lab, you can:
 
 ---
 
-**RHEL Versions Tested:** 8, 9, 10
-**Difficulty Level:** Intermediate/Advanced
+**RHEL Versions Tested**: 8, 9, 10  
+**Difficulty Level**: Intermediate/Advanced

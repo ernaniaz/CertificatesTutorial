@@ -284,6 +284,6 @@ Ao completar este tutorial, você poderá:
 
 ---
 
-*Autor: Ernani Azevedo <azevedo@voipdomain.io>*
-*Repositório: [github.com/ernaniaz/CertificatesTutorial](https://github.com/ernaniaz/CertificatesTutorial)*
-*Licença: [CC BY 4.0](../../LICENSE.md)*
+**Autor**: Ernani Azevedo <azevedo@voipdomain.io>  
+**Repositório**: [github.com/ernaniaz/CertificatesTutorial](https://github.com/ernaniaz/CertificatesTutorial)  
+**Licença**: [CC BY 4.0](../../LICENSE.md)

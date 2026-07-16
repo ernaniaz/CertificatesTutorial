@@ -151,4 +151,4 @@ Prossiga para o **Lab 04: Certificados X.509** para criar certificados reais.
 
 ---
 
-**Nível de dificuldade:** Iniciante
+**Nível de dificuldade**: Iniciante

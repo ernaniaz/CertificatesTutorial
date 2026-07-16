@@ -114,7 +114,7 @@ chmod +x *.sh
 
 Each lab's README.md should follow this structure:
 
-```markdown
+````markdown
 # Lab XX: [Lab Name]
 
 ## Learning Objectives
@@ -160,7 +160,7 @@ Run `./cleanup.sh` to restore the system
 
 ## Next Steps
 Proceed to Lab XX: [Next Lab Name]
-```
+````
 
 ## Translation Guidelines
 
@@ -260,6 +260,6 @@ Advanced topics (Kubernetes, Vault)
 
 ## Status
 
-**Total Labs:** 22 exercises
-**Total Directories:** 66 (22 × 3 locales)
+**Total Labs:** 22 exercises  
+**Total Directories:** 66 (22 × 3 locales)  
 **Estimated Files:** ~330 scripts and documentation files

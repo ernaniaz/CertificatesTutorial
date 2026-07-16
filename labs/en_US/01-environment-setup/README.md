@@ -236,5 +236,5 @@ After completing this lab, proceed to:
 
 ---
 
-**RHEL Versions Tested:** 7, 8, 9, 10
-**Difficulty Level:** Beginner
+**RHEL Versions Tested**: 7, 8, 9, 10  
+**Difficulty Level**: Beginner

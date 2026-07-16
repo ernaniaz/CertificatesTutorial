@@ -222,4 +222,4 @@ Continúa con **Lab 05: Gestión del almacén de confianza** para aprender sobre
 
 ---
 
-**Nivel de dificultad:** Principiante
+**Nivel de dificultad**: Principiante

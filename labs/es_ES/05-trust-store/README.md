@@ -227,4 +227,4 @@ Esto elimina:
 
 ---
 
-**Nivel de dificultad:** Principiante
+**Nivel de dificultad**: Principiante

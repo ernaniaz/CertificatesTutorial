@@ -365,5 +365,5 @@ Você concluiu os laboratórios de migração! A seguir:
 
 ---
 
-**Nível de dificuldade:** Avançado
-**Nota:** OpenSSL 3.x exige testes cuidadosos
+**Nível de dificuldade**: Avançado  
+**Nota**: OpenSSL 3.x exige testes cuidadosos

@@ -527,5 +527,5 @@ Después de completar este lab, puede:
 
 ---
 
-**Versiones de RHEL probadas:** 8, 9, 10
-**Nivel de dificultad:** Intermedio/Avanzado
+**Versiones de RHEL probadas**: 8, 9, 10  
+**Nivel de dificultad**: Intermedio/Avanzado

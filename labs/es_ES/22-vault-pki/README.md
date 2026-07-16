@@ -641,6 +641,6 @@ Después de completar este lab, puede:
 
 ---
 
-**Versiones de RHEL probadas:** 8, 9, 10
-**Nivel de dificultad:** Avanzado
+**Versiones de RHEL probadas**: 8, 9, 10  
+**Nivel de dificultad**: Avanzado  
 **¡Felicitaciones por completar los 22 labs!** 🎉

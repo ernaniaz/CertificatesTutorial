@@ -305,5 +305,5 @@ Proceed to **Lab 18: RHEL 8→9 Migration** to learn about the next upgrade path
 
 ---
 
-**Difficulty Level:** Advanced
-**Note:** Test migration in non-production environment first
+**Difficulty Level**: Advanced  
+**Note**: Test migration in non-production environment first

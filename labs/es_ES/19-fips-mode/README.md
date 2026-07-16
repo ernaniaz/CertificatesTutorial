@@ -191,5 +191,5 @@ sudo ./cleanup.sh
 
 ---
 
-**Nivel de dificultad:** Avanzado
-**Nota:** El modo FIPS tiene implicaciones significativas de compatibilidad
+**Nivel de dificultad**: Avanzado  
+**Nota**: El modo FIPS tiene implicaciones significativas de compatibilidad

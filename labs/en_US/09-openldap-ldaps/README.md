@@ -322,4 +322,4 @@ Proceed to **Lab 10: PostgreSQL TLS** to learn database TLS configuration.
 
 ---
 
-**Difficulty Level:** Intermediate to Advanced
+**Difficulty Level**: Intermediate to Advanced

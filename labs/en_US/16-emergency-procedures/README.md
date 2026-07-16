@@ -324,5 +324,5 @@ You've completed the troubleshooting labs! Next:
 
 ---
 
-**Difficulty Level:** Advanced
-**Note:** Practice these procedures before you need them!
+**Difficulty Level**: Advanced  
+**Note**: Practice these procedures before you need them!

@@ -194,4 +194,4 @@ Continúa con **Lab 03: Firmas digitales** para aprender a firmar y verificar ar
 
 ---
 
-**Nivel de dificultad:** Principiante
+**Nivel de dificultad**: Principiante

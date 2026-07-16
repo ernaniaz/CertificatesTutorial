@@ -227,4 +227,4 @@ This removes:
 
 ---
 
-**Difficulty Level:** Beginner
+**Difficulty Level**: Beginner

@@ -222,4 +222,4 @@ Prossiga para o **Lab 05: Gerenciamento do Repositório de Confiança** para apr
 
 ---
 
-**Nível de dificuldade:** Iniciante
+**Nível de dificuldade**: Iniciante

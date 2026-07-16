@@ -194,4 +194,4 @@ Prossiga para o **Lab 03: Assinaturas Digitais** para aprender a assinar e verif
 
 ---
 
-**Nível de dificuldade:** Iniciante
+**Nível de dificuldade**: Iniciante

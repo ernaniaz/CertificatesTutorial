@@ -324,5 +324,5 @@ Você concluiu os laboratórios de resolução de problemas! A seguir:
 
 ---
 
-**Nível de dificuldade:** Avançado
-**Nota:** Pratique estes procedimentos antes de precisar deles!
+**Nível de dificuldade**: Avançado  
+**Nota**: Pratique estes procedimentos antes de precisar deles!

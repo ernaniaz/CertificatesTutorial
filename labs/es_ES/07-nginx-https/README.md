@@ -307,4 +307,4 @@ Continúa con **Lab 08: Postfix TLS** para aprender la configuración TLS del se
 
 ---
 
-**Nivel de dificultad:** Intermedio
+**Nivel de dificultad**: Intermedio

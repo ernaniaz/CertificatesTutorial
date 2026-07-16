@@ -245,5 +245,5 @@ Después de completar este laboratorio, continúa con:
 
 ---
 
-**Versiones de RHEL probadas:** 7, 8, 9, 10
-**Nivel de dificultad:** Principiante
+**Versiones de RHEL probadas**: 7, 8, 9, 10  
+**Nivel de dificultad**: Principiante

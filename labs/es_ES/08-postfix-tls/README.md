@@ -299,4 +299,4 @@ Continúa con **Lab 09: OpenLDAP LDAPS** para aprender LDAP sobre TLS.
 
 ---
 
-**Nivel de dificultad:** Intermedio
+**Nivel de dificultad**: Intermedio

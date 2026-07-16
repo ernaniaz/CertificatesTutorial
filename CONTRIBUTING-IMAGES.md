@@ -67,16 +67,16 @@ Examples:
 
 ```css
 /* Primary Colors */
---blue: #1976D2;      /* Headers, primary elements, secure connections */
---green: #388E3C;     /* Success, valid certificates, secure */
---orange: #F57C00;    /* Warnings, pending, decisions */
---red: #E53935;       /* Errors, expired, revoked */
---purple: #7B1FA2;    /* Special, HashiCorp Vault, advanced */
---teal: #00ACC1;      /* Services, OpenLDAP, secondary elements */
+--blue: #1976D2;              /* Headers, primary elements, secure connections */
+--green: #388E3C;             /* Success, valid certificates, secure */
+--orange: #F57C00;            /* Warnings, pending, decisions */
+--red: #E53935;               /* Errors, expired, revoked */
+--purple: #7B1FA2;            /* Special, HashiCorp Vault, advanced */
+--teal: #00ACC1;              /* Services, OpenLDAP, secondary elements */
 
 /* Backgrounds */
 --light-blue: #E3F2FD;
---light-green: #E8F5E9;   /* Success states */
+--light-green: #E8F5E9;       /* Success states */
 --light-green-alt: #D4EDDA;
 --light-orange: #FFF3E0;
 --light-orange-alt: #FFF3CD;
@@ -101,38 +101,38 @@ Examples:
 ```css
 /* Titles */
 .title {
-    font-family: Arial, sans-serif;
-    font-size: 22px;
-    font-weight: bold;
-    fill: #333;
+  font-family: Arial, sans-serif;
+  font-size: 22px;
+  font-weight: bold;
+  fill: #333;
 }
 
 /* Section headers */
 .section-title {
-    font-family: Arial, sans-serif;
-    font-size: 14px;
-    font-weight: bold;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 /* Body text */
 .label {
-    font-family: Arial, sans-serif;
-    font-size: 12px;
-    fill: #333;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  fill: #333;
 }
 
 /* Small text */
 .small {
-    font-family: Arial, sans-serif;
-    font-size: 10px;
-    fill: #555;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  fill: #555;
 }
 
 /* Code/technical/commands */
 .code {
-    font-family: 'Courier New', monospace;
-    font-size: 9px;
-    fill: #333;
+  font-family: 'Courier New', monospace;
+  font-size: 9px;
+  fill: #333;
 }
 
 /* Minimum font size: 9px (for accessibility) */
@@ -148,7 +148,7 @@ Examples:
 ### SVG Structure Template
 
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" width="1000" height="700">
   <defs>
     <style>
@@ -322,6 +322,8 @@ git add docs/en_US/images/part-XX-your-diagram.svg
 git add docs/pt_BR/images/part-XX-your-diagram.svg
 git add docs/es_ES/images/part-XX-your-diagram.svg
 git add docs/en_US/part-XX-chapter/chapter-file.md
+git add docs/pt_BR/part-XX-chapter/chapter-file.md
+git add docs/es_ES/part-XX-chapter/chapter-file.md
 
 git commit -m "Add diagram: part-XX-your-diagram"
 git push origin add-diagram-part-XX-description
@@ -405,5 +407,3 @@ Contributors are recognized in:
 ---
 
 Thank you for helping make PKI and certificate concepts more accessible through visual learning!
-
-*Last updated: 2025-12-03*

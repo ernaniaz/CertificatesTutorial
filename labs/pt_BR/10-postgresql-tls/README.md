@@ -312,4 +312,4 @@ Prossiga para o **Lab 11: Noções Básicas do certmonger** para aprender gerenc
 
 ---
 
-**Nível de dificuldade:** Intermediário
+**Nível de dificuldade**: Intermediário

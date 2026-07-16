@@ -331,5 +331,5 @@ Proceed to **Lab 13: Let's Encrypt/Certbot** to learn ACME certificate automatio
 
 ---
 
-**Difficulty Level:** Intermediate
-**Note:** This lab requires RHEL 8+ (crypto-policies not available in RHEL 7)
+**Difficulty Level**: Intermediate  
+**Note**: This lab requires RHEL 8+ (crypto-policies not available in RHEL 7)

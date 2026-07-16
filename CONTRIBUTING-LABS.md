@@ -37,8 +37,8 @@ Each lab follows this structure:
 NN-lab-name/
 ├── README.md           # Lab description and instructions
 ├── setup.sh            # Environment setup script (optional)
-├── cleanup.sh         # Cleanup script (optional)
-├── configs/            # Sample configuration files
+├── cleanup.sh          # Cleanup script (optional)
+├── configs/            # Sample configuration files (optional)
 │   ├── httpd-ssl.conf
 │   └── openssl.cnf
 ├── certs/              # Sample certificates for testing (optional)
@@ -62,7 +62,7 @@ NN-lab-name/
 
 ## README Template
 
-```markdown
+````markdown
 # Lab NN: [Lab Name]
 
 ## Overview
@@ -180,7 +180,7 @@ sudo dnf install [packages]
 ## Next Lab
 
 Next Lab: `../NN+1-next-lab/README.md`
-```
+````
 
 ## Code Guidelines
 
@@ -203,16 +203,18 @@ CERT_DIR="/etc/pki/tls/certs"
 KEY_DIR="/etc/pki/tls/private"
 
 # Functions
-function check_root() {
-    if [[ $EUID -ne 0 ]]; then
-        echo "Error: This script must be run as root"
-        exit 1
-    fi
+function check_root ()
+{
+  if [[ $EUID -ne 0 ]]; then
+    echo "Error: This script must be run as root"
+    exit 1
+  fi
 }
 
-function main() {
-    check_root
-    # Main logic
+function main ()
+{
+  check_root
+  # Main logic
 }
 
 main "$@"
@@ -435,7 +437,7 @@ Target platforms:
 - RHEL 9 (primary)
 - RHEL 10 (when available)
 
-Note: Labs should work on:
+Note: Labs should also work on:
 - CentOS Stream 8/9
 - Rocky Linux 8/9
 - AlmaLinux 8/9
@@ -458,5 +460,3 @@ Contributors are acknowledged in:
 ---
 
 Thank you for helping learners master PKI and certificate management through hands-on practice!
-
-*Last updated: 2025-12-03*

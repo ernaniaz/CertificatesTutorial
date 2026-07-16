@@ -197,5 +197,5 @@ Proceed to **Lab 16: Emergency Procedures** to learn rapid recovery techniques.
 
 ---
 
-**Difficulty Level:** Advanced
-**Note:** These scenarios simulate real production issues
+**Difficulty Level**: Advanced  
+**Note**: These scenarios simulate real production issues

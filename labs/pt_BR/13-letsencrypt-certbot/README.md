@@ -379,5 +379,5 @@ Prossiga para o **Lab 14: Automação com Ansible** para aprender implantação 
 
 ---
 
-**Nível de dificuldade:** Intermediário
-**Nota:** Requer conexão com internet e, idealmente, um domínio real para certificados de produção
+**Nível de dificuldade**: Intermediário  
+**Nota**: Requer conexão com internet e, idealmente, um domínio real para certificados de produção

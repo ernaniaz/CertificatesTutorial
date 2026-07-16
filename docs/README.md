@@ -256,6 +256,6 @@ If a chapter exists in `en_US/` but is missing from another locale, add the tran
 
 ---
 
-*Author: Ernani Azevedo <azevedo@voipdomain.io>*
-*Repository: [github.com/ernaniaz/CertificatesTutorial](https://github.com/ernaniaz/CertificatesTutorial)*
-*License: [CC BY 4.0](../LICENSE.md)*
+**Author**: Ernani Azevedo <azevedo@voipdomain.io>  
+**Repository**: [github.com/ernaniaz/CertificatesTutorial](https://github.com/ernaniaz/CertificatesTutorial)  
+**License**: [CC BY 4.0](../LICENSE.md)

@@ -305,5 +305,5 @@ Continúe con **Lab 18: Migración RHEL 8→9** para aprender sobre la siguiente
 
 ---
 
-**Nivel de dificultad:** Avanzado
-**Nota:** Pruebe la migración primero en un entorno que no sea de producción
+**Nivel de dificultad**: Avanzado  
+**Nota**: Pruebe la migración primero en un entorno que no sea de producción

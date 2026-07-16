@@ -145,5 +145,5 @@ cd ../XX-lab-name/
 
 ---
 
-**Tiempo total de laboratorios:** ~15-20 horas para los 22 laboratorios
-**Dificultad:** Progresión de principiante a avanzado
+**Tiempo total de laboratorios**: ~15-20 horas para los 22 laboratorios  
+**Dificultad**: Progresión de principiante a avanzado

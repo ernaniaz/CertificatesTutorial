@@ -365,5 +365,5 @@ Elimina artefactos de migración.
 
 ---
 
-**Nivel de dificultad:** Avanzado
-**Nota:** OpenSSL 3.x requiere pruebas cuidadosas
+**Nivel de dificultad**: Avanzado  
+**Nota**: OpenSSL 3.x requiere pruebas cuidadosas

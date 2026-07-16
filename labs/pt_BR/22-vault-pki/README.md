@@ -641,6 +641,6 @@ Após concluir este laboratório, você pode:
 
 ---
 
-**Versões do RHEL testadas:** 8, 9, 10
-**Nível de dificuldade:** Avançado
+**Versões do RHEL testadas**: 8, 9, 10  
+**Nível de dificuldade**: Avançado  
 **Parabéns por concluir todos os 22 laboratórios!** 🎉

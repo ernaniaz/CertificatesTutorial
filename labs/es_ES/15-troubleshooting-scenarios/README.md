@@ -197,5 +197,5 @@ Continúe con **Lab 16: Procedimientos de emergencia** para aprender técnicas d
 
 ---
 
-**Nivel de dificultad:** Avanzado
-**Nota:** Estos escenarios simulan problemas reales de producción
+**Nivel de dificultad**: Avanzado  
+**Nota**: Estos escenarios simulan problemas reales de producción

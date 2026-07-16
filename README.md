@@ -363,8 +363,8 @@ mdbook serve --open
 
 ---
 
-*Author: Ernani Azevedo <azevedo@voipdomain.io>*
-*Repository: [github.com/ernaniaz/CertificatesTutorial](https://github.com/ernaniaz/CertificatesTutorial)*
-*License: [CC BY 4.0](LICENSE.md)*
-*Total Chapters: 41 Chapters + 9 Appendices*
-*Languages: English, Spanish and Portuguese*
+**Author**: Ernani Azevedo <azevedo@voipdomain.io>  
+**Repository**: [github.com/ernaniaz/CertificatesTutorial](https://github.com/ernaniaz/CertificatesTutorial)  
+**License**: [CC BY 4.0](LICENSE.md)  
+**Total Chapters**: 41 Chapters + 9 Appendices  
+**Languages**: English, Spanish and Portuguese  

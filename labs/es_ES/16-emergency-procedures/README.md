@@ -324,5 +324,5 @@ Elimina certificados de emergencia y restaura el estado normal.
 
 ---
 
-**Nivel de dificultad:** Avanzado
-**Nota:** ¡Practique estos procedimientos antes de necesitarlos!
+**Nivel de dificultad**: Avanzado  
+**Nota**: ¡Practique estos procedimientos antes de necesitarlos!

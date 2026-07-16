@@ -367,4 +367,4 @@ Congratulations! You've completed all automation labs (11-14). You now have a co
 
 ---
 
-**Difficulty Level:** Advanced
+**Difficulty Level**: Advanced

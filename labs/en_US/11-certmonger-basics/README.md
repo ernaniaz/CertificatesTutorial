@@ -363,4 +363,4 @@ Proceed to **Lab 12: Crypto-Policies** to learn system-wide cryptographic policy
 
 ---
 
-**Difficulty Level:** Intermediate to Advanced
+**Difficulty Level**: Intermediate to Advanced

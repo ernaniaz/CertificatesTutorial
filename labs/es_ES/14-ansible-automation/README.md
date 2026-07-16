@@ -367,4 +367,4 @@ ansible-galaxy install geerlingguy.certbot
 
 ---
 
-**Nivel de dificultad:** Avanzado
+**Nivel de dificultad**: Avanzado

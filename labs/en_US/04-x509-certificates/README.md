@@ -222,4 +222,4 @@ Proceed to **Lab 05: Trust Store Management** to learn about system-wide CA trus
 
 ---
 
-**Difficulty Level:** Beginner
+**Difficulty Level**: Beginner

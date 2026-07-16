@@ -331,5 +331,5 @@ Continúe con **Lab 13: Let's Encrypt/Certbot** para aprender automatización de
 
 ---
 
-**Nivel de dificultad:** Intermedio
-**Nota:** Este lab requiere RHEL 8+ (crypto-policies no está disponible en RHEL 7)
+**Nivel de dificultad**: Intermedio  
+**Nota**: Este lab requiere RHEL 8+ (crypto-policies no está disponible en RHEL 7)

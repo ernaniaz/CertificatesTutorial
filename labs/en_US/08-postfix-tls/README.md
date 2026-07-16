@@ -299,4 +299,4 @@ Proceed to **Lab 09: OpenLDAP LDAPS** to learn LDAP over TLS.
 
 ---
 
-**Difficulty Level:** Intermediate
+**Difficulty Level**: Intermediate

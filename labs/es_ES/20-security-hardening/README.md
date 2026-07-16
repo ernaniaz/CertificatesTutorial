@@ -133,4 +133,4 @@ sudo ./cleanup.sh
 
 ---
 
-**Nivel de dificultad:** Avanzado
+**Nivel de dificultad**: Avanzado
