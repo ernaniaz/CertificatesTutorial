@@ -44,13 +44,13 @@ for lang in en_US es_ES pt_BR; do
 done
 
 # Start servers in background
-cd "${SCRIPT_DIR}/en_US" && mdbook serve --hostname 0.0.0.0 --port 3000 &
+mdbook serve --hostname 0.0.0.0 --port 3000 "${SCRIPT_DIR}/en_US" &
 EN_PID=$!
 
-cd "${SCRIPT_DIR}/es_ES" && mdbook serve --hostname 0.0.0.0 --port 3001 &
+mdbook serve --hostname 0.0.0.0 --port 3001 "${SCRIPT_DIR}/es_ES" &
 ES_PID=$!
 
-cd "${SCRIPT_DIR}/pt_BR" && mdbook serve --hostname 0.0.0.0 --port 3002 &
+mdbook serve --hostname 0.0.0.0 --port 3002 "${SCRIPT_DIR}/pt_BR" &
 PT_PID=$!
 
 # Wait a bit for servers to start
