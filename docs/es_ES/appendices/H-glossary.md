@@ -1,1 +1,0 @@
-# Apéndice H: Glosario

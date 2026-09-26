@@ -1,4 +1,4 @@
-# Apéndice I: Glosario
+# Apéndice K: Glosario
 
 ## Glosario de Términos PKI y Certificados
 

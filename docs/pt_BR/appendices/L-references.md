@@ -1,12 +1,12 @@
-# Apéndice J: Referencias
+# Apêndice L: Referências
 
-## Referencias y Lectura Adicional
+## Referências e Leitura Adicional
 
-Lista curada de recursos autoritativos para profundizar tu conocimiento de PKI y certificados.
+Lista curada de recursos autoritativos para aprofundar seu conhecimento em PKI e certificados.
 
-## Estándares y RFCs
+## Padrões e RFCs
 
-### Estándares PKI Core
+### Padrões PKI Principais
 - **RFC 5280** — Internet X.509 Public Key Infrastructure Certificate and CRL Profile
   [https://datatracker.ietf.org/doc/html/rfc5280](https://datatracker.ietf.org/doc/html/rfc5280)
 
@@ -39,7 +39,7 @@ Lista curada de recursos autoritativos para profundizar tu conocimiento de PKI y
 - **FIPS 186-5** — Digital Signature Standard (DSS)
   [https://csrc.nist.gov/publications/detail/fips/186/5/final](https://csrc.nist.gov/publications/detail/fips/186/5/final)
 
-## Guías de Industria
+## Diretrizes Indústria
 
 ### CA/Browser Forum
 - **Baseline Requirements for TLS Certificates**
@@ -48,7 +48,7 @@ Lista curada de recursos autoritativos para profundizar tu conocimiento de PKI y
 - **EV SSL Certificate Guidelines**
   [https://cabforum.org/extended-validation/](https://cabforum.org/extended-validation/)
 
-### Publicaciones NIST
+### Publicações NIST
 - **SP 800-57** — Recommendation for Key Management
   [https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final](https://csrc.nist.gov/publications/detail/sp/800-57-part-1/rev-5/final)
 
@@ -58,88 +58,88 @@ Lista curada de recursos autoritativos para profundizar tu conocimiento de PKI y
 - **SP 800-52 Rev. 2** — Guidelines for TLS Implementations
   [https://csrc.nist.gov/publications/detail/sp/800-52/rev-2/final](https://csrc.nist.gov/publications/detail/sp/800-52/rev-2/final)
 
-### Estándares ETSI
+### Padrões ETSI
 - **ETSI EN 319 411-1** — Policy and security requirements for Trust Service Providers issuing certificates
   [https://www.etsi.org/standards](https://www.etsi.org/standards)
 
-## Libros
+## Livros
 
-### Fundamentales
+### Fundacionais
 - **"Network Security with OpenSSL"** por Pravir Chandra, Matt Messier, John Viega
-  O'Reilly, 2002 — Guía integral de OpenSSL
+  O'Reilly, 2002 — Guia OpenSSL abrangente
 
 - **"PKI Uncovered"** por Andre Karamanian, Siva Sathianathan
-  Cisco Press, 2011 — Patrones de diseño PKI empresarial
+  Cisco Press, 2011 — Padrões design PKI empresarial
 
 - **"Bulletproof SSL and TLS"** por Ivan Ristić
-  Feisty Duck, 2022 — Guía autoritativa para desplegar TLS correctamente
+  Feisty Duck, 2022 — Guia autoritativo para implantar TLS corretamente
 
-### Avanzados
+### Avançados
 - **"Serious Cryptography"** por Jean-Philippe Aumasson
-  No Starch Press, 2017 — Algoritmos y protocolos criptográficos modernos
+  No Starch Press, 2017 — Algoritmos e protocolos criptográficos modernos
 
 - **"Applied Cryptography"** por Bruce Schneier
-  Wiley, 1996 — Texto clásico sobre protocolos criptográficos
+  Wiley, 1996 — Texto clássico sobre protocolos criptográficos
 
-## Recursos en Línea
+## Recursos Online
 
-### Documentación
-- **OpenSSL Documentation**
+### Documentação
+- **Documentação OpenSSL**
   [https://www.openssl.org/docs/](https://www.openssl.org/docs/)
 
-- **Let's Encrypt Documentation**
+- **Documentação Let's Encrypt**
   [https://letsencrypt.org/docs/](https://letsencrypt.org/docs/)
 
-- **cert-manager Documentation**
+- **Documentação cert-manager**
   [https://cert-manager.io/docs/](https://cert-manager.io/docs/)
 
 - **HashiCorp Vault PKI Secrets Engine**
   [https://www.vaultproject.io/docs/secrets/pki](https://www.vaultproject.io/docs/secrets/pki)
 
-- **FreeIPA Documentation**
+- **Documentação FreeIPA**
   [https://www.freeipa.org/page/Documentation](https://www.freeipa.org/page/Documentation)
 
-### Herramientas de Prueba
+### Ferramentas Teste
 - **SSL Labs Server Test**
   [https://www.ssllabs.com/ssltest/](https://www.ssllabs.com/ssltest/)
-  Probar configuración de servidor HTTPS y cadena de certificado
+  Testar configuração servidor HTTPS e cadeia certificado
 
 - **testssl.sh**
   [https://testssl.sh/](https://testssl.sh/)
-  Herramienta de prueba TLS/SSL de línea de comandos
+  Ferramenta teste TLS/SSL linha comando
 
 - **crt.sh — Certificate Search**
   [https://crt.sh/](https://crt.sh/)
-  Consultar logs de Certificate Transparency
+  Consultar logs Certificate Transparency
 
 - **Hardenize**
   [https://www.hardenize.com/](https://www.hardenize.com/)
-  Escáner comprehensivo TLS/PKI
+  Scanner TLS/PKI abrangente
 
-### Tutoriales y Blogs
+### Tutoriais e Blogs
 - **Cloudflare Learning Center — SSL/TLS**
   [https://www.cloudflare.com/learning/ssl/](https://www.cloudflare.com/learning/ssl/)
 
 - **Mozilla SSL Configuration Generator**
   [https://ssl-config.mozilla.org/](https://ssl-config.mozilla.org/)
-  Generar configuraciones TLS seguras para servidores comunes
+  Gerar configs TLS seguras para servidores comuns
 
 - **PKI Solutions Blog**
   [https://pkisolutions.com/blog/](https://pkisolutions.com/blog/)
-  Perspectivas PKI empresarial
+  Insights PKI empresarial
 
-## Videos y Cursos
+## Vídeos e Cursos
 
 - **"Public Key Cryptography" (Khan Academy)**
-  Introducción a RSA e intercambio de clave
+  Introdução a RSA e troca chave
 
 - **"How HTTPS Works" (Cloudflare YouTube)**
-  Explicación animada de handshake TLS
+  Explicação animada de handshake TLS
 
 - **Pluralsight — "PKI Architecture and Implementation"**
-  Curso de video comprehensivo sobre PKI empresarial
+  Curso vídeo abrangente sobre PKI empresarial
 
-## Software y Herramientas
+## Software e Ferramentas
 
 ### Software CA
 - **OpenSSL** — [https://www.openssl.org/](https://www.openssl.org/)
@@ -148,7 +148,7 @@ Lista curada de recursos autoritativos para profundizar tu conocimiento de PKI y
 - **step-ca** — [https://smallstep.com/docs/step-ca](https://smallstep.com/docs/step-ca)
 - **HashiCorp Vault** — [https://www.vaultproject.io/](https://www.vaultproject.io/)
 
-### Gestión de Certificados
+### Gerenciamento Certificado
 - **cert-manager** (Kubernetes) — [https://cert-manager.io/](https://cert-manager.io/)
 - **Certbot** (cliente ACME) — [https://certbot.eff.org/](https://certbot.eff.org/)
 - **certmonger** (RHEL) — [https://pagure.io/certmonger](https://pagure.io/certmonger)
@@ -159,9 +159,9 @@ Lista curada de recursos autoritativos para profundizar tu conocimiento de PKI y
 - **cryptography** (Python) — [https://cryptography.io/](https://cryptography.io/)
 - **Go crypto/x509** — [https://pkg.go.dev/crypto/x509](https://pkg.go.dev/crypto/x509)
 
-## Comunidades y Foros
+## Comunidades e Fóruns
 
-- **Let's Encrypt Community Forum**
+- **Fórum Comunidade Let's Encrypt**
   [https://community.letsencrypt.org/](https://community.letsencrypt.org/)
 
 - **r/crypto (Reddit)**
@@ -170,20 +170,20 @@ Lista curada de recursos autoritativos para profundizar tu conocimiento de PKI y
 - **r/netsec (Reddit)**
   [https://www.reddit.com/r/netsec/](https://www.reddit.com/r/netsec/)
 
-- **IETF TLS Working Group**
+- **Grupo Trabalho TLS IETF**
   [https://datatracker.ietf.org/wg/tls/about/](https://datatracker.ietf.org/wg/tls/about/)
 
-## Artículos de Investigación
+## Artigos e Pesquisa
 
 - **"The Most Dangerous Code in the World"** (Martin et al., 2012)
-  Análisis de vulnerabilidades de validación de certificado SSL
+  Análise vulnerabilidades validação certificado SSL
 
 - **"Analysis of the HTTPS Certificate Ecosystem"** (Durumeric et al., IMC 2013)
-  Estudio a gran escala de despliegue TLS
+  Estudo grande escala de implantação TLS
 
 - **"SoK: SSL and HTTPS Revisiting past challenges and evaluating certificate trust model enhancements"** (Clark & van Oorschot, S&P 2013)
 
-## Marcos de Cumplimiento
+## Frameworks Conformidade
 
 - **PCI DSS** — Payment Card Industry Data Security Standard
   [https://www.pcisecuritystandards.org/](https://www.pcisecuritystandards.org/)
@@ -194,9 +194,9 @@ Lista curada de recursos autoritativos para profundizar tu conocimiento de PKI y
 - **SOC 2** — Service Organization Control 2
   [https://www.aicpa.org/](https://www.aicpa.org/)
 
-- **eIDAS** — EU electronic identification and trust services
+- **eIDAS** — Serviços de identificação e confiança eletrônica da União Européia
   [https://digital-strategy.ec.europa.eu/en/policies/eidas-regulation](https://digital-strategy.ec.europa.eu/en/policies/eidas-regulation)
 
 ---
 
-> **Mantenerse Actualizado:** Los estándares PKI y TLS evolucionan continuamente. Suscríbete a la lista de correo del grupo de trabajo TLS de IETF y sigue avisos de seguridad de tu CA y proveedores de software.
+> **Mantenha-se atualizado:** Padrões PKI e TLS evoluem continuamente. Inscreva-se em listas de email e grupos de trabalho TLS IETF e siga avisos de segurança de sua CA e fabricantes de software.

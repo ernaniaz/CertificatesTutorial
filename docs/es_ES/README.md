@@ -204,8 +204,8 @@ Documenta todas las decisiones de configuración FIPS para auditorías.
 ## 🆘 Obtener Ayuda
 
 ### Durante el Aprendizaje
-- Consulta el **Glosario** (Apéndice H) para definiciones de términos
-- Revisa las **Referencias** (Apéndice I) para recursos externos
+- Consulta el **Glosario** (Apéndice K) para definiciones de términos
+- Revisa las **Referencias** (Apéndice L) para recursos externos
 - Consulta la **Guía de Solución de Problemas** (Capítulos 27-33)
 
 ### Para Problemas Específicos de RHEL
